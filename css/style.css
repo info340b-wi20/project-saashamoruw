@@ -1,0 +1,24 @@
+body {
+    font-size: 16px;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+img {
+    max-height: 400px;
+}
+
+p {
+    line-height: 1.5;
+}
+
+h1 {
+    color: #00b5cc;
+}
+
+h2 {
+    color: #23cba7
+}
+
+h3 {
+    color: #049372
+}
