@@ -1,7 +1,9 @@
 /* color scheme: 00b5cc-ff3366-08090a-f1f7ee-c4fff9*/
+
 * {
     box-sizing: border-box;
 }
+
 body {
     font-family: 'Montserrat', sans-serif; 
     margin: 8px;
@@ -57,27 +59,30 @@ i {
 main {
     margin: 3em;
     padding: 3em;
+    align-items: left;
 }
 
 .background-pic img {
     width: 100%;
 }
 
+.background-pic {
+    background-image: url(../imgs/background-sm.jpg);
+    background-repeat: no-repeat; 
+    background-size: contain;
+}
+
+
+/* doesn't center??? */
 .background-pic p {
     position: absolute;
-    top: 1px;
-    left: 250px; 
-    width: 100%; 
     color: white;
     font-family: 'Kaushan Script', fantasy;
     font-weight: 100rem;
-    font-size: 20rem;
-}
-
-.background-pic {
-    width: 100%;
-    background-image: url(../imgs/background-md.jpg);
-    background-repeat: no-repeat;
+    font-size: 10rem;
+    top: 20%;
+    left: 20%;
+    z-index: 1;
 }
 
 .skill {
@@ -87,6 +92,7 @@ main {
 
 input {
     border:0;
+    width: 100%;
 }
 .search-bar {
     margin-top: 3em;
@@ -101,4 +107,25 @@ input {
     font-weight: 600;
     margin-left: auto;
     margin-right: auto;
+    margin-bottom: 3em;
+}
+
+header h1 {
+    padding: 1em;
+    padding-left: 2.5em;
+    color: #08090a
+}
+
+footer {
+    margin: 3em;
+    padding-left: em;
+}
+
+@media (max-width: 830px) {
+    
+    .background-pic p {
+        font-weight: 50rem;
+        font-size: 5rem;
+    }
+
 }
