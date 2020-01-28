@@ -1,0 +1,77 @@
+body {
+    font-family: 'Montserrat', sans-serif; 
+    margin: 8px;
+}
+
+nav {
+    width: 100%;
+    background: linear-gradient(45deg, red, blue);
+    padding: .75rem;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+}
+
+nav a {
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    padding-bottom: .8rem;
+}
+
+nav a:hover {
+    border-bottom: .2rem solid black;
+}
+
+nav a.active {
+    background-color: black;
+}
+
+nav li {
+    display: inline;
+    margin-right: 1rem;
+}
+
+nav ul {
+    margin: 0;
+    padding: 0;
+    padding-top: .5rem;
+    display: inline-block;
+}
+
+nav li:last-child {
+    float:right;
+}
+
+i {
+    color: white;
+    size: 4.5em;
+}
+
+main {
+    margin: 3em;
+    padding: 3em;
+}
+
+.background-pic img {
+    width: 100%;
+}
+
+/* text goes over the nav bar?? */
+.background-pic p {
+    position: absolute;
+    top: 1px;
+    left: 200px; 
+    width: 100%; 
+    color: white;
+    font-family: 'Kaushan Script', fantasy;
+    font-weight: 100rem;
+    font-size: 20rem;
+}
+
+.background-pic {
+    width: 100%;
+    background-image: url(../imgs/background-md.jpg);
+    background-repeat: no-repeat;
+}
