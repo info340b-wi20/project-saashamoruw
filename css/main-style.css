@@ -5,7 +5,7 @@ body {
 
 nav {
     width: 100%;
-    background: linear-gradient(45deg, red, blue);
+    background: linear-gradient(45deg,#00b5cc,#C4FFF9);
     padding: .75rem;
     position: fixed;
     top: 0;
@@ -22,6 +22,7 @@ nav a {
 
 nav a:hover {
     border-bottom: .2rem solid black;
+    text-decoration: none;
 }
 
 nav a.active {
