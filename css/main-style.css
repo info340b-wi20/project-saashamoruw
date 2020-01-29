@@ -1,0 +1,250 @@
+/* color scheme: 00b5cc-ff3366-08090a-f1f7ee-c4fff9*/
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif; 
+    margin: 8px;
+}
+
+nav {
+    width: 100%;
+    background: linear-gradient(45deg,#00b5cc,#C4FFF9);
+    padding: .75rem;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+}
+
+nav a {
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    padding-bottom: .8rem;
+}
+
+nav .name {
+    color: black;
+    font-family: 'Kaushan Script', fantasy;
+    font-size: 1rem;
+}
+
+nav img {
+    width: 3%;
+}
+
+nav a:hover {
+    border-bottom: .2rem solid black;
+    text-decoration: none;
+}
+
+nav a.active {
+    background-color: black;
+}
+
+nav li {
+    display: inline;
+    margin-right: 1rem;
+}
+
+nav ul {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    padding-top: .5rem;
+    display: inline-block;
+}
+
+/*nav li:last-child {
+   float: right;
+   color: black;
+}
+*/
+
+i {
+    color: white;
+    size: 4.5em;
+}
+
+main {
+    margin: 3em;
+    padding: 3em;
+    align-items: left;
+}
+
+.background-pic img {
+    width: 100%;
+}
+
+.card-title {
+    font-size: 2em;
+}
+
+.background-pic {
+    background-image: url(../imgs/background-sm.jpg);
+    background-repeat: no-repeat; 
+    background-size: contain;
+}
+
+.background-pic p {
+    position: absolute;
+    color: white;
+    font-family: 'Kaushan Script', fantasy;
+    font-weight: 10rem;
+    font-size: 5rem;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    
+}
+
+.background-pic p:hover {
+    -webkit-mask-image: linear-gradient(-75deg, rgba(0,0,0,.6) 30%, #000 50%, rgba(0,0,0,.6) 70%);
+  -webkit-mask-size: 200%;
+  animation: shine 2s infinite;
+}
+
+@-webkit-keyframes shine {
+    from {
+      -webkit-mask-position: 150%;
+    }
+    
+    to {
+      -webkit-mask-position: -50%;
+    }
+}
+
+.skill {
+    background-color: #c4fff9;
+    padding: .2em;
+}
+
+input {
+    border:0;
+    width: 100%;
+}
+.search-bar {
+    margin-top: 3em;
+    padding-left: 10px;
+    display: flex;
+    width: 73%;
+    border: none;
+    position: relative;
+    height: 60px;
+    box-shadow: 0px 1px 20px black;
+    color: gray;
+    font-weight: 600;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 3em;
+}
+
+.form {
+    width: 60%;
+    box-shadow: 0px 1px 15px black;
+    border: none;
+    text-align: left;
+    font-size: 17px;
+    font-family: 'Roboto', sans-serif;
+    padding: 35px;
+    margin: 0 auto;
+    line-height: 30px;
+}
+
+input[type=text] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 6px;
+    border: 0.35px solid gray;
+    box-sizing: border-box;
+  }
+
+header h1 {
+    padding: 1em;
+    padding-left: 2.5em;
+    color: #08090a
+}
+
+footer {
+    margin: 3em;
+    padding-left: em;
+}
+.card {
+    margin: 2em;
+}
+.card:hover {
+    -webkit-transform: scale(1.1);
+        -ms-transform: scale(1.1);
+        transform: scale(1.1);
+        box-shadow: inset 0 0 0 1.5px #08090a;
+}
+.fa {
+    color:black;
+    padding-top: 0.5em;
+    z-index: 9999;
+}
+
+.fa-github {
+    padding-left: 1em;
+}
+
+.links {
+    text-align: center;
+}
+
+
+@media (max-width: 830px) {
+    
+    .background-pic p {
+        font-size: 5rem;
+        top: 30%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    @media (min-width: 1200px) {
+        .background-pic {
+            background-image: url('../img/background-xl.jpg');
+        }
+
+        .background-pic p {
+            font-size: 15rem;
+        }
+    }
+    
+    @media (min-width: 992px) {
+        .background-pic {
+            background-image: url('../img/background-lg.jpg');
+        }
+    
+    
+    }
+    @media (min-width: 768px) {
+        .background-pic {
+            background-image: url('../img/background-md.jpg');
+            background-position: center;
+            background-size: cover;
+        }
+    
+        html {
+            height: 100%;
+        }
+
+        footer {
+            display: block;
+            position: fixed;
+            right:0;
+            bottom: 0;
+        }   
+    }
+    
+    @media (min-width: 598px) {
+       footer {
+           display:none;
+       }
+    }
+
+}
