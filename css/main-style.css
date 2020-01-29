@@ -26,6 +26,12 @@ nav a {
     padding-bottom: .8rem;
 }
 
+nav .name {
+    color: black;
+    font-family: 'Kaushan Script', fantasy;
+    font-size: 1rem;
+}
+
 nav a:hover {
     border-bottom: .2rem solid black;
     text-decoration: none;
@@ -167,6 +173,7 @@ footer {
 .fa {
     color:black;
     padding-top: 0.5em;
+    z-index: 9999;
 }
 
 .fa-github {
@@ -176,6 +183,8 @@ footer {
 .links {
     text-align: center;
 }
+
+
 @media (max-width: 830px) {
     
     .background-pic p {
