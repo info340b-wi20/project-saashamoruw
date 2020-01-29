@@ -72,17 +72,32 @@ main {
     background-size: contain;
 }
 
-
-/* doesn't center??? */
 .background-pic p {
     position: absolute;
     color: white;
     font-family: 'Kaushan Script', fantasy;
-    font-weight: 100rem;
-    font-size: 10rem;
-    top: 20%;
-    left: 20%;
-    z-index: 1;
+    font-weight: 10rem;
+    font-size: 5rem;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    
+}
+
+.background-pic p:hover {
+    -webkit-mask-image: linear-gradient(-75deg, rgba(0,0,0,.6) 30%, #000 50%, rgba(0,0,0,.6) 70%);
+  -webkit-mask-size: 200%;
+  animation: shine 2s infinite;
+}
+
+@-webkit-keyframes shine {
+    from {
+      -webkit-mask-position: 150%;
+    }
+    
+    to {
+      -webkit-mask-position: -50%;
+    }
 }
 
 .skill {
@@ -140,12 +155,83 @@ footer {
     margin: 3em;
     padding-left: em;
 }
+.card {
+    margin: 2em;
+}
+.card:hover {
+    -webkit-transform: scale(1.1);
+        -ms-transform: scale(1.1);
+        transform: scale(1.1);
+        box-shadow: inset 0 0 0 1.5px #08090a;
+}
+.fa {
+    color:black;
+    padding-top: 0.5em;
+}
 
+.fa-github {
+    padding-left: 1em;
+}
+
+.links {
+    text-align: center;
+}
 @media (max-width: 830px) {
     
     .background-pic p {
-        font-weight: 50rem;
         font-size: 5rem;
+        top: 30%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    @media (min-width: 1200px) {
+        .background-pic {
+            background-image: url('../img/background-xl.jpg');
+        }
+
+        .background-pic p {
+            font-size: 15rem;
+        }
+    }
+    
+    @media (min-width: 992px) {
+        .background-pic {
+            background-image: url('../img/background-lg.jpg');
+        }
+    
+        nav a {
+            font-size: 2rem;
+        }
+    
+    }
+    @media (min-width: 768px) {
+        .background-pic {
+            background-image: url('../img/background-md.jpg');
+            background-position: center;
+            background-size: cover;
+        }
+    
+        html {
+            height: 100%;
+        }
+
+        nav a {
+            font-size: 2rem;
+        }
+    
+        footer {
+            display: block;
+            position: fixed;
+            right:0;
+            bottom: 0;
+        }   
+    }
+    
+    @media (min-width: 598px) {
+       footer {
+           display:none;
+       }
     }
 
 }
