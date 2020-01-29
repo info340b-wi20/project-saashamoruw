@@ -32,6 +32,10 @@ nav .name {
     font-size: 1rem;
 }
 
+nav img {
+    width: 3%;
+}
+
 nav a:hover {
     border-bottom: .2rem solid black;
     text-decoration: none;
@@ -47,15 +51,18 @@ nav li {
 }
 
 nav ul {
+    width: 100%;
     margin: 0;
     padding: 0;
     padding-top: .5rem;
     display: inline-block;
 }
 
-nav li:last-child {
-    float:right;
+/*nav li:last-child {
+   float: right;
+   color: black;
 }
+*/
 
 i {
     color: white;
@@ -70,6 +77,10 @@ main {
 
 .background-pic img {
     width: 100%;
+}
+
+.card-title {
+    font-size: 2em;
 }
 
 .background-pic {
@@ -209,9 +220,6 @@ footer {
             background-image: url('../img/background-lg.jpg');
         }
     
-        nav a {
-            font-size: 2rem;
-        }
     
     }
     @media (min-width: 768px) {
@@ -225,10 +233,6 @@ footer {
             height: 100%;
         }
 
-        nav a {
-            font-size: 2rem;
-        }
-    
         footer {
             display: block;
             position: fixed;
