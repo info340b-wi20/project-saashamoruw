@@ -184,7 +184,7 @@ footer {
 .fa {
     color:black;
     padding-top: 0.5em;
-    z-index: 9999;
+    z-index: 9000;
 }
 
 .fa-github {
