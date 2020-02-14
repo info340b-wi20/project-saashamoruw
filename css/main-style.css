@@ -1,4 +1,4 @@
-/* color scheme: 00b5cc-ff3366-08090a-f1f7ee-c4fff9*/
+/* color scheme: 00b5cc-ff3366-08090a-f1f7ee-c4fff9-#1C3041*/
 
 * {
     box-sizing: border-box;
@@ -7,11 +7,12 @@
 body {
     font-family: 'Montserrat', sans-serif; 
     margin: 8px;
+    font-size: 10px;
 }
 
 nav {
     width: 100%;
-    background: linear-gradient(45deg,#00b5cc,#C4FFF9);
+    background-color: #1C3041;
     padding: .75rem;
     position: fixed;
     top: 0;
@@ -24,16 +25,18 @@ nav a {
     text-align: center;
     text-decoration: none;
     padding-bottom: .8rem;
+    font-size: 0.98em;
 }
 
 nav .name {
+    display:none;
     color: black;
     font-family: 'Kaushan Script', fantasy;
     font-size: 1rem;
 }
 
 nav img {
-    width: 3%;
+    width: 10%;
 }
 
 nav a:hover {
@@ -58,50 +61,46 @@ nav ul {
     display: inline-block;
 }
 
-/*nav li:last-child {
-   float: right;
-   color: black;
-}
-*/
-
-i {
-    color: white;
-    size: 4.5em;
-}
-
 main {
-    margin: 3em;
-    padding: 3em;
-    align-items: left;
+    margin: auto;
+    align-content: center;
 }
 
 .background-pic img {
     width: 100%;
 }
 
-.card-title {
-    font-size: 2em;
+p.card-title {
+   font-weight: bold;
+   font-size: 1.5rem;
 }
 
 .background-pic {
-    background-image: url(../imgs/background-sm.jpg);
+    height: 50vh;
+    background: linear-gradient(45deg,#00b5cc,#C4FFF9);
     background-repeat: no-repeat; 
     background-size: contain;
 }
 
-.background-pic p {
+.banner-text {
     position: absolute;
     color: white;
-    font-family: 'Kaushan Script', fantasy;
-    font-weight: 10rem;
-    font-size: 5rem;
-    top: 50%;
+    text-align: center;
+    top: 30%;
     left: 50%;
     transform: translate(-50%, -50%);
-    
+}
+.background-pic p {
+    padding-top: 5px;
+    font-size: 0.75em;
+
+}
+.background-pic h1 {
+    font-family: 'Kaushan Script', fantasy;
+    font-size: 5rem;
 }
 
-.background-pic p:hover {
+.background-pic h1:hover {
     -webkit-mask-image: linear-gradient(-75deg, rgba(0,0,0,.6) 30%, #000 50%, rgba(0,0,0,.6) 70%);
   -webkit-mask-size: 200%;
   animation: shine 2s infinite;
@@ -117,60 +116,72 @@ main {
     }
 }
 
-.skill {
-    background-color: #c4fff9;
-    padding: .2em;
-}
-
-input {
-    border:0;
-    width: 100%;
-}
 .search-bar {
     margin-top: 3em;
     padding-left: 10px;
     display: flex;
-    width: 73%;
+    width: 90%;
     border: none;
     position: relative;
-    height: 60px;
-    box-shadow: 0px 1px 20px black;
+    height: 2.5em;
+    box-shadow: 0px 1px 5px black;
     color: gray;
     font-weight: 600;
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 3em;
+    border-radius: 30px;
 }
+
+.search-bar input[type=text] {
+    width: 90%;
+    padding: 12px 20px;
+    margin: 6px;
+    border: none;
+    box-sizing: border-box;
+  }
+
+.search-bar button {
+    border-radius: 0px 30px 30px 0px;
+    float: left;
+    width: 20%;
+    background: #00b5cc;
+    font-size: 1em;
+    border: 1px;
+    border-left: none; /* Prevent double borders */
+    cursor: pointer;
+}
+
+.search-bar button:hover {
+    background: #C4FFF9;
+}
+.card-title {
+    font-size: 1em;
+    font-weight: 1.5rem;
+}
+.skill {
+    background-color: #c4fff9;
+    padding: .2em;
+}
+
 
 .form {
     width: 60%;
     box-shadow: 0px 1px 15px black;
     border: none;
     text-align: left;
-    font-size: 17px;
+    font-size: 0.75em;
     font-family: 'Roboto', sans-serif;
     padding: 35px;
     margin: 0 auto;
     line-height: 30px;
 }
 
-input[type=text] {
-    width: 100%;
-    padding: 12px 20px;
-    margin: 6px;
-    border: 0.35px solid gray;
-    box-sizing: border-box;
-  }
-
-header h1 {
-    padding: 1em;
-    padding-left: 2.5em;
-    color: #08090a
-}
 
 footer {
-    margin: 3em;
-    padding-left: em;
+    font-size: 0.5em;
+    left: 50%;
+    margin-left: 3em;
 }
 .card {
     margin: 2em;
@@ -193,58 +204,4 @@ footer {
 
 .links {
     text-align: center;
-}
-
-
-@media (max-width: 830px) {
-    
-    .background-pic p {
-        font-size: 5rem;
-        top: 30%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-    }
-
-    @media (min-width: 1200px) {
-        .background-pic {
-            background-image: url('../img/background-xl.jpg');
-        }
-
-        .background-pic p {
-            font-size: 15rem;
-        }
-    }
-    
-    @media (min-width: 992px) {
-        .background-pic {
-            background-image: url('../img/background-lg.jpg');
-        }
-    
-    
-    }
-    @media (min-width: 768px) {
-        .background-pic {
-            background-image: url('../img/background-md.jpg');
-            background-position: center;
-            background-size: cover;
-        }
-    
-        html {
-            height: 100%;
-        }
-
-        footer {
-            display: block;
-            position: fixed;
-            right:0;
-            bottom: 0;
-        }   
-    }
-    
-    @media (min-width: 598px) {
-       footer {
-           display:none;
-       }
-    }
-
 }
