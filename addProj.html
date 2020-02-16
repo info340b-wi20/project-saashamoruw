@@ -34,18 +34,59 @@
             
         </ul>
     </nav>
-    <section class="background-pic">
-        <img src="imgs/background-md.jpg" alt="people working together on table">
-        <p>Explore</p>
-    </section>
 
-    <!-- Add project showcase form-->
-
-    <section>
-        <footer>
-            <p>Authors: Saasha Mor and Rajoshi Chakravarty</p>
-            <p>Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com</a></p>
-        </footer>
-    </section>
+    <main>
+        <form action="index.html" method="post">
+            <h1>New Project</h1> <br>
+            <fieldset>
+              <legend><span class="number">1</span> Project info</legend>
+              <label for="name">Title:</label>
+              <input type="text" id="name" name="user_name">
+          
+              <label for="bio">Description:</label>
+              <textarea id="bio" name="user_bio"></textarea>
+          
+              <label>Purpose</label> <br>
+              <input type="radio" id="under_13" value="under_13" name="user_age"><label for="under_13" class="light">INFO 340</label><br/>
+              <input type="radio" id="over_13" value="over_13" name="user_age"><label for="over_13" class="light">Capstone</label> <br>
+              <input type="radio" id="under_13" value="under_13" name="user_age"><label for="under_13" class="light">INFO 498</label><br/>
+              <input type="radio" id="under_13" value="under_13" name="user_age"><label for="under_13" class="light">Personal</label><br/>
+            </fieldset>
+          <br>
+            <fieldset>
+              <legend><span class="number">2</span> Team Info</legend>
+              
+            </fieldset>
+          <!-- Make provision to add more team members?-->
+            <label for="job">Job Role</label>
+            <select id="job" name="user_job">
+                      <optgroup label="Web">
+                          <option value="frontend_developer">Front-End Developer</option>
+                          <option value="php_developer">PHP Developer</option>
+                          <option value="python_developer">Python Developer</option>
+                          <option value="rails_developer">Rails Developer</option>
+                          <option value="web_designer">Web Designer</option>
+                          <option value="wordpress_developer">Wordpress Developer</option>
+                      </optgroup>
+                      <optgroup label="Mobile">
+                          <option value="android_developer">Android Developer</option>
+                          <option value="ios_developer">iOS Developer</option>
+                          <option value="mobile_designer">Mobile Designer</option>
+                      </optgroup>
+                      <optgroup label="Business">
+                          <option value="business_owner">Business Owner</option>
+                          <option value="freelancer">Freelancer</option>
+                      </optgroup>
+                      </select>
+          
+            <label>Domain:</label>
+            <input type="checkbox" id="development" value="interest_development" name="user_interest"><label class="light" for="development">Development</label><br>
+            <input type="checkbox" id="design" value="interest_design" name="user_interest"><label class="light" for="design">Design</label><br>
+            <input type="checkbox" id="business" value="interest_business" name="user_interest"><label class="light" for="business">Business</label>
+            
+            <button type="submit">Sign Up</button>
+          
+          </form>
+    </main>
 </body>
 </html>
