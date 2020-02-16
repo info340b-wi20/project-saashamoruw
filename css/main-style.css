@@ -41,14 +41,17 @@ p {
  /*add Hamburger menu for small screens*/
 nav {
     width: 100%;
-    background-color: #1C3041;
+    background-color: #00b5cc;;
     padding: .75rem;
     position: fixed;
     top: 0;
     left: 0;
-    z-index: 9999;
- 
+    z-index: 9999; 
+    font-family: 'Monospace', sans-serif; 
+    font-weight: 500;
+    letter-spacing: 1px;
 }
+
 
 
 nav ul a {
@@ -59,6 +62,16 @@ nav ul a {
     font-size: 1em;
 }
 
+nav ul a:hover {
+  color: black;
+  text-decoration: none;
+}
+
+nav ul a.active {
+  color: black;
+  text-decoration: none;
+}
+
 
 nav #name {
     display:none;
@@ -67,19 +80,14 @@ nav #name {
     font-size: 1.25rem;
     margin-right: 0.5em;
     float: left;
-}
-nav ul a:hover {
-    border-bottom: .2rem solid black;
-    text-decoration: none;
+    letter-spacing: normal;
 }
 
-nav ul a.active {
-    background-color: black;
-}
 
 nav li {
     display: inline-box;
     margin-right: 1rem;
+    padding-top: 5px;
 }
 
 nav ul {
@@ -87,6 +95,7 @@ nav ul {
     padding: 0;
     display: flex;
     float: left;
+    list-style-type: none;
 }
 
 nav img {
@@ -431,7 +440,8 @@ label.light {
 .form {
   box-shadow: 0px 1px 15px darkslategray;
     width: 50%;
-    margin: 10px auto;
+    margin: auto;
+    margin-top: 200px;
     padding: 20px 20px;
     background-color: white;
     border-radius: 8px;
