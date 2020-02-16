@@ -32,27 +32,28 @@
             Create tabs for sign up / signin 
         -->
         <div class = "form" role = "form" > 
-            <ul class="tab-group">
-                <li class="tab active"><a href="#signup">Sign Up</a></li>
-                <li class="tab"><a href="#login">Log In</a></li>
-            </ul>
+
+            <div class="tabs">
+                <div class="tab-button"><button class = "btn btn-info" onclick="">Sign In</button></div>
+                <div class="tab-button"><button class = "btn btn-info" onclick="">Log In</button></div>
+            </div>
+
             <div class="tab-content">
-                <div id="#signin">
+                <div class="login">
                     <label for="emailid"><b>
                         Email ID</b></label> 
-                    <input type="text" name="email id" required aria-label="input email"> 
+                    <input type="text" name="email id" required aria-label="input email" placeholder="Enter Email ID">  
                     <br>
                     <label for="password"><b>
-                    Password:</b></label>  
-                    <input type="text" name="password" required aria-label="input email"> 
-                    <br><br> 
-                    <label for="submit" aria-label="submit button"><a href="#" class="btn btn-dark">Submit</a></label>  
+                    Password</b></label>  
+                    <input type="text" name="password" required aria-label="input email" placeholder="Enter Password"> 
                 </div>
-                <div id=#signup>
-
-                </div>
-            </div>
-        </div>  
-    </main>
+                <br>
+                <div class = "submit-button">
+                    <label for="submit" aria-label="submit button"></label><button class = "btn btn-dark">Submit</button>  
+                </div> 
+              </div> <!--tab-content-->
+          </div>
+     </main>
 </body>
 </html>
