@@ -21,170 +21,274 @@
   <!--include favicon-->
   <link rel="icon" type="image/png" href="imgs/projecthub.png" alt="people working together icon">
   
+     <!-- 
+        FIX THIS
+        - the nav bar project hub thing is up idk why
+        - wrap form content in a <form>, like the search area - this fucks up the css
+            so maybe make it the same idk?
+            - no bg color for the input - gets it from the findProj form
+            - fix the css - width = it sticks to the top one
+            - fix the size + icon placement and size for change in screen size
+        - make all cards like the first one - flight tracker
+            - only description and title should be in side - 1
+            - social links should be in footer
+        - side - 2 for all cards:
+            - icon for languages, team members, purpose
+        - Copy same card code for the find page - no links on side 1!!
+        - Not important but, might look cool :
+            - some cool animation shit for the main background thing like the colors do wave thingies idk
+        - Check the feedback from sprint 1 once more + the kanban board to make sure everything is fixed/present
 
+    -->
 </head>
 <body>
     <nav>
         <ul>
-            <li class="name"> ProjectHub</li>
             <li><img src ="imgs/projecthub.png" alt="people working together"></li>
+            <li><span id="name"> ProjectHub </span></li>
             <li><a href="index.html">Explore projects</a></li>
             <li><a href="find.html">Join project</a></li>
             <li><a href="sign.html">Sign In</a></li>
             
         </ul>
     </nav>
+    <main>
     <section class="background-pic">
         <div class="banner-text">
             <h1>Explore</h1>
             <p>Explore all the completed projects that showcases the talent around the world!</p>
         </div>
     </section>
-    <!-- 
-        FIX ALL PAGES FOR THIS
-        - Fix mobile site!!!!
-        - make sure to include the copyright symbol in your footer
-        - wrap form content in a <form>, like the search area
-        - adding one sentence to explain your site would be very useful
-        - header and main should be separate
-        - sections should be in main
-        - remove splash page layout - done
-        - advanced css should be smoother - hover effect sux
-        - check the feedback from sprint 1 once more to make sure everything is fixed
-    -->
-    <main>
-        <div class="search-bar" role="search" aria-label="search bar">
-            <input type="text" placeholder="Search...">
-            <button type="submit"><i class="fa fa-search"> </i> </button>
-        </div>
-        <div class="container">
-            <div class="row">
-                <div class="col d-flex">
-                    <div class="card">
-                        <div class="card-body">
-                            <p class="card-title">Showcase your own project!</p>
-                            <a href="sign.html" class="btn btn-dark">Publish New Project</a>
-                        </div>
+    <section class="newSec">
+    <div class="search-bar" role="search" aria-label="search bar">
+        <input type="text" placeholder="Search...">
+        <button type="submit"><i class="fa fa-search"> </i> </button>
+    </div>
+    </section>
+    <section class="newSec">
+        <div class="row">
+            <div class="addProj">
+                <div class="card text-center" style="width: 18rem; height:auto">
+                    <div class="card-body">
+                        <h5 class="card-title">Showcase your own project!</h5>
+                        <p class="card-text">Do you want the world to see your cool work?</p>
+                        <a href="#" class="btn btn-primary">Click here!</a>
                     </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-6 ">
-                    <div class="card">
-                        <img class="card-img-top" src="https://images.unsplash.com/photo-1558285549-2a06f9a5fe65?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1000&q=60" alt="airplane image">
-                        <div class="card-body">
-                            <p class="card-title">Flight Price Tracker</p>
-                            <div class="card-body-1">
-                                <p class="card-text">Languages/Skills:
-                                    <span class="skill"> HTML </span>, <span class="skill">CSS</span>, <span class="skill"> JavaScript </span> </p>
-                                </p>
-                                <div class="links">
-                                    <a href="#" class="btn btn-dark">View more</a>
-                                    <a href="#"><i class="fa fa-github fa-2x" aria-label="github logo"></i></a>
-                                </div>
-                            </div>
-                            <!--other side of card-->
-                            <div class="other-side">
-                                <p class="card-text">A website that shows users the trends for flight prices for the last few years and lets users track flights.
-                                    Users can bust myths about flight prices (eg. the best prices are lowest on Mondays) and use this tool to make their own decisions!
-                                </p>
-                                <p class="card-text"><em>Team Members:</em> John Doe, Jane Doe, Lane Doe</p>
-                            </div>
-                        </div>
-                        <div class="card-footer">
-                            <a href="#" class="btn btn-info">Personal</a>
-                        </div>
                     </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="card">
-                        <div class="card-body">
-                            <p class="card-title">FindMyToilet</p>
-                            <p class="card-text">Helps users find bathrooms near them to suit their needs. Can help users look for accesible bathrooms, bathrooms with certain features 
-                                such as showers, free sanitary products, baby changing stations in male bathrooms etc. 
-                            </p>
-                            <p class="card-text"><em>Team Members:</em> Joe Doe, Jan Doe, Jess Doe</p>
-                            <p class="card-text">Languages/Skills: 
-                                <span class="skill"> HTML </span>, <span class="skill">CSS</span>, <span class="skill"> SQL </span>, <span class="skill">R</span> </p>
-                                <div class="links">
-                                    <a href="#" class="btn btn-dark">View more</a>
-                                    <a href="#"><i class="fa fa-github fa-2x" aria-label="github logo"></i></a>
-                                </div>
-                        </div>
-                        <div class="card-footer">
-                            <a href="#" class="btn btn-dark">INFO 498</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="card">
-                        <div class="card-body">
-                            <p class="card-title">Brief</p>
-                            <p class="card-text">An application that helps users get news articles in a brief format by reading and understanding news from the user's favorite sources.
-                            </p>
-                            <p class="card-text"><em>Team Members:</em> John Doe, Jane Doe, Lane Doe + 15 others</p>
-                            <p class="card-text">Languages/Skills:
-                                <span class="skill"> Java </span>, <span class="skill">Python</span>, <span class="skill"> Lisp </span>, 
-                                <span class="skill"> SQL </span> </p>
-                            </p>
-                            <div class="links">
-                                <a href="#" class="btn btn-dark">View more</a>
-                                <a href="#"><i class="fa fa-github fa-2x" aria-label="github logo"></i></a>
-                            </div>
-                        </div>
-                        <div class="card-footer">
-                            <a href="#" class="btn btn-info">AI Capstone</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="card">
-                        <div class="card-body">
-                            <p class="card-title">FoodEx</p>
-                            <p class="card-text">A food delivery service that aims to reduce waste by picking up (packaged and unused) leftover groceries from users to promote a more sustainable future!
-                            </p>
-                            <p class="card-text"><em>Team Members:</em> John Doe, Jane Doe</p>
-                            <p class="card-text">Languages/Skills:
-                                <span class="skill"> Java </span>, <span class="skill">InVision</span>, <span class="skill"> Figma </span> </p>
-                            </p>
-                            <div class="links">
-                                <a href="#" class="btn btn-dark">View more</a>
-                                <a href="#"><i class="fa fa-github fa-2x" aria-label="github logo"></i></a>
-                            </div>
-                        </div>
-                        <div class="card-footer">
-                            <a href="#" class="btn btn-info">INFO 200</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="card">
-                        <div class="card-body">
-                            <p class="card-title">StockHawk</p>
-                            <p class="card-text">An app that records trends in stocks that the user is interetsed in.
-                            </p>
-                            <p class="card-text"><em>Team Members:</em> John Doe, Jane Doe, Joe Doe, Lane Doe</p>
-                            <p class="card-text">Languages/Skills:
-                                <span class="skill"> UI/UX </span>, <span class="skill">SQL</span>, <span class="skill"> JavaScript </span> </p>
-                            </p>
-                            <div class="links">
-                                <a href="#" class="btn btn-dark">View more</a>
-                                <a href="#"><i class="fa fa-github fa-2x" aria-label="github logo"></i></a>
-                            </div>
-                        </div>
-                        <div class="card-footer">
-                            <a href="#" class="btn btn-info">INFO 330</a>
-                        </div>
-                    </div>
-                </div>
-
-
             </div>
         </div>
+        <div class="row">
+            <div class="col-sm-12 col-md-4">
+                <div class="cardContainer">
+                    <div class="content-area">
+                        <div class="side-one">
+                            <div class="card">
+                                <img class="card-img-top" src="https://images.unsplash.com/photo-1558285549-2a06f9a5fe65?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1000&q=60" alt="airplane image">
+                                <div class="card-body">
+                                    <p class="card-title">Flight Price Tracker</p>
+                                    <p class="card-text">A website that shows users the trends for flight prices for the last few years and lets users track flights.
+                                        Users can bust myths about flight prices (eg. the best prices are lowest on Mondays) and use this tool to make their own decisions!
+                                    </p>
+                                </div> <!-- card body end-->
+                                <div class="card-footer">
+                                    <div class="links">
+                                        <ul>
+                                            <li><a href="linkedin.com"><i class="fa fa-linkedin" aria-label="linkedin logo"></i></a></li>
+                                            <li><a href="github.com"><i class="fa fa-github" aria-label="github logo"></i></a></li>
+                                            <li><a href="behance.com"><i class="fa fa-behance-square" aria-label="behance logo"></i></a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div> <!--card end-->
+                        </div> <!--main side end -->
+                        <div class="side-two">
+                            <div class="card">
+                                <div class="card-body">
+                                    <p class="card-title">Flight Price Tracker</p>
+                                    <p class="card-text">Languages and Skills:  </p>
+                                    <p class="card-text">
+                                        <span class="highlight"> HTML </span>, <span class="highlight">CSS</span>, <span class="highlight"> JavaScript </span>
+                                    </p>
+                                    <p class="card-text">Team Members: John Doe, Jane Doe, Lane Doe</p>
+                                    <p class="card-text">Purpose:  
+                                        <a href="#" class="highlight">Personal</a>
+                                    </p>
+                                </div>
+                                <div class="card-footer">
+                                    <div class="links">
+                                        <ul>
+                                            <li><a href="linkedin.com"><i class="fa fa-linkedin" aria-label="linkedin logo"></i></a></li>
+                                            <li><a href="github.com"><i class="fa fa-github" aria-label="github logo"></i></a></li>
+                                            <li><a href="behance.com"><i class="fa fa-behance-square" aria-label="behance logo"></i></a></li>
+                                        </ul>
+                                    </div>
+                                    
+                                </div>
+                            </div> <!--card end-->
+                        </div> <!--other side end-->
+                    </div> <!--content end-->
+                </div> <!-- container end-->
+            </div> <!--col end-->
+
+
+            <div class="col-sm-12 col-md-4">
+                <div class="cardContainer">
+                    <div class="content-area">
+                        <div class="side-one">
+                            <div class="card">
+                                <img class="card-img-top" src="https://images.unsplash.com/photo-1533027052290-2b4ece075c42?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80" alt="map image">
+                                <div class="card-body">
+                                    <p class="card-title">FindMyToilet</p>
+                                    <p class="card-text">Languages/highlights: 
+                                    <span class="highlight"> HTML </span>, <span class="highlight">CSS</span>, <span class="highlight"> SQL </span>, <span class="highlight">R</span> </p>
+                                    <div class="links">
+                                        <ul>
+                                        <li><a href="linkedin.com"><i class="fa fa-linkedin" aria-label="linkedin logo"></i></a></li>
+                                        <li><a href="github.com"><i class="fa fa-github" aria-label="github logo"></i></a></li>
+                                        <li><a href="behance.com"><i class="fa fa-behance-square" aria-label="behance logo"></i></a></li>
+                                        </ul>
+                                    </div>
+                                </div> <!-- card body end-->
+                                <div class="card-footer">
+                                    <a href="#" class="btn btn-info">INFO 498</a>
+                                </div>
+                            </div> <!--card end-->
+                        </div> <!--main side end -->
+                        <div class="side-two">
+                            <div class="card">
+                                <div class="card-body">
+                                    <p class="card-title">FindMyToilet</p>
+                                    <p class="card-text">Helps users find bathrooms near them to suit their needs. Can help users look for accesible bathrooms, bathrooms with certain features 
+                                        such as showers, free sanitary products, baby changing stations in male bathrooms etc. 
+                                    </p>
+                                    <p class="card-text"><em>Team Members:</em> Joe Doe, Jan Doe, Jess Doe</p>
+                                </div>
+                            </div> <!--card end-->
+                        </div> <!--other side end-->
+                    </div> <!--content end-->
+                </div> <!-- container end-->
+            </div> <!--col end-->
+
+            <div class="col-sm-12 col-md-4">
+                <div class="cardContainer">
+                    <div class="content-area">
+                        <div class="side-one">
+                            <div class="card">
+                                <img class="card-img-top" src="https://images.unsplash.com/photo-1495020689067-958852a7765e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80" alt="person reading newspaper">
+                                <div class="card-body">
+                                    <p class="card-title">Brief</p>
+                                    <p class="card-text">Languages/highlights:
+                                        <span class="highlight"> Java </span>, <span class="highlight">Python</span>, <span class="highlight"> Lisp </span>, 
+                                        <span class="highlight"> SQL </span> </p>
+                                    </p>
+                                    <div class="links">
+                                        <ul>
+                                        <li><a href="linkedin.com"><i class="fa fa-linkedin" aria-label="linkedin logo"></i></a></li>
+                                        <li><a href="github.com"><i class="fa fa-github" aria-label="github logo"></i></a></li>
+                                        <li><a href="behance.com"><i class="fa fa-behance-square" aria-label="behance logo"></i></a></li>
+                                        </ul>
+                                    </div>
+                                </div> <!-- card body end-->
+                                <div class="card-footer">
+                                    <a href="#" class="btn btn-info">INFO 498</a>
+                                </div>
+                            </div> <!--card end-->
+                        </div> <!--main side end -->
+                        <div class="side-two">
+                            <div class="card">
+                                <div class="card-body">
+                                    <p class="card-title">Brief</p>
+                                    <p class="card-text">An application that helps users get news articles in a brief format by reading and understanding news from the user's favorite sources.
+                                    </p>
+                                    <p class="card-text"><em>Team Members:</em> John Doe, Jane Doe, Lane Doe + 15 others</p>
+                                </div>
+                            </div> <!--card end-->
+                        </div> <!--other side end-->
+                    </div> <!--content end-->
+                </div> <!-- container end-->
+            </div> <!--col end-->
+
+            <div class="col-sm-12 col-md-4">
+                <div class="cardContainer">
+                    <div class="content-area">
+                        <div class="side-one">
+                            <div class="card">
+                                <img class="card-img-top" src="https://images.unsplash.com/photo-1531904895138-ac676f9f125a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=676&q=80" alt="food in net bag image">
+                                <div class="card-body">
+                                    <p class="card-title">FoodEx</p>
+                                    <p class="card-text">Languages/highlights:
+                                        <span class="highlight"> Java </span>, <span class="highlight">InVision</span>, <span class="highlight"> Figma </span> </p>
+                                    </p>
+                                    <div class="links">
+                                        <ul>
+                                        <li><a href="linkedin.com"><i class="fa fa-linkedin" aria-label="linkedin logo"></i></a></li>
+                                        <li><a href="github.com"><i class="fa fa-github" aria-label="github logo"></i></a></li>
+                                        <li><a href="behance.com"><i class="fa fa-behance-square" aria-label="behance logo"></i></a></li>
+                                        </ul>
+                                    </div>
+                                </div> <!-- card body end-->
+                                <div class="card-footer">
+                                    <a href="#" class="btn btn-info">INFO 498</a>
+                                </div>
+                            </div> <!--card end-->
+                        </div> <!--main side end -->
+                        <div class="side-two">
+                            <div class="card">
+                                <div class="card-body">
+                                    <p class="card-title">FoodEx</p>
+                                    <p class="card-text">A food delivery service that aims to reduce waste by picking up (packaged and unused) leftover groceries from users to promote a more sustainable future!
+                                    </p>
+                                    <p class="card-text"><em>Team Members:</em> John Doe, Jane Doe</p>
+                                </div>
+                            </div> <!--card end-->
+                        </div> <!--other side end-->
+                    </div> <!--content end-->
+                </div> <!-- container end-->
+            </div> <!--col end-->
+
+            <div class="col-sm-12 col-md-4">
+                <div class="cardContainer">
+                    <div class="content-area">
+                        <div class="side-one">
+                            <div class="card">
+                                <img class="card-img-top" src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80" alt="graphs on computer screen">
+                                <div class="card-body">
+                                    <p class="card-title">StockHawk</p>
+                                    <p class="card-text">Languages/highlights:
+                                        <span class="highlight"> UI/UX </span>, <span class="highlight">SQL</span>, <span class="highlight"> JavaScript </span> </p>
+                                    </p>
+                                    <div class="links">
+                                        <ul>
+                                        <li><a href="linkedin.com"><i class="fa fa-linkedin" aria-label="linkedin logo"></i></a></li>
+                                        <li><a href="github.com"><i class="fa fa-github" aria-label="github logo"></i></a></li>
+                                        <li><a href="behance.com"><i class="fa fa-behance-square" aria-label="behance logo"></i></a></li>
+                                        </ul>
+                                    </div>
+                                </div> <!-- card body end-->
+                                <div class="card-footer">
+                                    <a href="#" class="btn btn-info">INFO 498</a>
+                                </div>
+                            </div> <!--card end-->
+                        </div> <!--main side end -->
+                        <div class="side-two">
+                            <div class="card">
+                                <div class="card-body">
+                                    <p class="card-title">StockHawk</p>
+                                    <p class="card-text">An app that records trends in stocks that the user is interetsed in.
+                                    </p>
+                                    <p class="card-text"><em>Team Members:</em> John Doe, Jane Doe, Joe Doe, Lane Doe</p>
+                                </div>
+                            </div> <!--card end-->
+                        </div> <!--other side end-->
+                    </div> <!--content end-->
+                </div> <!-- container end-->
+            </div> <!--col end-->            
+
+    </section> <!--section end-->
     </main>
     <section>
         <footer>
-            <p>Authors: Saasha Mor and Rajoshi Chakravarty</p>
+            <p> &copy; Authors: Saasha Mor and Rajoshi Chakravarty</p>
             <p>Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com</a></p>
         </footer>
     </section>

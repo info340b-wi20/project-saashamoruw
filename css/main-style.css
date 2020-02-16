@@ -14,7 +14,34 @@ main {
     margin-top: 8em;
 }
 
+.newSec {
+  padding-bottom: 3em;
+}
+
+.disable-hover,
+.disable-hover * {
+  pointer-events: none !important;
+}
+
+a {
+  text-decoration-color: black;
+  text-decoration: underline;
+}
+p {
+  line-height: 1.5em;
+}
+
+.action-btn {
+  background-color: #8789C0;
+  width: 200px;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+}
 /* Nav bar styles */
+ /*add Hamburger menu for small screens*/
 nav {
     width: 100%;
     background-color: #1C3041;
@@ -30,20 +57,16 @@ nav a {
     text-align: center;
     text-decoration: none;
     padding-bottom: .8rem;
-    font-size: 0.98em;
+    font-size: 1em;
 }
 
-nav .name {
+nav #name {
     display:none;
-    color: black;
+    color: white;
     font-family: 'Kaushan Script', fantasy;
     font-size: 1rem;
+    margin-right: 0.5em;
 }
-
-nav img {
-    width: 10%;
-}
-
 nav a:hover {
     border-bottom: .2rem solid black;
     text-decoration: none;
@@ -65,6 +88,26 @@ nav ul {
     padding-top: .5rem;
     display: inline-block;
 }
+
+@media screen and (min-width: 300px) {
+  nav img {
+    width: 7%;
+  }
+
+}
+
+@media screen and (min-width: 700px) {
+  nav img {
+    width: 5%;
+  }
+  nav a {
+    font-size: 1.2em;
+  }
+  nav #name {
+    display: block;
+  }
+}
+
 
 
 /* Banner styles */
@@ -112,7 +155,6 @@ nav ul {
 
 /* Search bar styles */
 .search-bar {
-    margin-top: 3em;
     padding-left: 10px;
     display: flex;
     width: 90%;
@@ -124,7 +166,6 @@ nav ul {
     font-weight: 600;
     margin-left: auto;
     margin-right: auto;
-    margin-bottom: 3em;
     border-radius: 30px;
 }
 
@@ -152,8 +193,14 @@ nav ul {
     background: #C4FFF9;
 }
 
-/* Card styles */
-
+/* Card styles*/
+.row {
+  justify-content: center;
+}
+.card {
+  height: 600px;
+  margin: 0px 50px 50px 50px; 
+}
 p.card-title {
     font-weight: bold;
     font-size: 1.5rem;
@@ -162,29 +209,85 @@ p.card-title {
     font-size: 1em;
     font-weight: 1.5rem;
 }
-.skill {
+.highlight {
     background-color: #c4fff9;
-    padding: .2em;
-}
-.overlay {
- display:none;
-}
-.card {
-    margin: 2em;
-}
-.fa {
-    color:black;
-    padding-top: 0.5em;
-    z-index: 9000;
+    padding: .3em;
+    margin: .3em;
 }
 
-.fa-github {
-    padding-left: 1em;
+.fa {
+  color: black;
+}
+@media screen and (min-width: 620px) {
+  .card {
+    height: 700px;
+  }
 }
 
 .links {
-    text-align: center;
+  position: relative;
+  align-self: center;
 }
+.links ul {
+  text-align: center;
+  padding: 0;
+}
+.links li {
+  display: inline;
+  padding: 10px;
+}
+
+.links .fa {
+  font-size: 1.5em;
+}
+
+@media screen and (min-width: 940px) {
+  .links .fa {
+    font-size: 2em;
+  }
+}
+
+
+
+/* Card flip effect*/
+  .cardContainer:hover .side-two {
+    transform: rotateY(0deg);
+  }
+
+  .cardContainer:hover .side-one {
+    transform: rotateY(180deg);
+  }
+
+  .content-area {
+    transform: perspective(1000px);
+    transition: 1s;
+    transform-style: preserve-3d;
+    position: relative;
+  }
+
+  .side-one {
+    position: relative;
+    transform: rotateY(0deg);
+    z-index: 2;
+  }
+
+  .side-two {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: white;
+    transform: rotateY(-180deg);
+  }
+
+  .side-one,
+  .side-two {
+    backface-visibility: hidden;
+    transition: 1s;
+    transform-style: preserve-3d;
+  }
+
+ 
+
 /* Form Old */
 
 .form {
