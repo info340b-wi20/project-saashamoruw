@@ -10,9 +10,6 @@ body {
     font-size: 10px;
 }
 
-main {
-    margin-top: 8em;
-}
 
 .newSec {
   padding-bottom: 3em;
@@ -123,10 +120,11 @@ nav img {
 /* Banner styles */
 
 .background-pic {
-    height: 50vh;
+    height: 55vh;
     background: linear-gradient(45deg,#00b5cc,#C4FFF9);
     background-repeat: no-repeat; 
     background-size: contain;
+    margin-bottom: 10px;
 }
 
 .banner-text {
@@ -185,16 +183,17 @@ nav img {
     margin: 6px;
     border: none;
     box-sizing: border-box;
+    display: inline-flex;
+    background-color: transparent;
   }
 
 .search-bar button {
     border-radius: 0px 30px 30px 0px;
-    float: left;
+    float: right;
     width: 20%;
-    background: #00b5cc;
-    font-size: 1em;
-    border: 1px;
-    border-left: none; /* Prevent double borders */
+    height: 100%;
+    font-size: 13px;   
+    border: none; /* Prevent double borders */
     cursor: pointer;
 }
 
@@ -203,13 +202,17 @@ nav img {
     background: #C4FFF9;
 }
 
+.addProj {
+  margin-top: -40px;
+}
+
 /* Card styles*/
 .row {
   justify-content: center;
 }
 .card {
   height: 600px;
-  margin: 0px 50px 50px 50px; 
+  margin: 15px; 
 }
 p.card-title {
     font-weight: bold;

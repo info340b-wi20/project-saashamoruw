@@ -23,10 +23,10 @@
   
      <!-- 
         FIX THIS
-        - the nav bar project hub thing is up idk why
+        - the nav bar project hub thing is up idk why -- done
         - wrap form content in a <form>, like the search area - this fucks up the css
             so maybe make it the same idk?
-            - no bg color for the input - gets it from the findProj form
+            - no bg color for the input - gets it from the findProj form -- done
             - fix the css - width = it sticks to the top one
             - fix the size + icon placement and size for change in screen size
         - make all cards like the first one - flight tracker
@@ -61,9 +61,12 @@
     <section class="newSec">
     <div class="search-bar" role="search" aria-label="search bar">
         <input type="text" placeholder="Search...">
-        <button type="submit"><i class="fa fa-search"> </i> </button>
+        <button class = "btn btn-info">
+            <i class="fa fa-search fa-2x" aria-label="search icon"></i>
+        </button>
     </div>
     </section>
+    
     <section class="newSec">
         <div class="row">
             <div class="addProj">
@@ -71,7 +74,7 @@
                     <div class="card-body">
                         <h5 class="card-title">Showcase your own project!</h5>
                         <p class="card-text">Do you want the world to see your cool work?</p>
-                        <a href="#" class="btn btn-primary">Click here!</a>
+                        <a href="#" class="btn btn-info">Click here!</a>
                     </div>
                     </div>
             </div>
