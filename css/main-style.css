@@ -42,60 +42,43 @@ p {
 nav {
     width: 100%;
     background-color: #00b5cc;;
-    padding: .75rem;
+    padding: 0.5rem;
     position: fixed;
-    top: 0;
+    bottom: 0;
     left: 0;
     z-index: 9999; 
     font-family: 'Monospace', sans-serif; 
     font-weight: 500;
-    letter-spacing: 1px;
-}
-
-
-
-nav ul a {
-    color: white;
-    text-align: center;
-    text-decoration: none;
-    padding-bottom: .8rem;
-    font-size: 1em;
-}
-
-nav ul a:hover {
-  color: black;
-  text-decoration: none;
-}
-
-nav ul a.active {
-  color: black;
-  text-decoration: none;
+    display: flex;
 }
 
 
 nav #name {
     display:none;
-    color: white;
-    font-family: 'Kaushan Script', fantasy;
-    font-size: 1.25rem;
-    margin-right: 0.5em;
-    float: left;
-    letter-spacing: normal;
 }
 
-
-nav li {
-    display: inline-box;
-    margin-right: 1rem;
-    padding-top: 5px;
+nav .about {
+  float: right;
+ }
+ 
+nav ul p {
+  display: none;
 }
 
 nav ul {
-    margin: 0;
-    padding: 0;
-    display: flex;
-    float: left;
-    list-style-type: none;
+  display: flex;
+  float: left;
+}
+
+nav li {
+  list-style: none;
+  display: inline-block;
+  font-size: 40px;
+  flex: 1 0 0;
+}
+
+nav i {
+  color: #000;
 }
 
 nav img {
@@ -103,6 +86,8 @@ nav img {
   width: 50px;
   margin-right: 10px;
 }
+
+
 
 @media screen and (min-width: 300px) {
   nav img {
@@ -116,12 +101,65 @@ nav img {
     width: 40px;
   }
 
-  nav a {
-    font-size: 1.2em;
+  nav {
+    top: 0;
+    bottom: 93.5%;
   }
+
+  nav a .fa {
+    display: none;
+  }
+
+  nav ul p {
+    display: inline-block;
+    font-size: 1rem;
+  }
+
   nav #name {
     display: inline;
+    color: white;
+    font-family: 'Kaushan Script', fantasy;
+    font-size: 1.25rem;
+    margin-right: 0.5em;
+    float: left;
   }
+
+  nav li {
+    display: inline-box;
+    margin-right: 1rem;
+    padding-top: 5px;
+}
+
+nav ul {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    float: left;
+    list-style-type: none;
+}
+
+
+  nav ul a {
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    padding: 0.5rem;
+    font-size: 1em;
+}
+
+nav ul a:hover {
+  color: darkslategray;
+  text-decoration: none;
+  transition: opacity 5s ease-in-out;
+}
+
+nav ul a.active {
+  color: black;
+  text-decoration: none;
+}
+
+ nav ul li {
+   display: inline-block;
 }
 
 
