@@ -272,11 +272,11 @@ p.card-title {
 
 
 /* Card flip effect*/
-  .cardContainer:hover .side-two {
+  .cardContainer:hover .side_two {
     transform: rotateY(0deg);
   }
 
-  .cardContainer:hover .side-one {
+  .cardContainer:hover .side_one {
     transform: rotateY(180deg);
   }
 
@@ -287,13 +287,13 @@ p.card-title {
     position: relative;
   }
 
-  .side-one {
+  .side_one {
     position: relative;
     transform: rotateY(0deg);
     z-index: 2;
   }
 
-  .side-two {
+  .side_two {
     position: absolute;
     top: 0;
     left: 0;
@@ -301,8 +301,8 @@ p.card-title {
     transform: rotateY(-180deg);
   }
 
-  .side-one,
-  .side-two {
+  .side_one,
+  .side_two {
     backface-visibility: hidden;
     transition: 1s;
     transform-style: preserve-3d;

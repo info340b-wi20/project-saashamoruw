@@ -23,18 +23,6 @@
   
      <!-- 
         FIX THIS
-        - the nav bar project hub thing is up idk why -- done
-        - wrap form content in a <form>, like the search area - this fucks up the css
-            so maybe make it the same idk?
-            - no bg color for the input - gets it from the findProj form -- done
-            - fix the css - width = it sticks to the top one
-            - fix the size + icon placement and size for change in screen size
-        - make all cards like the first one - flight tracker
-            - only description and title should be in side - 1
-            - social links should be in footer
-        - side - 2 for all cards:
-            - icon for languages, team members, purpose
-        - Copy same card code for the find page - no links on side 1!!
         - Not important but, might look cool :
             - some cool animation shit for the main background thing like the colors do wave thingies idk
         - Check the feedback from sprint 1 once more + the kanban board to make sure everything is fixed/present
@@ -84,7 +72,7 @@
             <div class="col-sm-12 col-md-4">
                 <div class="cardContainer">
                     <div class="content-area">
-                        <div class="side-one">
+                        <div class="side_one">
                             <div class="card">
                                 <img class="card-img-top" src="https://images.unsplash.com/photo-1558285549-2a06f9a5fe65?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1000&q=60" alt="airplane image">
                                 <div class="card-body">
@@ -104,7 +92,7 @@
                                 </div>
                             </div> <!--card end-->
                         </div> <!--main side end -->
-                        <div class="side-two">
+                        <div class="side_two">
                             <div class="card">
                                 <div class="card-body">
                                     <p class="card-title">Flight Price Tracker</p>
@@ -137,7 +125,7 @@
             <div class="col-sm-12 col-md-4">
                 <div class="cardContainer">
                     <div class="content-area">
-                        <div class="side-one">
+                        <div class="side_one">
                             <div class="card">
                                 <img class="card-img-top" src="https://images.unsplash.com/photo-1533027052290-2b4ece075c42?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80" alt="map image">
                                 <div class="card-body">
@@ -157,7 +145,7 @@
                                 </div>
                             </div> <!--card end-->
                         </div> <!--main side end -->
-                        <div class="side-two">
+                        <div class="side_two">
                             <div class="card">
                                 <div class="card-body">
                                     <p class="card-title">FindMyToilet</p>
@@ -175,7 +163,7 @@
             <div class="col-sm-12 col-md-4">
                 <div class="cardContainer">
                     <div class="content-area">
-                        <div class="side-one">
+                        <div class="side_one">
                             <div class="card">
                                 <img class="card-img-top" src="https://images.unsplash.com/photo-1495020689067-958852a7765e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80" alt="person reading newspaper">
                                 <div class="card-body">
@@ -197,7 +185,7 @@
                                 </div>
                             </div> <!--card end-->
                         </div> <!--main side end -->
-                        <div class="side-two">
+                        <div class="side_two">
                             <div class="card">
                                 <div class="card-body">
                                     <p class="card-title">Brief</p>
@@ -214,7 +202,7 @@
             <div class="col-sm-12 col-md-4">
                 <div class="cardContainer">
                     <div class="content-area">
-                        <div class="side-one">
+                        <div class="side_one">
                             <div class="card">
                                 <img class="card-img-top" src="https://images.unsplash.com/photo-1531904895138-ac676f9f125a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=676&q=80" alt="food in net bag image">
                                 <div class="card-body">
@@ -235,7 +223,7 @@
                                 </div>
                             </div> <!--card end-->
                         </div> <!--main side end -->
-                        <div class="side-two">
+                        <div class="side_two">
                             <div class="card">
                                 <div class="card-body">
                                     <p class="card-title">FoodEx</p>
@@ -252,7 +240,7 @@
             <div class="col-sm-12 col-md-4">
                 <div class="cardContainer">
                     <div class="content-area">
-                        <div class="side-one">
+                        <div class="side_one">
                             <div class="card">
                                 <img class="card-img-top" src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80" alt="graphs on computer screen">
                                 <div class="card-body">
@@ -273,7 +261,7 @@
                                 </div>
                             </div> <!--card end-->
                         </div> <!--main side end -->
-                        <div class="side-two">
+                        <div class="side_two">
                             <div class="card">
                                 <div class="card-body">
                                     <p class="card-title">StockHawk</p>
@@ -295,5 +283,10 @@
             <p>Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com</a></p>
         </footer>
     </section>
+
+    <!--Javascript Files-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <script src="js/data.json"></script>
+    <script src="js/index.js"></script>
 </body>
 </html>
