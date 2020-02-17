@@ -11,7 +11,7 @@ body {
 }
 
 
-.newSec {
+.newSec, .projects {
   padding-bottom: 3em;
 }
 
@@ -390,6 +390,11 @@ button {
   margin-bottom: 10px;
 }
 
+button.btn {
+  width: 30%;
+  font-size: 0.75em;
+}
+
 fieldset {
   margin-bottom: 30px;
   border: none;
@@ -405,9 +410,17 @@ label {
   margin-bottom: 8px;
 }
 
+input.single {
+  height: 40px;
+}
+
 label.light {
   font-weight: 300;
   display: inline;
+}
+
+#languages {
+  height: 100px;
 }
 
 .number {

@@ -1,9 +1,9 @@
 'use strict';
 
-let state = {};
-let currProj = state.currentProjects;
-//let findProj = state.findProjects;
-
+let state = {
+    currProj: [],
+    findProj: []
+};
 
 // fetch data from json file
 function fetchData() {
@@ -12,18 +12,22 @@ function fetchData() {
             return res.json();
         })
         .then(function (data) {
-            state.profiles = data.profiles;
+            state.currProj = data.currentProjects;
+            state.findProj = data.findProjects;
         });
 }
+fetchData();
+
 // TO DO
-// Check if current code works lol
+// Check if current code works lol!!
 // Dynamically add data the user enters to the json file and creates its showcase card
 // Add code to make find projects cards
 // Sign in / sign up page js
 
 // Create one card that showcases projects with info and flip css
 function createShowcaseCard(obj) {
-    let row = document.querySelector(".row");
+    let sec = document.querySelector(".projects");
+    let row = document.createElement('div').classList.add("row");
     let col = document.createElement('div').classList.add("col-sm-12 col-md-4");
     let container = document.createElement('div').classList.add("cardContainer");
     let content = document.createElement('div').classList.add("content-area");
@@ -33,8 +37,9 @@ function createShowcaseCard(obj) {
     container.appendChild(content);
     col.appendChild(container);
     row.appendChild(col);
+    sec.appendChild(row);
+    return sec;
 }
-createShowcaseCard(currProj[0]);
 
 // creates flip side of showcase card
 function createCardSideTwo(obj) {
@@ -108,6 +113,7 @@ function createCardSideOne(obj) {
 }
 
 // Creates list of icon links for a particular showcase project
+
 function createLinkList(obj) {
     let links = document.createElement('div').classList.add('links');
     let list = document.createElement('ul');
@@ -128,5 +134,3 @@ function createLinkList(obj) {
     links.appendChild(list);
     return links;
 }
-
-fetchData();
