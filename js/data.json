@@ -1,5 +1,5 @@
 {
-    "currentProjects": [
+    "currProj": [
         {
             "name": "Flight Price Tracker",
             "description": "A website that shows users the trends for flight prices for the last few years and lets users track flights. Users can bust myths about flight prices (eg. the best prices are lowest on Mondays) and use this tool to make their own decisions!",
@@ -84,7 +84,7 @@
         }
     ],
 
-    "findProjects": [
+   "findProjects": [
         {
             "name": "Flight Price Tracker",
             "description": "A website that shows users the trends for flight prices for the last few years and lets users track flights. Users can bust myths about flight prices (eg. the best prices are lowest on Mondays) and use this tool to make their own decisions!",

@@ -12,8 +12,9 @@ function fetchData() {
             return res.json();
         })
         .then(function (data) {
-            state.currProj = data.currentProjects;
+            state.currProj = data.currentProj;
             state.findProj = data.findProjects;
+            console.log(state);
         });
 }
 fetchData();
