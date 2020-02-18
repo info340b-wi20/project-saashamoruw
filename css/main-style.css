@@ -540,6 +540,10 @@ p.card-title {
     .tabs li button {
       width: 100%;
     }
+
+    .tabs li button:hover, .tabs li button:active {
+      background-color: #00b5cc;
+    }
       
    
     .tab-content {	
@@ -561,11 +565,17 @@ p.card-title {
         color: #1C3041;	
     }	
 
+    .tab-content .checkbox {
+      margin-top: -30px;
+      margin-bottom: -15px;
+    }
+
     .tab-content .checkbox label {	
       font-size: 10px;	
       float: left;	
       margin-left: 20px;	
       margin-bottom: 10px;	
+  
     }	
 
     .submit-button {
