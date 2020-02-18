@@ -1,117 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="author" content="Saasha Mor">
-        <meta name="description" content="A proposal for my INFO 340 project">
-        <title> Project Proposal </title>
-        <link href="css/style.css" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-    </head>
-    <body>
-        <header> 
-            <h1> INFO 340 Project Proposal </h1> 
-            <h1>Project Hub</h1>
-        </header>
-
-        <h3 class="subtitle"> By: Saasha Mor </h3>
-        <section class="overview">
-            <h2> Overview </h2>
-            <p> There are a lot of great projects produced by people.
-                Project Hub is a one-stop-shop to show case any projects you worked on
-                whether it was for a class, capstone, a hackathon or even a passion project.
-                Your project can be anything from Software Development and Data Science to Graphic Design and UI/UX Design!</p>
-            <p>What if you don't have any projects to showcase? Don't worry!
-                Project Hub can also help users find budding projects in need of your highlights and time.
-            </p>
-        </section>
-
-        <section class="existing_sol">
-            <h2> Existing Solutions</h2>
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Saasha Mor">
+    <meta name="description" content="A proposal for my INFO 340 project">
+    <title > Project Proposal </title>
+    <link href="css/style.css" rel="stylesheet">
+</head>
+<body>
+    <header> <h1> INFO 340 Project Proposal </h1> </header>
+    <subtitle> Saasha Mor </subtitle>
+    <section class="overview">
+        <h2> Flight Prices Prediction </h2>
+        <p>
+            Anyone who has booked a flight ticket knows how unexpectedly the prices vary. (More information 
+            <a href="https://www.cheapair.com/blog/airfare-fluctuations-can-a-flight-price-really-change-135-times/"> here </a>.
+            Airlines use using sophisticated quasi-academic tactics which they call "revenue management" or "yield management".
+            The cheapest available ticket on a given flight gets more and less expensive over time. This usually happens as an attempt to maximize revenue based on -
             <ul>
-                <li><a href="https://github.com">Github</a> brings together the world's 
-                    largest community of developers to discover, share, and build better
-                    software. It has capability to have open source projects to private team ones 
-                </li>
-                <li><a href="https://osf.io/">Open Science Framework</a>
-                is a platform to showcase all your research projects with the ability
-                to upload sources from Github, Dropbox and Amazon S3
-                </li>
+                <li>Time of purchase patterns i.e. making sure last-minute purchases are expensive)</li>
+                <li>Keeping the flight as full as they want it i.e. raising prices on a flight which is filling up 
+                    in order to reduce sales and hold back inventory for those expensive last-minute expensive purchases</li>
             </ul>
-            <h3>What's missing?</h3>
-            <p>The point of showcasing projects are to show them off. It is a great way to
-                show the world your highlights while working on a topic that intrigues you as
-                well as add value to the world with a working prototype that people can use.
-                Although, the existing solutions are great to be able to collaborate on projects,
-                they are not good ways to "show-off" projects
+        </p>
+        <p> More information <a href="https://www.cnbc.com/2018/08/03/how-do-airlines-price-seat-tickets.html"> here. </a> </p>
+        <p> With 102,465 flights per day, consumers are looking for the cheapest way to get around the world. As a personal frequent flyer I have several questions
+            about the aviation industry. The questions I often ask myself are:
+            <ul>
+                <li> When is the best time to book tickets? </li>
+                <li> Does the optimum time vary on the basis of destination and origin? </li>
+                <li> How do prices vary across airlines and how much am I compromising on comfort? </li>
+                <li> What is the best time to buy so that I can save the most by taking the least risk?</li>
+                <li> Do prices tend to go up or down over time?</li>
+                <li> Does the time or day of the flight matter on price? </li>
+            </ul>
+        </p>
+    </section>
+
+    <section class="existing_sol">
+        <h2> Existing Solutions</h2>
+        <p> Existing solutions are built into the major flight-booking apps 
+            such as <a href="https://www.expedia.com/">Expedia </a>, <a href="https://www.booking.com/"> Booking.com etc.</a>
+        </p>
+        <p> The problems which such web apps is that it shows you the _current_ trend for the next week.
+            <a href="https://www.skyscanner.com/transport/flights-from/us/">
+                SkyScanner also provides services to set up alerts on low prices </a> But, this doesn't anticipate a further dip or increase in price in the future, therefore the uncertainty prevails.
+        </p>
+        <p> Additionally, we, as consumers don't know if their loyalties lie with airline companies (to help them earn the maximum possible revenue) or with consumers (to provide them with affordable air tickets) </p>     
+    </section>
+
+    <section class="application">
+        <h2> Proposed Application </h2>
+        <p> I plan to use the
+            <a href="https://www.partners.skyscanner.net/contact/affiliates?hsCtaTracking=192542a2-23c6-42d8-839b-146da042358b%7C23f0319b-b2e5-488b-8971-116fe0b91ec6"> Sky Scanner API</a>
+            to build a web app to show trends in flight prices in a complete and data driven manner.
+        </p>
+        <section class="functionality">
+            <p> Here is what the web app would typically do:
+                <ol>
+                    <li> Users will be able to enter the their origin and destination location. </li>
+                    <li> This will produce a trend chart of the most recent prices across all airlines. </li>
+                    <li> They will be able to filter these results for class of travel, number of stops, airlines etc. </li>
+                </ol>
             </p>
         </section>
-
-        <section class="application">
-            <h2> Proposed Application </h2>
-            <section class="functionality">
-                <p> Here is what a user would typically do on Project Hub: </p>
-                    <ol type="A">
-                        <li><strong>Find Team Members for Projects</strong>
-                            <ol>
-                                <li>Users scroll through projects posted as "looking for members"</li>
-                                <li>Each project will have a topic and requirements for team members</li>
-                                <li>Users can filter projects on the basis of:
-                                    <ul>
-                                        <li>Role of Team Member needed</li>
-                                        <li>Time commitment of entire project</li>
-                                        <li>Time commitment per week</li>
-                                        <li>Purpose of project: Hackathon, Capstone etc.</li>
-                                        <li>Payment</li>
-                                        <li>Location</li>
-                                        <li>Value system</li>
-                                    </ul>
-                                </li>
-                                <li>User clicks "Send Request to Join Team" on project of choice</li>
-                                <li>The request prompts the user to enter the necessary information as requested by the project creator
-                                    for example resume, proof of highlights etc.
-                                </li>
-                                <li>Potential team member and project creator can chat on the app to finalize</li>
-                            </ol>
-                        </li>
-                        <li><strong>Showcase Projects</strong>
-                            <ol>
-                                <li>User creates a project to showcase with the name of the project</li>
-                                <li>User adds brief descriptions of the project along with team member roles</li>
-                                <li>Users can add purpose of the project like Hackathon, Capstone, Personal etc.</li>
-                                <li>The web app prompts to add source code or any other materials from Github or by upload</li>
-                                <li>Projects will also require some sort of working proof of the project like website, prototype images etc.</li>
-                                <li>Teammates can also indicate which section of <a href="https://creativecommons.org/licenses/by/2.0/">Creative Commons </a> it comes under</li>
-                                <li>User clicks submit which places the project showcase in a browsable tile format</li>
-                            </ol>
-                        </li>      
-                    </ol>
-                </section> <!-- functionality end-->
-            <section class="potential-users">
-                <h3> Potential Users </h3>
-                <p> There are <strong>11.8 MILLION</strong> people in the U.S alone that are in tech related fields that could benefit from Project Hub </p>
-                <ul>
-                    <li>This web app can be used by anyone ranging from high school kids to professionals in industry
-                    benefit from having a project showcase plaform</li>
-                    <li>Project Hub can attract people from fields ranging from <em>Software Development to Graphic Design </em></li>
-                    <li>People can also find products that may be of use to them through this web app</li>
-                    <li>Companies can also look for inspiration for products through this web app</li>
-                    <li>Students looking for ways to enhance their resume while also working on things that interest them can find projects here</li>
-                </ul>
-            </section> <!-- potential users end-->
-            <section class="uniqueness">
-                <h3>Why is this different?</h3>
-                <ol>
-                    <li>Most of other platforms have too much unnecessary information about projects. Therefore, Project Hub 
-                        displays relevant information about projects in a <strong>simple yet stylish</strong> way</li>
-                    <li>Sometimes students want to work in highlight-building projects but don't know how. This platform gives
-                        them a consolidated way to look at potential <strong>opportunities</strong> and choose what is best for them.
-                    </li>
-                    <li>Great project ideas are rare. But when they do come around, you need the <strong>perfect team</strong> to make it come
-                        to life. Project Hub provides an easy way to find team members that identify with your desired ethos.
-                    </li>
-                </ol>
-            </section> <!--uniqueness end-->
-        </section> <!--application end-->
-    </body>
+        <section class="potential-users">
+            <h3> Potential Users </h3>
+            <p> 4.1 billion passengers flew in airlines in 2017. My webapp will target this vast multitude of people who are looking for affordable 
+                flights to get to were they want to be, when they want to be there. 
+            </p>
+        </section>
+        <h3>How will this help?</h3>
+        <p> I believe this web app will answer all the aforementioned questions I personally had as a flyer.
+            I also aim to build trust of consumers by proving loyalties to consumers rather than airlines, this will set this web app apart from all the major
+            existing solutions. 
+        </p>
+    </section>
+</body>
 </html>
