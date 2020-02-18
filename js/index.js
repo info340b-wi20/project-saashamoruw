@@ -21,7 +21,6 @@ fetchData();
 // Check if current code works lol!!
 // Dynamically add data the user enters to the json file and creates its showcase card
 // Add code to make find projects cards
-// Sign in / sign up page js
 
 // Shows form on click
 let addProjBtn = document.querySelector("#addProjBtn");
@@ -47,10 +46,14 @@ addMember.addEventListener('click', function(){
 
 // Executes when the user clicks to finally add project
 let add = document.querySelector("#newProj");
-add.addEventListener('click', function() {
+add.addEventListener('click', function(event) {
+    event.preventDefault();
     updateState();
     renderShowcaseCards(state.currProj);
 })
+
+
+
 
 
 //Updates the state variable to add the new project
@@ -80,6 +83,8 @@ function updateState() {
     // put into state
     state.currProj.push(newState);
 }
+
+
 
 function getTeam() {
     let str = document.querySelector('#memsName').value;

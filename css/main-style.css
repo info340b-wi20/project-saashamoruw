@@ -519,8 +519,8 @@ p.card-title {
     @media screen and (min-width: 700px) {	
         
       form {    	
-      width: 60%;	
-      margin-top: 150px;	
+      width: 70%;	
+      margin-top: 120px;	
       padding: 20px;	
       }	
     }	
@@ -539,6 +539,7 @@ p.card-title {
 
     .tabs li button {
       width: 100%;
+      font-size: 20px;
     }
 
     .tabs li button:hover, .tabs li button:active {
