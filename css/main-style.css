@@ -86,18 +86,17 @@ margin-right: 10px;
 }
 
 
-
 @media screen and (min-width: 300px) {
-  nav img {
-    width: 7%;
-  }
+nav img {
+  width: 7%;
+}
 }
 
 @media screen and (min-width: 700px) {
-  nav img {
-    width: 40px;
-  }
+nav img {
+  width: 40px;
 }
+
 nav {
   top: 0;
   bottom: 93.5%;
@@ -158,6 +157,8 @@ text-decoration: none;
 nav ul li {
  display: inline-block;
 }
+}
+
 
 #addProjForm {
   margin-top: 2em;
@@ -166,6 +167,7 @@ nav ul li {
 
 
 /* Banner styles */
+
 
 .background-pic {
   height: 55vh;
@@ -196,7 +198,7 @@ nav ul li {
 @media screen and (min-width: 700px) {
   .background-pic h1 {
     font-size: 10ch;
-  }
+}
 }
 
 .background-pic h1:hover {
@@ -501,15 +503,26 @@ label.light {
   background: linear-gradient(#00b5cc,#C4FFF9, #C4FFF9 60%, #00b5cc); 
 }
 
-.form {
+
+form {
   box-shadow: 0px 1px 15px darkslategray;
-    width: 50%;
+    width: 100%;
     margin: auto;
-    margin-top: 200px;
-    padding: 20px 20px;
+    margin-top: 10%;
+    padding: 15px;
     background-color: white;
     border-radius: 8px;
     font-family: 'Times New Roman', Times, serif;
+  }
+
+  @media screen and (min-width: 700px) {
+    
+    form {    
+    width: 60%;
+    margin-top: 150px;
+    padding: 20px;
+    }
+
   }
   
   .tabs {
@@ -519,15 +532,13 @@ label.light {
   }
   
   .tab-button {
-      flex-grow: 1;
+      flex: 1 0 0;
       margin-bottom: 15px;
   }
   
  .tab-button button:hover, button:active {
       background-color:  #1C3041;
   }
-
-
 
   .tabs button {
       padding: 15px;
@@ -536,7 +547,6 @@ label.light {
       border-radius: 0;
       font-family: 'Kaushan Script', fantasy;
       font-size: 20px;
-    
   }
   
   .tab-content {
@@ -546,9 +556,18 @@ label.light {
       font-family: monospace;
   }
 
-  b {
-    font-family: 'Montserrat', sans-serif;
-    letter-spacing: 2px;
+  .tab-content .msg {
+    font-family: 'Kaushan Script', fantasy;
+      font-size: 30px;
+      margin-top: -15px;
+      color: #1C3041;
+  }
+
+  .tab-content .checkbox label {
+    font-size: 10px;
+    float: left;
+    margin-left: 20px;
+    margin-bottom: 10px;
   }
 
   .submit-button {
@@ -577,7 +596,6 @@ label.light {
   input {
     font-size: 1.5rem;
    }
-
 
 
 footer {

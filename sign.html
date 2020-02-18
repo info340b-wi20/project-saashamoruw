@@ -29,33 +29,42 @@
     </nav>
     <main>
         <!-- 
-            Create tabs for sign up / signin 
+            Create tabs for sign up / signin -- add diff css for small
         -->
-        <div class = "form" role = "form" > 
-
+        <form> 
             <ul class="tabs">
-                <li class="tab-button"><button class = "btn btn-info active" onclick="">Sign Up</button></li>
-                <li class="tab-button"><button class = "btn btn-info" onclick="">Log In</button></li>
+                <li class="tab-button"><button class = "btn btn-info active signin" onclick="tabsChange()">Sign Up</button></li>
+                <li class="tab-button"><button class = "btn btn-info login" onclick="tabsChange()">Log In</button></li>
             </ul>
 
+            <!--tab content getting changed-->
             <div class="tab-content">
+                <h1 class = "msg">Create an Account!</h1>
                 <div class="signup">
-                    <label for="emailid"><b>
-                        Email ID</b></label> 
-                    <input type="text" name="email id" required aria-label="input email" placeholder="Enter Email ID">  
-                    <label for="password"><b>
+                    <div class = "email"><label for="emailid"><b>
+                     Email ID</b></label> 
+                    <input type="text" name="email id" aria-label="input email" placeholder="Enter Email ID"></div> 
+                    
+                    <div class = "password"><label for="password"><b>
                     Password</b></label>  
-                    <input type="text" name="password" required aria-label="input password" placeholder="Enter Password"> 
-                    <label for="confirm-password"><b>
-                        Confirm Password</b></label> 
-                    <input type="text" name="password" required aria-label="confirm password" placeholder="Re-enter Password">  
+                    <input type="text" name="password"  aria-label="input password" placeholder="Enter Password"></div>
+                    
+                    <div class = "confirm"></div><label for="confirm-password"><b>
+                    Confirm Password</b></label> 
+                    <input type="text" name="password"  aria-label="confirm password" placeholder="Re-enter Password">   
                     <br>
-                </div>            
+                </div> 
+                <div class="checkbox">
+                    <input type="checkbox" class="form-check-input">
+                    <label class="form-check-label" for="check">Agree to Terms and Conditions.</label>
+                  </div>  
+                   
                 <div class = "submit-button">
-                    <label for="submit" aria-label="submit button"></label><button class = "btn btn-dark">Get Started!</button>  
+                    <label for="submit" aria-label="submit button"></label><button class = "btn btn-dark submit">Get Started!</button>  
                 </div> 
               </div> <!--tab-content-->
-          </div>
+        </form>
      </main>
+     <script src="js/sign.js"></script>
 </body>
 </html>
