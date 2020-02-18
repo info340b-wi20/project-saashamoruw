@@ -38,6 +38,23 @@ signup.addEventListener('click', function(event) {
     tabButton.classList.remove('active');
 });
 
+/*
+let submitButton = document.querySelector('#button-submit');
+
+submitButton.addEventListener('click', function(event){
+    event.preventDefault();
+    let password = document.querySelector('#password').value;
+    let confirmPassword =  document.querySelector('#confirm').value;
+    if (password != confirmPassword) { 
+      confirmPassword.textContent = "Passwords do not match";
+    } else {
+      confirmPassword.textContent = "";
+    }
+}
+*/
+
+
+
 
 
 

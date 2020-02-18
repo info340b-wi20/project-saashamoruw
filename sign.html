@@ -43,15 +43,15 @@
 
                     <div class = "email"><label for="emailid"><b>
                      Email ID</b></label> 
-                    <input type="text" name="email id" aria-label="input email" placeholder="Enter Email ID" required></div> 
+                    <input type="text" for = "email" id = "email" name="email id" aria-label="input email" placeholder="Enter Email ID" required></div> 
                     
                     <div class = "password"><label for="password"><b>
                     Password</b></label>  
-                    <input type="text" name="password"  aria-label="input password" placeholder="Enter Password" required></div>
+                    <input type="text" for = "password" id = "password" name="password"  aria-label="input password" placeholder="Enter Password" minlength="6" required></div>
                     
                     <div class = "confirm"><label for="confirm-password"><b>
                     Confirm Password</b></label> 
-                    <input type="text" name="password"  aria-label="confirm password" placeholder="Re-enter Password" required></div>   
+                    <input type="text" for = "confirm" id = "confirm" name="password"  aria-label="confirm password" placeholder="Re-enter Password" minlength="6" required></div>   
                     <br>
 
                     <div class="checkbox">
@@ -60,7 +60,7 @@
                         <br>
 
                         <div class = "submit-button">
-                        <label for="submitbutton" aria-label="submit button"></label><button id = "button-submit" class = "btn btn-dark submit">Get Started!</button></div>  
+                        <label for="submitbutton" aria-label="submit button"></label><button id = "button-submit" type="submit" class = "btn btn-dark submit">Get Started!</button></div>  
               </div> <!--tab-content-->
 
         </form>
