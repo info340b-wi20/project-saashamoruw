@@ -32,7 +32,7 @@ addProjBtn.addEventListener('click', function() {
 });
 
 //lets user add multiple team members - Page goes into error
-let addMember = document.querySelector("#addMem");
+/* let addMember = document.querySelector("#addMem");
 addMember.addEventListener('click', function(){
     let field = document.querySelector(".teamForm");
     let label = document.createElement('label');
@@ -43,7 +43,7 @@ addMember.addEventListener('click', function(){
     input.type = "text";
     field.appendChild(label);
     field.appendChild(input);
-});
+}); */
 
 // Executes when the user clicks to finally add project
 let add = document.querySelector("#newProj");
@@ -59,29 +59,65 @@ function updateState() {
     // get all the input variables //get the form input
     let name = document.querySelector('#title').value;
     let descr = document.querySelector('#descr').value;
-    let skills = document.querySelectorAll('option').value;
-    let purpose = document.querySelectorAll('input[type="radio"]').value;
-    let img = document.querySelector('input[name = "img_link"]').value;
-    let links = document.querySelectorAll('input[name = "user_links"]'.value)
-    let team = document.querySelectorAll('input[class = "memName single"]'.value)
+    let skills = getSkills();
+    let purpose = getPurpose();
+    let img = document.querySelector('#img_link').value;
+    let alt = document.querySelector('#img_alt').value;
+    let links = getLinks();
+    let team = getTeam();
 
     //create new object from inputs
     let newState = {
         "name": name,
         "description": descr,
         "skills": skills,
-        "team": team, //
-        "purpose": purpose, //
+        "team": team,
+        "purpose": purpose,
         "img": img,
-        "alt": img.alt,
-        "links": links // 
+        "alt": alt,
+        "links": links
     }
     // put into state
     state.currProj.push(newState);
 }
 
-
-
+function getTeam() {
+    let str = document.querySelector('#memsName').value;
+    return str.split(',');
+}
+function getSkills() {
+    let allSkills = document.querySelectorAll('.skillsChk');
+    let skills = [];
+    for(let i = 0; i < allSkills.length; i++) {
+        if(allSkills[i].selected == true) {
+            skills.push(allSkills[i].value);
+        }
+    }
+    return skills;
+}
+function getLinks() {
+    let checkboxes = document.querySelectorAll('input[name="user_links"]');
+    let list = [{}];
+    for(let i = 0; i < checkboxes.length; i++) {
+        let name = checkboxes[i].id;
+        if(checkboxes[i].checked == true) {
+            list[0][name.toString()] = "https://www." + name + ".com";
+        } else {
+            list[0][name.toString()] = "";
+        }
+    }
+    return list;
+}
+function getPurpose() {
+    let allRadio = document.querySelectorAll('input[name="purpose"]');
+    let purpose = "";
+    for(let i = 0; i < allRadio.length; i++) {
+        if(allRadio[i].checked == true) {
+            purpose = allRadio[i].id;
+        }
+    }
+    return purpose;
+}
 // Adds all showcase cards to page
 function renderShowcaseCards(obj) {
     let sec = document.querySelector(".projects");

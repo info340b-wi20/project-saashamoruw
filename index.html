@@ -85,20 +85,20 @@
               <textarea id="descr" name="proj_bio"></textarea>
           
               <label>Purpose</label> <br>
-              <input type="radio" id="info340" name="purpose"><label for="info340" class="light">INFO 340</label><br/>
-              <input type="radio" id="capstone" name="purpose"><label for="capstone" class="light">Capstone</label><br/>
-              <input type="radio" id="info498" name="purpose"><label for="info498" class="light">INFO 498</label><br/>
-              <input type="radio" id="personal" name="purpose"><label for="personal" class="light">Personal</label><br/>
+              <input type="radio" id="INFO340" name="purpose"><label for="info340" class="light">INFO 340</label><br/>
+              <input type="radio" id="Capstone" name="purpose"><label for="capstone" class="light">Capstone</label><br/>
+              <input type="radio" id="INFO498" name="purpose"><label for="info498" class="light">INFO 498</label><br/>
+              <input type="radio" id="Personal" name="purpose"><label for="personal" class="light">Personal</label><br/>
               
               <label>Languages/Skills Used</label> <br>
               <small class="text-muted">Select multiple values by holding down the Ctrl/Cmd key</small>
               <select id="languages" multiple>
-                <option value="HTML">HTML</option>
-                <option value="CSS">CSS</option>
-                <option value="java">Java</option>
-                <option value="python">Python</option>
-                <option value="js">JavaScript</option>
-                <option value="other">Other</option>
+                <option class="skillsChk" value="HTML">HTML</option>
+                <option class="skillsChk" value="CSS">CSS</option>
+                <option class="skillsChk" value="Java">Java</option>
+                <option class="skillsChk" value="Python">Python</option>
+                <option class="skillsChk" value="JavaScript">JavaScript</option>
+                <option class="skillsChk" value="Other">Other</option>
               </select>
             </fieldset>
           <br>
@@ -110,12 +110,12 @@
           https://codepen.io/pauljjames/pen/MYEXOy
           -->
             <div class="teamForm">
-                <label for="name">Name:</label>
-                <input class="memName single" type="text" name="user_name">
+                <label for="name">Names of Team Members:</label>
+                <input class="memName single" type="text" id="memsName">
             </div>
-              <br><br>
+            <!-- <br><br>
               <button type="add" id="addMem" class="btn btn-outline-success">Add team member</button> <br> <br>
-          
+          --> 
             <label>Add supplements: </label> <br>
             <input type="checkbox" id="github" name="user_links"><label class="light">GitHub</label><br>
             <input type="checkbox" id="linkedin" name="user_links"><label class="light">LinkedIn</label><br>
@@ -124,7 +124,10 @@
             <input type="checkbox" id="behance" name="user_links"><label class="light">Behance</label><br>
             
             <label for="name">Add image link: </label>
-            <input type="url" id="link" name="img_link">
+            <input type="url" id="img_link" name="img_link">
+
+            <label for="name">Describe your image </label>
+            <input type="text" id="img_alt" name="img_alt">
 
             <button id="newProj" type="submit">Showcase project</button>
           
