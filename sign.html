@@ -33,14 +33,14 @@
         -->
         <form> 
             <ul class="tabs">
-                <li class="tab-button"><button id="btnsignup" class="btn btn-info tablinks">Sign Up</button></li>
-                <li class="tab-button"><button id="btnlogin" class="btn btn-info tablinks active">Log In</button></li>
+                <li class="tab-button"><button id="btnsignup" class="btn btn-info tablinks active">Sign Up</button></li>
+                <li class="tab-button"><button id="btnlogin" class="btn btn-info tablinks">Log In</button></li>
             </ul>
 
             <!--tab content getting changed-->
-            <div class="tab-content invisible" id="signup">
-                <h1 class = "msg">Create an Account!</h1>
-                <div class="signup">
+            <div class="tab-content"> <!--<div class="tab-content invisible" id="signup">-->
+                <div><h1 class = "msg">Create an Account!</h1></div> <!-- h1, button-->
+
                     <div class = "email"><label for="emailid"><b>
                      Email ID</b></label> 
                     <input type="text" name="email id" aria-label="input email" placeholder="Enter Email ID"></div> 
@@ -49,37 +49,20 @@
                     Password</b></label>  
                     <input type="text" name="password"  aria-label="input password" placeholder="Enter Password"></div>
                     
-                    <div class = "confirm"></div><label for="confirm-password"><b>
+                    <div class = "confirm"><label for="confirm-password"><b>
                     Confirm Password</b></label> 
-                    <input type="text" name="password"  aria-label="confirm password" placeholder="Re-enter Password">   
+                    <input type="text" name="password"  aria-label="confirm password" placeholder="Re-enter Password"></div>   
                     <br>
+
                     <div class="checkbox">
                         <input type="checkbox" class="form-check-input">
-                        <label class="form-check-label" for="check">Agree to Terms and Conditions.</label>
-                        </div>  
-                        
-                    <div class = "submit-button">
-                        <label for="submit" aria-label="submit button"></label><button class = "btn btn-dark submit">Get Started!</button>  
-                    </div> 
-                </div> 
+                        <label class="form-check-label" for="check">Agree to Terms and Conditions.</label></div>  
+                        <br>
+
+                        <div class = "submit-button">
+                        <label for="submitbutton" aria-label="submit button"></label><button id = "button-submit" class = "btn btn-dark submit">Get Started!</button></div>  
               </div> <!--tab-content-->
 
-              <div class="tab-content" id="login">
-                <h1 class = "msg">Create an Account!</h1>
-                <div class="login">
-                    <div class = "email"><label for="emailid"><b>
-                     Email ID</b></label> 
-                    <input type="text" name="email id" aria-label="input email" placeholder="Enter Email ID"></div> 
-                    
-                    <div class = "password"><label for="password"><b>
-                    Password</b></label>  
-                    <input type="text" name="password"  aria-label="input password" placeholder="Enter Password"></div>
-
-                    <div class = "submit-button">
-                        <label for="submit" aria-label="submit button"></label><button class = "btn btn-dark submit">Get Started!</button>  
-                    </div> 
-                </div> 
-              </div> <!--tab-content-->
         </form>
      </main>
      <script src="js/sign.js"></script>
