@@ -1,8 +1,7 @@
 'use strict';
 
 let state = {
-    currProj: [],
-    findProj: []
+    currProj: []
 };
 
 // fetch data from json file
@@ -13,7 +12,6 @@ function fetchData() {
         })
         .then(function (data) {
             state.currProj = data.currProj;
-            state.findProj = data.findProjects;
             renderShowcaseCards(state.currProj);
         });
 }
@@ -32,6 +30,48 @@ addProjBtn.addEventListener('click', function() {
     form.classList.remove("invisible");
     form.scrollIntoView({behavior: "smooth", block: "start", inline: "nearest"});
 });
+
+//lets user add multiple team members - Page goes into error
+let addMember = document.querySelector("#addMem");
+addMember.addEventListener('click', function(){
+    let field = document.querySelector(".teamForm");
+    let label = document.createElement('label');
+    label.innerHTML = "Name: ";
+    let input = document.createElement('input');
+    input.classList.add("memName");
+    input.classList.add("single");
+    input.type = "text";
+    field.appendChild(label);
+    field.appendChild(input);
+});
+
+// Executes when the user clicks to finally add project
+let add = document.querySelector("#newProj");
+add.addEventListener('click', function() {
+    updateState();
+    renderShowcaseCards(state.currProj);
+})
+
+//Updates the state variable to add the new project
+function updateState() {
+    // get all the input variables
+    let
+
+    //create new object from inputs
+    let newState = {
+        "name": ,
+        "description": ,
+        "skills": [],
+        "team": [],
+        "purpose": ,
+        "img": "",
+        "alt":,
+        "links": []
+    }
+    // put into state
+    state.currProj.push(newState);
+}
+
 
 
 // Adds all showcase cards to page

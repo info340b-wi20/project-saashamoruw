@@ -81,8 +81,8 @@
               <label for="title">Title:</label>
               <input class="single" type="text" id="title" name="title">
           
-              <label for="bio">Description:</label>
-              <textarea id="bio" name="proj_bio"></textarea>
+              <label for="descr">Description:</label>
+              <textarea id="descr" name="proj_bio"></textarea>
           
               <label>Purpose</label> <br>
               <input type="radio" id="info340" name="purpose"><label for="info340" class="light">INFO 340</label><br/>
@@ -109,29 +109,12 @@
           <!-- Make provision to add more team members?
           https://codepen.io/pauljjames/pen/MYEXOy
           -->
-            <label for="name">Name:</label>
-            <input class="single" type="text" id="name" name="user_name">
-            <label for="job">Job Role</label>
-            <select id="job" name="user_job">
-                      <optgroup label="Programming">
-                          <option value="frontend_developer">Front-End Developer</option>
-                          <option value="backend_developer">Back-End Developer</option>
-                          <option value="web_designer">Web Designer</option>
-                          <option value="data_analyst">Data Analyst</option>
-
-                      </optgroup>
-                      <optgroup label="Mobile">
-                          <option value="android_developer">Android Developer</option>
-                          <option value="ios_developer">iOS Developer</option>
-                          <option value="uiux_designer">UI/UX Designer</option>
-                      </optgroup>
-                      <optgroup label="Business">
-                          <option value="business_owner">Business Owner</option>
-                          <option value="freelancer">Freelancer</option>
-                      </optgroup>
-              </select>
+            <div class="teamForm">
+                <label for="name">Name:</label>
+                <input class="memName single" type="text" name="user_name">
+            </div>
               <br><br>
-              <button type="add" class="btn btn-outline-success">Add team member</button> <br> <br>
+              <button type="add" id="addMem" class="btn btn-outline-success">Add team member</button> <br> <br>
           
             <label>Add supplements: </label> <br>
             <input type="checkbox" id="github" name="user_links"><label class="light">GitHub</label><br>
@@ -143,7 +126,7 @@
             <label for="name">Add image link: </label>
             <input type="url" id="link" name="img_link">
 
-            <button type="submit">Showcase project</button>
+            <button id="newProj" type="submit">Showcase project</button>
           
           </form>
     </section>
