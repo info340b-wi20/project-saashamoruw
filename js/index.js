@@ -52,21 +52,29 @@ add.addEventListener('click', function() {
     renderShowcaseCards(state.currProj);
 })
 
+
 //Updates the state variable to add the new project
+//
 function updateState() {
-    // get all the input variables
-    
+    // get all the input variables //get the form input
+    let name = document.querySelector('#title').value;
+    let descr = document.querySelector('#descr').value;
+    let skills = document.querySelectorAll('option').value;
+    let purpose = document.querySelectorAll('input[type="radio"]').value;
+    let img = document.querySelector('input[name = "img_link"]').value;
+    let links = document.querySelectorAll('input[name = "user_links"]'.value)
+    let team = document.querySelectorAll('input[class = "memName single"]'.value)
 
     //create new object from inputs
     let newState = {
-        "name": ,
-        "description": ,
-        "skills": [],
-        "team": [],
-        "purpose": ,
-        "img": "",
-        "alt":,
-        "links": []
+        "name": name,
+        "description": descr,
+        "skills": skills,
+        "team": team, //
+        "purpose": purpose, //
+        "img": img,
+        "alt": img.alt,
+        "links": links // 
     }
     // put into state
     state.currProj.push(newState);
