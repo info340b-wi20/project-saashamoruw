@@ -46,6 +46,8 @@ add.addEventListener('click', function(event) {
    event.preventDefault();
    updateState();
    renderFormCard(state.currProj);
+   let sec = document.querySelector(".projects");
+   sec.scrollIntoView({behavior: "smooth", block: "end", inline: "nearest"});
 })
 
 // makes the form card - on separate row
