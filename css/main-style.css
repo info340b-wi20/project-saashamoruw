@@ -72,10 +72,11 @@ display: none;
 nav ul {
 display: flex;
 float: left;
+list-style-type: none;
+padding: 0;
 }
 
 nav li {
-list-style: none;
 display: inline-block;
 font-size: 3ch;
 }
@@ -506,6 +507,8 @@ label.light {
   
   .tabs {
       display: flex;
+      list-style-type: none;
+      padding: 0;
   }
   
   .tab-button {
