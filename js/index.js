@@ -49,11 +49,32 @@ let add = document.querySelector("#newProj");
 add.addEventListener('click', function(event) {
     event.preventDefault();
     updateState();
-    renderShowcaseCards(state.currProj);
+    renderFormCard(state.currProj);
 })
 
-
-
+// makes the form card - on separate row
+// with using renderShowcaseCase with form all cards get made again after form is submitted
+function renderFormCard(obj) {
+    let sec = document.querySelector(".projects");
+    let row = document.createElement('div');
+    row.classList.add("row");
+    let index = obj.length - 1;
+        let card = createShowcaseCard(obj[index]);
+        row.appendChild(card);
+        // other new cards should get appended here so display isnt weird
+    sec.appendChild(row);
+}
+/*
+function renderShowcaseCards(obj) {
+    let sec = document.querySelector(".projects");
+    let row = document.createElement('div');
+    row.classList.add("row");
+    for(var i = 0; i < obj.length; i++) {
+        let card = createShowcaseCard(obj[i]);
+        row.appendChild(card);
+    }
+    sec.appendChild(row);
+}*/
 
 
 //Updates the state variable to add the new project
@@ -81,7 +102,9 @@ function updateState() {
         "links": links
     }
     // put into state
+
     state.currProj.push(newState);
+    console.log(state.currProj);
 }
 
 
