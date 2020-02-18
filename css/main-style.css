@@ -195,7 +195,13 @@ nav ul li {
 }
 .background-pic h1 {
     font-family: 'Kaushan Script', fantasy;
-    font-size: 5rem;
+    font-size: 6ch;
+}
+
+@media screen and (min-width: 700px) {
+  .background-pic h1 {
+    font-size: 10ch;
+}
 }
 
 .background-pic h1:hover {
@@ -516,11 +522,12 @@ label.light {
       margin-bottom: 15px;
   }
   
- .tab-button button:hover {
+ .tab-button button:hover, button:active {
       background-color:  #1C3041;
-  
   }
-  
+
+
+
   .tabs button {
       padding: 15px;
       color: #FFF;
@@ -528,6 +535,7 @@ label.light {
       border-radius: 0;
       font-family: 'Kaushan Script', fantasy;
       font-size: 20px;
+    
   }
   
   .tab-content {
@@ -544,7 +552,7 @@ label.light {
 
   .submit-button {
     display: flex;
-    flex-grow: 1;    
+   
   }
 
   .submit-button button {
@@ -557,6 +565,7 @@ label.light {
       letter-spacing: 2px;
       margin-top: 10px;
       background-color: #1C3041;
+      flex: 1 0 0;  
   }
 
 
