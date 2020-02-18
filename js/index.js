@@ -133,8 +133,8 @@ function createCardSideOne(obj) {
     text.classList.add('card-text');
     text.textContent = obj.description;
     // link everything
-    cardBody.appendChild(topImg); cardBody.appendChild(title); cardBody.appendChild(text);
-    card.appendChild(cardBody); card.appendChild(footer);
+    cardBody.appendChild(title); cardBody.appendChild(text);
+    card.appendChild(topImg); card.appendChild(cardBody); card.appendChild(footer);
     side.appendChild(card);
     return side;
 }
