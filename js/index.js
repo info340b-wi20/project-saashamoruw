@@ -57,13 +57,13 @@ add.addEventListener('click', function() {
 //
 function updateState() {
     // get all the input variables //get the form input
-    let name = document.querySelector('#title');
-    let descr = document.querySelector('#descr');
-    let skills = document.querySelectorAll('option');
-    let purpose = document.querySelectorAll('input[type="radio"]');
-    let img = document.querySelector('input[name = "img_link"]');
-    let links = document.querySelectorAll('input[name = "user_links"]')
-    let team = document.querySelectorAll('input[class = "memName single"]')
+    let name = document.querySelector('#title').value;
+    let descr = document.querySelector('#descr').value;
+    let skills = document.querySelectorAll('option').value;
+    let purpose = document.querySelectorAll('input[type="radio"]').value;
+    let img = document.querySelector('input[name = "img_link"]').value;
+    let links = document.querySelectorAll('input[name = "user_links"]'.value)
+    let team = document.querySelectorAll('input[class = "memName single"]'.value)
 
     //create new object from inputs
     let newState = {
