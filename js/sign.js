@@ -10,6 +10,12 @@ button.classList.add('active');
 document.querySelector('signin').classList.remove('active');
 }
 
+let login = document.querySelector('#btnlogin');
+let signup = document.querySelector('#btnsignup');
+
+login.addEventListener('click', tabsChange('login'));
+signup.addEventListener('click', tabsChange('signup'));
+
 
 
 

@@ -20,8 +20,8 @@ body {
 }
 
 a {
-  text-decoration-color: black;
   text-decoration: underline;
+  text-decoration-color: black;
 }
 p {
   line-height: 1.5em;
@@ -31,12 +31,30 @@ p {
   display:none;
 }
 
+/* from sign up page */
+.tab-button button:hover, button:active {	
+  background-color:  #1C3041;	
+}	
+.tabs button {	
+  padding: 15px;	
+  color: #FFF;	
+  width: 100%;	
+  border-radius: 0;	
+  font-family: 'Kaushan Script', fantasy;	
+  font-size: 20px;	
+  
+}	
+.submit-button {	
+  display: flex;	
+   
+}	
+
 /* Nav bar styles */
  /*add Hamburger menu for small screens*/
  nav {
   width: 100%;
   height: 7vh;
-  background-color: #00b5cc;;
+  background-color: #00b5cc;
   padding: 0.5rem;
   position: fixed;
   bottom: 0;
@@ -55,6 +73,11 @@ nav #name {
 
 nav .about {
 float: right;
+}
+
+h1 {
+  margin: 0 0 30px 0;
+  text-align: center;
 }
 
 nav ul h1 {
@@ -215,12 +238,127 @@ nav ul li {
       -webkit-mask-position: -50%;
     }
 }
+/* Form new */
 
+form {
+  box-shadow: 0px 1px 15px black;
+    max-width: 300px;
+    margin: 10px auto;
+    padding: 10px 20px;
+    background: #f4f7f8;
+    border-radius: 8px;
+  }
+  
+  
+  input[type="text"],
+  input[type="password"],
+  input[type="date"],
+  input[type="datetime"],
+  input[type="email"],
+  input[type="number"],
+  input[type="search"],
+  input[type="tel"],
+  input[type="time"],
+  input[type="url"],
+  textarea,
+  select {
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    font-size: 16px;
+    height: auto;
+    margin: 0;
+    outline: 0;
+    padding: 15px;
+    width: 100%;
+    background-color: #e8eeef;
+    color: #8a97a0;
+    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.03) inset;
+    margin-bottom: 30px;
+  }
+  
+  input[type="radio"],
+  input[type="checkbox"] {
+    margin: 0 4px 8px 0;
+  }
+  
+  select {
+    padding: 6px;
+    height: 32px;
+    border-radius: 2px;
+  }
+  
+  form button {
+    padding: 19px 39px 18px 39px;
+    color: #FFF;
+    background-color: #4bc970;
+    font-size: 18px;
+    text-align: center;
+    font-style: normal;
+    border-radius: 5px;
+    width: 100%;
+    border: 1px solid #3ac162;
+    border-width: 1px 1px 3px;
+    box-shadow: 0 -1px 0 rgba(255, 255, 255, 0.1) inset;
+    margin-bottom: 10px;
+  }
+  
+  button.btn {
+    width: 30%;
+    font-size: 0.75em;
+  }
+  
+  fieldset {
+    margin-bottom: 30px;
+    border: none;
+  }
+  
+  legend {
+    font-size: 1.4em;
+    margin-bottom: 10px;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 8px;
+  }
+  
+  input.single {
+    height: 40px;
+  }
+  
+  label.light {
+    font-weight: 300;
+    display: inline;
+  }
+  
+  #languages {
+    height: 100px;
+  }
+  
+  .number {
+    background-color: #5fcf80;
+    color: #fff;
+    height: 30px;
+    width: 30px;
+    display: inline-block;
+    font-size: 0.8em;
+    margin-right: 4px;
+    line-height: 30px;
+    text-align: center;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.2);
+    border-radius: 100%;
+  }
+  
+  @media screen and (min-width: 480px) {
+    form {
+      max-width: 480px;
+    }
+  }
+  
 /* Search bar styles - for future search and filter stuff*/
 .search-bar {
     margin-top: 10px;
     padding-left: 10px;
-    display: flex;
     width: 50%;
     border: none;
     position: relative;
@@ -324,13 +462,6 @@ p.card-title {
 
 
 /* Card flip effect*/
-  .cardContainer:hover .side_two {
-    transform: rotateY(0deg);
-  }
-
-  .cardContainer:hover .side_one {
-    transform: rotateY(180deg);
-  }
 
   .content-area {
     transform: perspective(1000px);
@@ -359,141 +490,15 @@ p.card-title {
     transition: 1s;
     transform-style: preserve-3d;
   }
+  .cardContainer:hover .side_two {
+    transform: rotateY(0deg);
+  }
 
+  .cardContainer:hover .side_one {
+    transform: rotateY(180deg);
+  }
  
 
-/* Form Old */
-
-.form {
-    margin-top: auto;
-    border: none;
-    text-align: left;
-    font-size: 0.75em;
-    font-family: 'Roboto', sans-serif;
-    padding: 35px;
-    line-height: 30px;
-}
-
-/* Form new */
-
-form {
-box-shadow: 0px 1px 15px black;
-  max-width: 300px;
-  margin: 10px auto;
-  padding: 10px 20px;
-  background: #f4f7f8;
-  border-radius: 8px;
-}
-
-h1 {
-  margin: 0 0 30px 0;
-  text-align: center;
-}
-
-input[type="text"],
-input[type="password"],
-input[type="date"],
-input[type="datetime"],
-input[type="email"],
-input[type="number"],
-input[type="search"],
-input[type="tel"],
-input[type="time"],
-input[type="url"],
-textarea,
-select {
-  background: rgba(255, 255, 255, 0.1);
-  border: none;
-  font-size: 16px;
-  height: auto;
-  margin: 0;
-  outline: 0;
-  padding: 15px;
-  width: 100%;
-  background-color: #e8eeef;
-  color: #8a97a0;
-  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.03) inset;
-  margin-bottom: 30px;
-}
-
-input[type="radio"],
-input[type="checkbox"] {
-  margin: 0 4px 8px 0;
-}
-
-select {
-  padding: 6px;
-  height: 32px;
-  border-radius: 2px;
-}
-
-form button {
-  padding: 19px 39px 18px 39px;
-  color: #FFF;
-  background-color: #4bc970;
-  font-size: 18px;
-  text-align: center;
-  font-style: normal;
-  border-radius: 5px;
-  width: 100%;
-  border: 1px solid #3ac162;
-  border-width: 1px 1px 3px;
-  box-shadow: 0 -1px 0 rgba(255, 255, 255, 0.1) inset;
-  margin-bottom: 10px;
-}
-
-button.btn {
-  width: 30%;
-  font-size: 0.75em;
-}
-
-fieldset {
-  margin-bottom: 30px;
-  border: none;
-}
-
-legend {
-  font-size: 1.4em;
-  margin-bottom: 10px;
-}
-
-label {
-  display: block;
-  margin-bottom: 8px;
-}
-
-input.single {
-  height: 40px;
-}
-
-label.light {
-  font-weight: 300;
-  display: inline;
-}
-
-#languages {
-  height: 100px;
-}
-
-.number {
-  background-color: #5fcf80;
-  color: #fff;
-  height: 30px;
-  width: 30px;
-  display: inline-block;
-  font-size: 0.8em;
-  margin-right: 4px;
-  line-height: 30px;
-  text-align: center;
-  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.2);
-  border-radius: 100%;
-}
-
-@media screen and (min-width: 480px) {
-  form {
-    max-width: 480px;
-  }
-}
 
 
 	/*SIGN IN PAGE FORM*/	
@@ -531,18 +536,7 @@ label.light {
         margin-bottom: 15px;	
     }	
       
-   .tab-button button:hover, button:active {	
-        background-color:  #1C3041;	
-    }	
-    .tabs button {	
-        padding: 15px;	
-        color: #FFF;	
-        width: 100%;	
-        border-radius: 0;	
-        font-family: 'Kaushan Script', fantasy;	
-        font-size: 20px;	
-        
-    }	
+   
       
     .tab-content {	
         display: flex;	
@@ -562,10 +556,7 @@ label.light {
       margin-left: 20px;	
       margin-bottom: 10px;	
     }	
-    .submit-button {	
-      display: flex;	
-       
-    }	
+    
     .submit-button button {	
       padding: 15px;	
         color: #FFF;	
