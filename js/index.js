@@ -24,6 +24,17 @@ fetchData();
 // Dynamically add data the user enters to the json file and creates its showcase card
 // Add code to make find projects cards
 // Sign in / sign up page js
+
+// Shows form on click
+let addProjBtn = document.querySelector("#addProjBtn");
+addProjBtn.addEventListener('click', function() {
+    let form = document.querySelector("#addProjForm");
+    form.classList.remove("invisible");
+    form.scrollIntoView({behavior: "smooth", block: "start", inline: "nearest"});
+});
+
+
+// Adds all showcase cards to page
 function renderShowcaseCards(obj) {
     let sec = document.querySelector(".projects");
     let row = document.createElement('div');

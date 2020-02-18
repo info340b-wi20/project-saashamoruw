@@ -6,7 +6,6 @@
 
 body {
     font-family: 'Montserrat', sans-serif; 
-    margin: 8px;
     font-size: 10px;
 }
 
@@ -28,16 +27,9 @@ p {
   line-height: 1.5em;
 }
 
-.action-btn {
-  background-color: #8789C0;
-  width: 200px;
-  border: none;
-  color: white;
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
+.invisible {
+  display:none;
 }
-
 
 /* Nav bar styles */
  /*add Hamburger menu for small screens*/
@@ -96,17 +88,16 @@ margin-right: 10px;
 
 
 @media screen and (min-width: 300px) {
-nav img {
-  width: 7%;
-}
-
+  nav img {
+    width: 7%;
+  }
 }
 
 @media screen and (min-width: 700px) {
-nav img {
-  width: 40px;
+  nav img {
+    width: 40px;
+  }
 }
-
 nav {
   top: 0;
   bottom: 93.5%;
@@ -167,6 +158,10 @@ text-decoration: none;
 nav ul li {
  display: inline-block;
 }
+
+#addProjForm {
+  margin-top: 2em;
+  padding: 1em;
 }
 
 
@@ -201,7 +196,7 @@ nav ul li {
 @media screen and (min-width: 700px) {
   .background-pic h1 {
     font-size: 10ch;
-}
+  }
 }
 
 .background-pic h1:hover {
@@ -220,11 +215,12 @@ nav ul li {
     }
 }
 
-/* Search bar styles */
+/* Search bar styles - for future search and filter stuff*/
 .search-bar {
+    margin-top: 10px;
     padding-left: 10px;
     display: flex;
-    width: 90%;
+    width: 50%;
     border: none;
     position: relative;
     height: 2.5em;
@@ -234,6 +230,7 @@ nav ul li {
     margin-left: auto;
     margin-right: auto;
     border-radius: 30px;
+    display:none;
 }
 
 .search-bar input[type=text] {
@@ -266,6 +263,10 @@ nav ul li {
 }
 
 /* Card styles*/
+.projects {
+  padding-right: 2%;
+  padding-left: 2%
+}
 .row {
   justify-content: center;
 }
@@ -425,7 +426,7 @@ select {
   border-radius: 2px;
 }
 
-button {
+form button {
   padding: 19px 39px 18px 39px;
   color: #FFF;
   background-color: #4bc970;
@@ -584,4 +585,3 @@ footer {
     left: 50%;
     margin-left: 3em;
 }
-
