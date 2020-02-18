@@ -5,6 +5,7 @@
   <meta name="author" content="Saasha Mor and Rajoshi Chakravarty">
   <meta name="description" content="Project finder and showcase">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>ProjectHub</title>
 
   <!-- normalize.css for cross-browser stuff -->
@@ -20,159 +21,124 @@
 
   <!--include favicon-->
   <link rel="icon" type="image/png" href="imgs/projecthub.png" alt="people working together icon">
-  
-
 </head>
 <body>
     <nav>
+        <a href="index.html"><img src="imgs/projecthub.png" alt="Project Hub logo"><span id="name">ProjectHub</span></a>
         <ul>
-            <!-- icon doesn't work??-->
-            <li class="name"> ProjectHub</li>
-            <li><img src ="imgs/projecthub.png" alt="people working together"></li>
-            <li><a href="index.html">Explore</a></li>
-            <li><a href="find.html">Discover</a></li>
-            <li><a href="sign.html">Sign In</a></li>
-            
+            <li><a href="index.html"><h1>EXPLORE</h1><i class = "fa fa-home"></i></a></li>
+            <!--
+            <li><a href="find.html"><h1>JOIN</h1><i class = "fa fa-weixin"></i></a></li>
+            -->
+            <li><a href="sign.html"><h1>LOG IN</h1><i class = "fa fa-user"></i></a></li>
+            <li><a href="proposalV1.html"><h1>ABOUT</h1><i class = "fa fa-info-circle"></i></a></li>
         </ul>
     </nav>
-    <section class="background-pic">
-        <img src="imgs/background-md.jpg" alt="people working together on table">
-        <p>Explore</p>
-    </section>
     <main>
-        <header class="page-header">
-            <h1>Browse projects</h1>
-        </header>
-        <!-- icon doesn't work-->
-        <div class="search-bar" role="search" aria-label="search bar">
-            <i class="fa fa-search fa-flip-horizontal fa-2x" aria-label="search icon"></i>
-            <input type="text" placeholder="Search...">
+    <section class="background-pic">
+        <div class="banner-text">
+            <h1>Explore</h1>
+            <p>Explore projects that showcase the talent around the world!</p>
         </div>
-        <div class="container">
-            <div class="row">
-                <div class="col d-flex">
-                    <div class="card">
-                        <div class="card-body">
-                            <p class="card-title">Publish your own project!</p>
-                            <a href="sign.html" class="btn btn-dark">Publish New Project</a>
-                        </div>
+    </section>
+    <section class="newSec">
+    <div class="search-bar" role="search" aria-label="search bar">
+        <input type="text" placeholder="Search...">
+        <button class="btn btn-info">
+            <i class="fa fa-search fa-2x" aria-label="search icon"></i>
+        </button>
+    </div>
+    </section>
+    
+    <section class="newSec">
+        <div class="row">
+            <div class="addProj">
+                <div class="card text-center" style="width: 18rem; height:auto">
+                    <div class="card-body">
+                        <h5 class="card-title">Showcase your own project!</h5>
+                        <p class="card-text">Do you want the world to see your cool work?</p>
+                        <button id="addProjBtn" class="btn btn-info">Click here!</button>
                     </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-6 ">
-                    <div class="card">
-                        <div class="card-body">
-                            <p class="card-title">Flight Price Tracker</p>
-
-                            <p class="card-text">A website that shows users the trends for flight prices for the last few years and lets users track flights.
-                                Users can bust myths about flight prices (eg. the best prices are lowest on Mondays) and use this tool to make their own decisions!
-                            </p>
-                            <p class="card-text"><em>Team Members:</em> John Doe, Jane Doe, Lane Doe</p>
-                            <p class="card-text">Languages/Skills:
-                                <span class="skill"> HTML </span>, <span class="skill">CSS</span>, <span class="skill"> JavaScript </span> </p>
-                            </p>
-                            <div class="links">
-                                <a href="#" class="btn btn-dark">View more</a>
-                                <a href="#"><i class="fa fa-github fa-2x" aria-label="github logo"></i></a>
-                            </div>
-                        </div>
-                        <div class="card-footer">
-                            <a href="#" class="btn btn-info">Personal</a>
-                        </div>
                     </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="card">
-                        <div class="card-body">
-                            <p class="card-title">FindMyToilet</p>
-                            <p class="card-text">Helps users find bathrooms near them to suit their needs. Can help users look for accesible bathrooms, bathrooms with certain features 
-                                such as showers, free sanitary products, baby changing stations in male bathrooms etc. 
-                            </p>
-                            <p class="card-text"><em>Team Members:</em> Joe Doe, Jan Doe, Jess Doe</p>
-                            <p class="card-text">Languages/Skills: 
-                                <span class="skill"> HTML </span>, <span class="skill">CSS</span>, <span class="skill"> SQL </span>, <span class="skill">R</span> </p>
-                                <div class="links">
-                                    <a href="#" class="btn btn-dark">View more</a>
-                                    <a href="#"><i class="fa fa-github fa-2x" aria-label="github logo"></i></a>
-                                </div>
-                        </div>
-                        <div class="card-footer">
-                            <a href="#" class="btn btn-dark">INFO 498</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="card">
-                        <div class="card-body">
-                            <p class="card-title">Brief</p>
-                            <p class="card-text">An application that helps users get news articles in a brief format by reading and understanding news from the user's favorite sources.
-                            </p>
-                            <p class="card-text"><em>Team Members:</em> John Doe, Jane Doe, Lane Doe + 15 others</p>
-                            <p class="card-text">Languages/Skills:
-                                <span class="skill"> Java </span>, <span class="skill">Python</span>, <span class="skill"> Lisp </span>, 
-                                <span class="skill"> SQL </span> </p>
-                            </p>
-                            <div class="links">
-                                <a href="#" class="btn btn-dark">View more</a>
-                                <a href="#"><i class="fa fa-github fa-2x" aria-label="github logo"></i></a>
-                            </div>
-                        </div>
-                        <div class="card-footer">
-                            <a href="#" class="btn btn-info">AI Capstone</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="card">
-                        <div class="card-body">
-                            <p class="card-title">FoodEx</p>
-                            <p class="card-text">A food delivery service that aims to reduce waste by picking up (packaged and unused) leftover groceries from users to promote a more sustainable future!
-                            </p>
-                            <p class="card-text"><em>Team Members:</em> John Doe, Jane Doe</p>
-                            <p class="card-text">Languages/Skills:
-                                <span class="skill"> Java </span>, <span class="skill">InVision</span>, <span class="skill"> Figma </span> </p>
-                            </p>
-                            <div class="links">
-                                <a href="#" class="btn btn-dark">View more</a>
-                                <a href="#"><i class="fa fa-github fa-2x" aria-label="github logo"></i></a>
-                            </div>
-                        </div>
-                        <div class="card-footer">
-                            <a href="#" class="btn btn-info">INFO 200</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="card">
-                        <div class="card-body">
-                            <p class="card-title">StockHawk</p>
-                            <p class="card-text">An app that records trends in stocks that the user is interetsed in.
-                            </p>
-                            <p class="card-text"><em>Team Members:</em> John Doe, Jane Doe, Joe Doe, Lane Doe</p>
-                            <p class="card-text">Languages/Skills:
-                                <span class="skill"> UI/UX </span>, <span class="skill">SQL</span>, <span class="skill"> JavaScript </span> </p>
-                            </p>
-                            <div class="links">
-                                <a href="#" class="btn btn-dark">View more</a>
-                                <a href="#"><i class="fa fa-github fa-2x" aria-label="github logo"></i></a>
-                            </div>
-                        </div>
-                        <div class="card-footer">
-                            <a href="#" class="btn btn-info">INFO 330</a>
-                        </div>
-                    </div>
-                </div>
-
-
             </div>
         </div>
+    </section>
+    <section class="projects">
+        <!-- cards get inserted here -->
+        
+    </section> <!--section end-->
+
+    <section id="addProjForm" class="invisible">
+        <form action="index.html" method="post">
+            <h1>New Project</h1> <br>
+            <fieldset>
+              <legend><span class="number">1</span> Project info</legend>
+              <label for="title">Title:</label>
+              <input class="single" type="text" id="title" name="title">
+          
+              <label for="descr">Description:</label>
+              <textarea id="descr" name="proj_bio"></textarea>
+          
+              <label>Purpose</label> <br>
+              <input type="radio" id="INFO340" name="purpose"><label for="info340" class="light">INFO 340</label><br/>
+              <input type="radio" id="Capstone" name="purpose"><label for="capstone" class="light">Capstone</label><br/>
+              <input type="radio" id="INFO498" name="purpose"><label for="info498" class="light">INFO 498</label><br/>
+              <input type="radio" id="Personal" name="purpose"><label for="personal" class="light">Personal</label><br/>
+              
+              <label>Languages/Skills Used</label> <br>
+              <small class="text-muted">Select multiple values by holding down the Ctrl/Cmd key</small>
+              <select id="languages" multiple>
+                <option class="skillsChk" value="HTML">HTML</option>
+                <option class="skillsChk" value="CSS">CSS</option>
+                <option class="skillsChk" value="Java">Java</option>
+                <option class="skillsChk" value="Python">Python</option>
+                <option class="skillsChk" value="JavaScript">JavaScript</option>
+                <option class="skillsChk" value="Other">Other</option>
+              </select>
+            </fieldset>
+          <br>
+            <fieldset>
+              <legend><span class="number">2</span> Team Info</legend>
+              
+            </fieldset>
+          <!-- Make provision to add more team members?
+          https://codepen.io/pauljjames/pen/MYEXOy
+          -->
+            <div class="teamForm">
+                <label for="name">Names of Team Members:</label>
+                <input class="memName single" type="text" id="memsName">
+            </div>
+            <!-- <br><br>
+              <button type="add" id="addMem" class="btn btn-outline-success">Add team member</button> <br> <br>
+          --> 
+            <label>Add supplements: </label> <br>
+            <input type="checkbox" id="github" name="user_links"><label class="light">GitHub</label><br>
+            <input type="checkbox" id="linkedin" name="user_links"><label class="light">LinkedIn</label><br>
+            <input type="checkbox" id="figma" name="user_links"><label class="light">Figma</label><br>
+            <input type="checkbox" id="invision" name="user_links"><label class="light">InVision</label><br>
+            <input type="checkbox" id="behance" name="user_links"><label class="light">Behance</label><br>
+            
+            <label for="name">Add image link: </label>
+            <input type="url" id="img_link" name="img_link">
+
+            <label for="name">Describe your image </label>
+            <input type="text" id="img_alt" name="img_alt">
+
+            <button id="newProj" type="submit">Showcase Project</button>
+          
+          </form>
+    </section>
+
     </main>
     <section>
         <footer>
-            <p>Authors: Saasha Mor and Rajoshi Chakravarty</p>
+            <p> &copy; Authors: Saasha Mor and Rajoshi Chakravarty</p>
             <p>Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com</a></p>
         </footer>
     </section>
+
+    <!--Javascript Files-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <script src="js/index.js"></script>
 </body>
 </html>

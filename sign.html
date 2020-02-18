@@ -17,36 +17,56 @@
   <link href="https://fonts.googleapis.com/css?family=Kaushan+Script" rel="stylesheet">
 
 </head>
-<body>
+<body class = "sign">
     <nav>
+        <a href="index.html"><img src="imgs/projecthub.png" alt="Project Hub logo"><span id="name">ProjectHub</span></a>
         <ul>
-            <!-- icon doesn't work??-->
-            <li><a href="#"> <i class="fa fa-bahai" aria-label="firework icon"></i> </a></li>
-            <li><a href="index.html">Explore</a></li>
-            <li><a href="find.html">Discover</a></li>
-            <li><a href="sign.html">Sign In</a></li>
+            <li><a href="index.html"><h1>EXPLORE</h1><i class = "fa fa-home"></i></a></li>
+            <!--
+            <li><a href="find.html"><h1>JOIN</h1><i class = "fa fa-weixin"></i></a></li>
+            -->
+            <li><a href="sign.html"><h1>LOG IN</h1><i class = "fa fa-user"></i></a></li>
+            <li><a href="proposalV1.html"><h1>ABOUT</h1><i class = "fa fa-info-circle"></i></a></li>
         </ul>
     </nav>
-    <div class="background-pic">
-        <img src="imgs/sign-lg.jpg">
-        <p>Sign In</p>
-    </div>
     <main>
-        <div class = "form" role = "form" > 
-            <label for="emailid"><b>
-                Email ID</b></label> 
-            <input type="text" name="email id" required> 
-            <br>
-            <label for="password"><b>
-            Password:</b></label>  
-            <input type="text" name="password" required> 
-            <br><br> 
-            <label for="submit"><a href="#" class="btn btn-dark">Submit</a></label>  
-            
-            <br>
-            <b> Don't have an ID? <em>Create one.</em></b>
+        <!-- 
+            Create tabs for sign up / signin -- add diff css for small
+        -->
+        <form> 
+            <ul class="tabs">
+                <li class="tab-button"><button id="btnsignup" class="btn btn-info tablinks active">Sign Up</button></li>
+                <li class="tab-button"><button id="btnlogin" class="btn btn-info tablinks">Log In</button></li>
+            </ul>
 
-        </div>  
-    </main>
+            <!--tab content getting changed-->
+            <div class="tab-content"> <!--<div class="tab-content invisible" id="signup">-->
+                <div><h1 class = "msg">Create an Account!</h1></div> <!-- h1, button-->
+
+                    <div class = "email"><label for="emailid"><b>
+                     Email ID</b></label> 
+                    <input type="text" for = "email" id = "email" name="email id" aria-label="input email" placeholder="Enter Email ID" required></div> 
+                    
+                    <div class = "password"><label for="password"><b>
+                    Password</b></label>  
+                    <input type="text" for = "password" id = "password" name="password"  aria-label="input password" placeholder="Enter Password" minlength="6" required></div>
+                    
+                    <div class = "confirm"><label for="confirm-password"><b>
+                    Confirm Password</b></label> 
+                    <input type="text" for = "confirm" id = "confirm" name="password"  aria-label="confirm password" placeholder="Re-enter Password" minlength="6" required></div>   
+                    <br>
+
+                    <div class="checkbox">
+                        <input type="checkbox" class="form-check-input" required>
+                        <label class="form-check-label" for="check">Agree to Terms and Conditions.</label></div>  
+                        <br>
+
+                        <div class = "submit-button">
+                        <label for="submitbutton" aria-label="submit button"></label><button id = "button-submit" type="submit" class = "btn btn-dark submit">Get Started!</button></div>  
+              </div> <!--tab-content-->
+
+        </form>
+     </main>
+     <script src="js/sign.js"></script>
 </body>
 </html>

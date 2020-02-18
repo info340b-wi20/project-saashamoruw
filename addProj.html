@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="author" content="Saasha Mor and Rajoshi Chakravarty">
+  <meta name="description" content="Project finder and showcase">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>ProjectHub</title>
+
+  <!-- normalize.css for cross-browser stuff -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css">
+  <link rel="stylesheet" href="css/main-style.css">
+  <link rel="stylesheet"
+  href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.css">
+
+  <!-- include required fonts -->  
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Kaushan+Script" rel="stylesheet">
+
+  <!--include favicon-->
+  <link rel="icon" type="image/png" href="imgs/projecthub.png" alt="people working together icon">
+  
+
+</head>
+<body>
+    <nav>
+        <ul>
+            <li class="name"> ProjectHub</li>
+            <li><img src ="imgs/projecthub.png" alt="people working together"></li>
+            <li><a href="index.html">Explore projects</a></li>
+            <li><a href="find.html">Join project</a></li>
+            <li><a href="sign.html">Sign In</a></li>
+            
+        </ul>
+    </nav>
+
+    <main>
+        <form action="index.html" method="post">
+            <h1>New Project</h1> <br>
+            <fieldset>
+              <legend><span class="number">1</span> Project info</legend>
+              <label for="title">Title:</label>
+              <input class="single" type="text" id="title" name="title">
+          
+              <label for="bio">Description:</label>
+              <textarea id="bio" name="proj_bio"></textarea>
+          
+              <label>Purpose</label> <br>
+              <input type="radio" id="info340" name="purpose"><label for="info340" class="light">INFO 340</label><br/>
+              <input type="radio" id="capstone" name="purpose"><label for="capstone" class="light">Capstone</label><br/>
+              <input type="radio" id="info498" name="purpose"><label for="info498" class="light">INFO 498</label><br/>
+              <input type="radio" id="personal" name="purpose"><label for="personal" class="light">Personal</label><br/>
+              
+              <label>Languages/Skills Used</label> <br>
+              <small class="text-muted">Select multiple values by holding down the Ctrl/Cmd key</small>
+              <select id="languages" multiple>
+                <option value="HTML">HTML</option>
+                <option value="CSS">CSS</option>
+                <option value="java">Java</option>
+                <option value="python">Python</option>
+                <option value="js">JavaScript</option>
+                <option value="other">Other</option>
+              </select>
+            </fieldset>
+          <br>
+            <fieldset>
+              <legend><span class="number">2</span> Team Info</legend>
+              
+            </fieldset>
+          <!-- Make provision to add more team members?
+          https://codepen.io/pauljjames/pen/MYEXOy
+          -->
+            <label for="name">Name:</label>
+            <input class="single" type="text" id="name" name="user_name">
+            <label for="job">Job Role</label>
+            <select id="job" name="user_job">
+                      <optgroup label="Programming">
+                          <option value="frontend_developer">Front-End Developer</option>
+                          <option value="backend_developer">Back-End Developer</option>
+                          <option value="web_designer">Web Designer</option>
+                          <option value="data_analyst">Data Analyst</option>
+
+                      </optgroup>
+                      <optgroup label="Mobile">
+                          <option value="android_developer">Android Developer</option>
+                          <option value="ios_developer">iOS Developer</option>
+                          <option value="uiux_designer">UI/UX Designer</option>
+                      </optgroup>
+                      <optgroup label="Business">
+                          <option value="business_owner">Business Owner</option>
+                          <option value="freelancer">Freelancer</option>
+                      </optgroup>
+              </select>
+              <br><br>
+              <button type="add" class="btn btn-outline-success">Add team member</button> <br> <br>
+          
+            <label>Add supplements: </label> <br>
+            <input type="checkbox" id="github" name="user_links"><label class="light">GitHub</label><br>
+            <input type="checkbox" id="linkedin" name="user_links"><label class="light">LinkedIn</label><br>
+            <input type="checkbox" id="figma" name="user_links"><label class="light">Figma</label><br>
+            <input type="checkbox" id="invision" name="user_links"><label class="light">InVision</label><br>
+            <input type="checkbox" id="behance" name="user_links"><label class="light">Behance</label><br>
+            
+            <label for="name">Add image link: </label>
+            <input type="url" id="link" name="img_link">
+
+            <button type="submit">Showcase project</button>
+          
+          </form>
+    </main>
+</body>
+</html>
