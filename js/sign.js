@@ -10,6 +10,7 @@ event.preventDefault();
     field.style.display = "none";
     let submit = document.querySelector('#button-submit');
     submit.textContent = "Log In!"
+    submit.style.marginTop = "-25px"
     let check = document.querySelector('.checkbox');
     check.style.display = "none";    
     let msg = document.querySelector('.msg');
@@ -26,6 +27,7 @@ signup.addEventListener('click', function(event) {
     field.style.display = "inline-block";
     let submit = document.querySelector('#button-submit');
     submit.textContent = "Get Started!";
+    submit.style.marginTop = "0px"
     let check = document.querySelector('.checkbox');
     check.style.display = "inline-block";
     let msg = document.querySelector('.msg');

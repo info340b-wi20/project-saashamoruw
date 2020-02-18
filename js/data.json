@@ -66,6 +66,23 @@
             }]
         },
         {
+            "name": "Jewel",
+            "description": "A website that enables people to sell personal designs on thrifted items keeping in mind sustainability as our core value.",
+            "skills": ["SQL", "InVision", "Python"],
+            "team": ["Jess Doe", "Jane Doe", "Joseph Doe"],
+            "purpose": "Personal",
+            "img": "https://www.fluxmagazine.com/wp-content/uploads/2019/08/Design-Web-2.jpg",
+            "img-alt":"designing clothes",
+            "links": [{
+                "github":"www.github.com",
+                "linkedin":"",
+                "behance":"",
+                "figma":"www.figma.com",
+                "invision":"www.invision.com"
+                
+            }]
+        },
+        {
             "name": "StockHawk",
             "description": "An app that records trends in stocks that the user is interetsed in.",
             "skills": ["UI/UX", "SQL", "SQL"],
