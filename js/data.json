@@ -7,7 +7,7 @@
             "team": ["John Doe", "Jane Doe", "Lane Doe"],
             "purpose": "Personal",
             "img": "https://images.unsplash.com/photo-1558285549-2a06f9a5fe65?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1000&q=60",
-            "img-alt":"image of an airplane wing",
+            "alt":"image of an airplane wing",
             "links": [{
                 "github":"www.github.com",
                 "linkedin":"www.linkedin.com",

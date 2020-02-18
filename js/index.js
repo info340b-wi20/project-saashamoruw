@@ -45,7 +45,8 @@ function createShowcaseCard(obj) {
         content.classList.add("content-area");
     let sideOne = createCardSideOne(obj);
     let sideTwo = createCardSideTwo(obj);
-    content.appendChild(sideOne, sideTwo);
+    content.appendChild(sideOne);
+    content.appendChild(sideTwo);
     container.appendChild(content);
     col.appendChild(container);
     return col;
@@ -54,7 +55,7 @@ function createShowcaseCard(obj) {
 // creates flip side of showcase card
 function createCardSideTwo(obj) {
     let side = document.createElement('div');
-        side.classList.add("side_one");
+        side.classList.add("side_two");
     let card = document.createElement('div');
         card.classList.add("card");
     let cardBody = document.createElement('div');
@@ -67,7 +68,7 @@ function createCardSideTwo(obj) {
     //Add title
     let title = document.createElement('p');
         title.classList.add('card-title');
-    title.textContent = obj.name;
+        title.textContent = obj.name;
     //Add Team Members
     let team = document.createElement('p');
         team.classList.add('card-text');
@@ -82,9 +83,13 @@ function createCardSideTwo(obj) {
         purpose.classList.add('card-text');
         purpose.appendChild(purpLink);
     //Link everything
-    cardBody.appendChild(title, team, skills, purpose, footer);
-    card.appendChild(cardBody, footer);
+    cardBody.appendChild(title);
+    cardBody.appendChild(team);
+    cardBody.appendChild(skills);
+    cardBody.appendChild(purpose);
+    card.appendChild(cardBody); card.appendChild(footer);
     side.appendChild(card);
+    return side;
 }
 
 // Creates skills text with highlighted style
@@ -119,7 +124,6 @@ function createCardSideOne(obj) {
     // Adds link to image and adds image to card
     topImg.src=obj.img;
     topImg.alt=obj.alt;
-    card.innerHTML = topImg;
     //Add title
     let title = document.createElement('p');
         title.classList.add('card-title');
@@ -129,8 +133,8 @@ function createCardSideOne(obj) {
     text.classList.add('card-text');
     text.textContent = obj.description;
     // link everything
-    cardBody.appendChild(title, text);
-    card.appendChild(cardBody, footer);
+    cardBody.appendChild(topImg); cardBody.appendChild(title); cardBody.appendChild(text);
+    card.appendChild(cardBody); card.appendChild(footer);
     side.appendChild(card);
     return side;
 }
