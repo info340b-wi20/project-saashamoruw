@@ -55,7 +55,7 @@ add.addEventListener('click', function() {
 //Updates the state variable to add the new project
 function updateState() {
     // get all the input variables
-    let
+    
 
     //create new object from inputs
     let newState = {

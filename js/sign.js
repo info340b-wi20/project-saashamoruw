@@ -1,7 +1,5 @@
 'use strict';
-
-
-
+// Fix???
 function tabsChange(){
 let button = document.querySelector('.login');
 let field = document.querySelector('confirm');
