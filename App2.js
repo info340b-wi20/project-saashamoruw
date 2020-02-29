@@ -2,6 +2,7 @@ import React, { Component } from 'react'; //import React Component
 import 'css/style.css'
 import _ from 'lodash'
 
+// Index page 
 class App2 extends Component { 
     
 render() { 
@@ -32,7 +33,7 @@ return(
 )}
 }
 
-
+// Navigation Bar
 class NavBar extends Component {
     render() {
         return (
@@ -46,6 +47,7 @@ class NavBar extends Component {
     )}
     }
 
+// Banner Text
 class Banner extends Component {
     render() {
         return (
@@ -57,7 +59,9 @@ class Banner extends Component {
     }
 }
 
+
 // search bar function if time?
+// Search Bar on pages
 class SearchBar extends Component { 
     render() {
         return (
@@ -71,11 +75,83 @@ class SearchBar extends Component {
     }
 }
 
+// creates a card
+class Card extends Component {
+    render() {
+    return (
+        <div className ="col-sm-12 col-md-4">
+   <div className="cardContainer">
+   <div className="content-area">
+      <SideOne />
+      <SideTwo />
+   </div>
+</div>
+</div>
+)}
+}
 
 
 
+// creates side one of card
+class SideOne extends Component {
+    render() {
+        return (
+            <div className="side_one">
+            <div className="card">
+               <img className="card-img-top" src= {} alt={} />
+               <div className="card-body">
+                  <p className="card-title"> {}  </p>
+                  <p className="card-text"> {}  </p>
+               </div>
+               <Footer />
+
+            </div>
+         </div>
+        )
+    }
+}
+
+
+// creates side two of card
+// lang/skills function
+class SideTwo extends Component {
+    render() {
+        return (
+            <div className="side_two">
+         <div className="card">
+            <div className="card-body">
+               <p className="card-title"> {} </p>
+               <p className="card-text"> {} </p>
+               <p className="card-text">Languages/Skills: {} </p>
+               <p className="card-text"><a className="highlight"> {} </a></p>
+            </div>
+            <Footer />
+
+         </div>
+      </div>
+     )}
+}
+
+class Footer extends Component {
+    render () {
+
+        let links = this.props.links.map((i) => {
+            return <li><a href= {} ><i className="fa fa-github" aria-label= {} ></i></a></li>
+        })
+
+        return (
+            <div className="card-footer">
+            <div className="links">
+               <ul>
+                   {links}
+               </ul>
+            </div>
+         </div>
+    )}
+}
 
 
 
 
 export default App2;
+
