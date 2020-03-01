@@ -1,9 +1,21 @@
 import React, { Component } from 'react'; //import React Component
 import 'css/style.css'
 import _ from 'lodash'
+import Button from '@material-ui/core/Button';
+import TextField from '@material-ui/core/TextField';
+import Dialog from '@material-ui/core/Dialog';
+import DialogActions from '@material-ui/core/DialogActions';
+import DialogContent from '@material-ui/core/DialogContent';
+import DialogContentText from '@material-ui/core/DialogContentText';
+import DialogTitle from '@material-ui/core/DialogTitle';
 
-// Index page 
+// Find Projects page 
 class App2 extends Component { 
+
+constructor(cards) {
+    super(cards);
+    this.state = {cards: this.props.cards};
+}
     
 render() { 
 return(
@@ -75,6 +87,16 @@ class SearchBar extends Component {
     }
 }
 
+// creates list of cards
+class CardList extends Component {
+    render() {
+        <section className = "projects">
+            {this.props.cards.map(card => 
+            <Card key = {card.name} card={card}/>)}
+        </section>
+    }
+}
+
 // creates a card
 class Card extends Component {
     render() {
@@ -100,8 +122,8 @@ class SideOne extends Component {
             <div className="card">
                <img className="card-img-top" src= {} alt={} />
                <div className="card-body">
-                  <p className="card-title"> {}  </p>
-                  <p className="card-text"> {}  </p>
+                  <p className="card-title"> {this.props.card.name}  </p>
+                  <p className="card-text"> {this.props.card.description}  </p>
                </div>
                <Footer />
 
@@ -112,18 +134,32 @@ class SideOne extends Component {
 }
 
 
-// creates side two of card
-// lang/skills function
+// creates side two of card for index page
 class SideTwo extends Component {
     render() {
+
+        let skill = this.props.card.skills.map((i) => {
+            return <span class="highlight">{i}</span>
+            });
+
+        let positions = this.props.card.position.map((i) => {
+            return <span class="highlight">{i}</span>
+        });
+        
         return (
             <div className="side_two">
          <div className="card">
             <div className="card-body">
-               <p className="card-title"> {} </p>
-               <p className="card-text"> {} </p>
-               <p className="card-text">Languages/Skills: {} </p>
-               <p className="card-text"><a className="highlight"> {} </a></p>
+               <p className="card-title"> {this.props.card.name} </p>
+               <p className="card-text"> {this.props.card.description} </p>
+               <p className="card-text">Languages/Skills: {skill} </p>
+               <p className="card-text">Positions Open: {positions} </p>
+               <p className="card-text">Members Needed: {this.props.card.members-needed} </p>
+               <p className="card-text">Duration: {this.props.card.duration} </p>
+               <p className="card-text">Start Date: {this.props.card.start} </p>
+               <p className="card-text">Time Commitment: {this.props.card.time} </p>
+               <p className="card-text">Experience Level: {this.props.card.exp-level} </p>
+               <p className="card-text"><a className="highlight"> {this.props.card.purpose} </a></p>
             </div>
             <Footer />
 
@@ -132,26 +168,83 @@ class SideTwo extends Component {
      )}
 }
 
+
+// creates Footer of card
 class Footer extends Component {
     render () {
-
-        let links = this.props.links.map((i) => {
-            return <li><a href= {} ><i className="fa fa-github" aria-label= {} ></i></a></li>
-        })
-
         return (
             <div className="card-footer">
-            <div className="links">
-               <ul>
-                   {links}
-               </ul>
-            </div>
+                   <MessageButton />
          </div>
     )}
 }
 
 
+// Opens a pop up message box when the join project button is clicked
+// Documentation from https://material-ui.com/components/dialogs/#form-dialogs followed
+class MessageButton extends Component {
+    render() {
+         function FormDialog() {
+            const [open, setOpen] = React.useState(false);
+          
+            const handleClickOpen = () => {
+              setOpen(true);
+            };
+          
+            const handleClose = () => {
+              setOpen(false);
+            };
+
+
+            return (
+                <div className="submit-button">
+                 <Button className = "btn btn-dark" onClick={handleClickOpen}>Request to Join!</Button>
+            
+                  <Dialog open={open} onClose={handleClose} aria-label="form-dialog-title">
+                    <DialogTitle id="form-dialog-title">Request to Join: Message Project Group</DialogTitle>
+                    <DialogContent>
+                      <DialogContentText>To join this project, please fill out the following fields.</DialogContentText>
+                      <TextField
+                        autoFocus
+                        margin="dense"
+                        id="name"
+                        label="Name"
+                        type="name"
+                        fullWidth
+                      />
+                        <TextField
+                        autoFocus
+                        margin="dense"
+                        id="email"
+                        label="Email Address"
+                        type="email"
+                        fullWidth
+                      />
+                        <TextField
+                        autoFocus
+                        margin="dense"
+                        id="letter"
+                        label="Cover Letter"
+                        type="letter"
+                        fullWidth
+                      />
+                    </DialogContent>
+                    <DialogActions>
+                      <Button onClick={handleClose} color="primary">Cancel</Button>
+                      <Button onClick={handleClose} color="primary">Send</Button>
+                    </DialogActions>
+                  </Dialog>
+                </div>
+
+            );
+    }
+    return (FormDialog)
+}
+}
 
 
 export default App2;
 
+
+
+ 
