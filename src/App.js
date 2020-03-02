@@ -16,7 +16,7 @@ export default class App extends Component {
     render() {
         this.cardsData = this.props.cardsData;
         let content = (
-            <div className="main">
+            <div className="projects">
                 <Projects cards={this.cardsData}/>
             </div>
         );

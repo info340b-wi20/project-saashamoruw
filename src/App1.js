@@ -99,6 +99,7 @@ class CreateSideTwo extends Component {
 
         let sideTwo = (
             <Card className="card" key={this.cardData.name}>
+                <CardImg top width="100%" src={this.cardData.img} alt={this.cardData.alt} />
                 <CardBody>
                     <CardTitle>{this.cardData.name}</CardTitle>
                     <CardText>{"Team Members: " + this.cardData.team}</CardText>
