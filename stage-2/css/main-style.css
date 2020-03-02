@@ -413,7 +413,7 @@ form {
   justify-content: center;
 }
 .card {
-  height: 300px;
+  height: 600px;
   margin: 15px; 
 }
 p.card-title {
@@ -435,7 +435,7 @@ p.card-title {
 }
 @media screen and (min-width: 620px) {
   .card {
-    height: 300px;
+    height: 600px;
   }
 }
 

@@ -8,8 +8,14 @@ import {
     CardFooter, CardDeck
   } from 'reactstrap';
 
+export class App extends Component {
+    render() {
+        this.cardsData = this.props.cardsData;
+        return <createCardLayout cardsData = {this.cardsData} />
+    }
+}
 // Takes in the data from properties
-export class createCardLayout extends Component{
+class createCardLayout extends Component{
     render() {
         this.cardsData = this.props.cardsData;
         return (
@@ -29,7 +35,7 @@ class createShowcaseCards extends Component {
         });
         return (
             <CardDeck>
-            {cards}
+                {cards}
             </CardDeck>
         )
     }
