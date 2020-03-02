@@ -11,8 +11,7 @@ import './index.css';
  //  import 'css/style.css'
  // import _ from 'lodash'
 
-
-// Takes in the data from properties
+//App that returns all the mock projects in the form of cards
 export class Projects extends Component{
     constructor(cards) {
         super(cards);
