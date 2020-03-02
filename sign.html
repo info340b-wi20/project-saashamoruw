@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>ProjectHub</title>
+
+  <!-- normalize.css for cross-browser stuff -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css">
+  <link rel="stylesheet" href="css/main-style.css">
+  <link rel="stylesheet"
+  href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.css">
+
+  <!-- include required fonts -->  
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Kaushan+Script" rel="stylesheet">
+
+</head>
+<body class = "sign">
+    <nav>
+        <a href="index.html"><img src="imgs/projecthub.png" alt="Project Hub logo"><span id="name">ProjectHub</span></a>
+        <ul>
+            <li><a href="index.html"><h1>EXPLORE</h1><i class = "fa fa-home"></i></a></li>
+            <!--
+            <li><a href="find.html"><h1>JOIN</h1><i class = "fa fa-weixin"></i></a></li>
+            -->
+            <li><a href="sign.html"><h1>LOG IN</h1><i class = "fa fa-user"></i></a></li>
+            <li><a href="proposalV1.html"><h1>ABOUT</h1><i class = "fa fa-info-circle"></i></a></li>
+        </ul>
+    </nav>
+    <main>
+        <!-- 
+            Create tabs for sign up / signin -- add diff css for small
+        -->
+        <form> 
+            <ul class="tabs">
+                <li class="tab-button"><button id="btnsignup" class="btn btn-info tablinks active">Sign Up</button></li>
+                <li class="tab-button"><button id="btnlogin" class="btn btn-info tablinks">Log In</button></li>
+            </ul>
+
+            <!--tab content getting changed-->
+            <div class="tab-content"> <!--<div class="tab-content invisible" id="signup">-->
+                <div><h1 class = "msg">Create an Account!</h1></div> <!-- h1, button-->
+
+                    <div class = "email"><label for="emailid"><b>
+                     Email ID</b></label> 
+                    <input type="text" for = "email" id = "email" name="email id" aria-label="input email" placeholder="Enter Email ID" required></div> 
+                    
+                    <div class = "password"><label for="password"><b>
+                    Password</b></label>  
+                    <input type="text" for = "password" id = "password" name="password"  aria-label="input password" placeholder="Enter Password" minlength="6" required></div>
+                    
+                    <div class = "confirm"><label for="confirm-password"><b>
+                    Confirm Password</b></label> 
+                    <input type="text" for = "confirm" id = "confirm" name="password"  aria-label="confirm password" placeholder="Re-enter Password" minlength="6" required></div>   
+                    <br>
+
+                    <div class="checkbox">
+                        <input type="checkbox" class="form-check-input" required>
+                        <label class="form-check-label" for="check">Agree to Terms and Conditions.</label></div>  
+                        <br>
+
+                        <div class = "submit-button">
+                        <label for="submitbutton" aria-label="submit button"></label><button id = "button-submit" type="submit" class = "btn btn-dark submit">Get Started!</button></div>  
+              </div> <!--tab-content-->
+
+        </form>
+     </main>
+     <script src="js/sign.js"></script>
+</body>
+</html>

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="author" content="Saasha Mor and Rajoshi Chakravarty">
+  <meta name="description" content="Project finder and showcase">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>ProjectHub</title>
+
+  <!-- normalize.css for cross-browser stuff -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css">
+  <link rel="stylesheet" href="css/main-style.css">
+  <link rel="stylesheet"
+  href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.css">
+
+  <!-- include required fonts -->  
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Kaushan+Script" rel="stylesheet">
+
+  <!--include favicon-->
+  <link rel="icon" type="image/png" href="imgs/projecthub.png" alt="people working together icon">
+     <!-- 
+        FIX THIS
+        - Not important but, might look cool :
+            - some cool animation shit for the main background thing like the colors do wave thingies idk
+        - Check the feedback from sprint 1 once more + the kanban board to make sure everything is fixed/present
+        - Fix lintr errors
+    -->
+</head>
+<body>
+    <nav>
+        <a href="index.html"><img src="imgs/projecthub.png" alt="Project Hub logo"><span id="name">ProjectHub</span></a>
+        <ul>
+            <li><a href="index.html"><h1>EXPLORE</h1><i class = "fa fa-home"></i></a></li>
+            <!--
+            <li><a href="find.html"><h1>JOIN</h1><i class = "fa fa-weixin"></i></a></li>
+            -->
+            <li><a href="sign.html"><h1>LOG IN</h1><i class = "fa fa-user"></i></a></li>
+            <li><a href="proposal.html"><h1>ABOUT</h1><i class = "fa fa-info-circle"></i></a></li>
+        </ul>
+    </nav>
+    <main>
+    <section class="background-pic">
+        <div class="banner-text">
+            <h1>Explore</h1>
+            <p>Explore projects that showcase the talent around the world!</p>
+        </div>
+    </section>
+    <section class="newSec">
+    <div class="search-bar" role="search" aria-label="search bar">
+        <input type="text" placeholder="Search...">
+        <button class="btn btn-info">
+            <i class="fa fa-search fa-2x" aria-label="search icon"></i>
+        </button>
+    </div>
+    </section>
+    
+    <section class="newSec">
+        <div class="row">
+            <div class="addProj">
+                <div class="card text-center" style="width: 18rem; height:auto">
+                    <div class="card-body">
+                        <h5 class="card-title">Showcase your own project!</h5>
+                        <p class="card-text">Do you want the world to see your cool work?</p>
+                        <button id="addProjBtn" class="btn btn-info">Click here!</button>
+                    </div>
+                    </div>
+            </div>
+        </div>
+    </section>
+    <section class="projects">
+        <div id="projects">
+        <!-- cards get inserted here -->
+        </div>
+        
+    </section> <!--section end-->
+
+    <section id="addProjForm" class="invisible">
+        <form action="index.html" method="post">
+            <h1>New Project</h1> <br>
+            <fieldset>
+              <legend><span class="number">1</span> Project info</legend>
+              <label for="title">Title:</label>
+              <input class="single" type="text" id="title" name="title">
+          
+              <label for="descr">Description:</label>
+              <textarea id="descr" name="proj_bio"></textarea>
+          
+              <label>Purpose</label> <br>
+              <input type="radio" id="INFO340" name="purpose"><label for="info340" class="light">INFO 340</label><br/>
+              <input type="radio" id="Capstone" name="purpose"><label for="capstone" class="light">Capstone</label><br/>
+              <input type="radio" id="INFO498" name="purpose"><label for="info498" class="light">INFO 498</label><br/>
+              <input type="radio" id="Personal" name="purpose"><label for="personal" class="light">Personal</label><br/>
+              
+              <label>Languages/Skills Used</label> <br>
+              <small class="text-muted">Select multiple values by holding down the Ctrl/Cmd key</small>
+              <select id="languages" multiple>
+                <option class="skillsChk" value="HTML">HTML</option>
+                <option class="skillsChk" value="CSS">CSS</option>
+                <option class="skillsChk" value="Java">Java</option>
+                <option class="skillsChk" value="Python">Python</option>
+                <option class="skillsChk" value="JavaScript">JavaScript</option>
+                <option class="skillsChk" value="Other">Other</option>
+              </select>
+            </fieldset>
+          <br>
+            <fieldset>
+              <legend><span class="number">2</span> Team Info</legend>
+              
+            </fieldset>
+          <!-- Make provision to add more team members?
+          https://codepen.io/pauljjames/pen/MYEXOy
+          -->
+            <div class="teamForm">
+                <label for="name">Names of Team Members:</label> <br>
+                <small class="text-muted">To add multiple team members separate names with commas. e.g. John Doe, Jane Doe</small>
+                <input class="memName single" type="text" id="memsName">
+            </div>
+            <!-- <br><br>
+              <button type="add" id="addMem" class="btn btn-outline-success">Add team member</button> <br> <br>
+          --> 
+            <label>Add supplements: </label> <br>
+            <label for="github">Github:</label>
+            <textarea id="github" name="supplements"></textarea>
+            <label for="github">Figma:</label>
+            <textarea id="figma" name="supplements"></textarea>
+            
+            <label for="name">Add image link: </label>
+            <input type="url" id="img_link" name="img_link">
+
+            <label for="name">Describe your image </label>
+            <input type="text" id="img_alt" name="img_alt">
+
+            <button id="newProj" type="submit">Showcase Project</button>
+          
+          </form>
+    </section>
+
+    </main>
+    <section>
+        <footer>
+            <p> &copy; Authors: Saasha Mor and Rajoshi Chakravarty</p>
+            <p>Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com</a></p>
+        </footer>
+    </section>
+
+    <!--Javascript Files-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <script src="js/index.js"></script>
+</body>
+</html>
