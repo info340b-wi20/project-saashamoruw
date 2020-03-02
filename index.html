@@ -112,18 +112,18 @@
           https://codepen.io/pauljjames/pen/MYEXOy
           -->
             <div class="teamForm">
-                <label for="name">Names of Team Members:</label>
+                <label for="name">Names of Team Members:</label> <br>
+                <small class="text-muted">To add multiple team members separate names with commas. e.g. John Doe, Jane Doe</small>
                 <input class="memName single" type="text" id="memsName">
             </div>
             <!-- <br><br>
               <button type="add" id="addMem" class="btn btn-outline-success">Add team member</button> <br> <br>
           --> 
             <label>Add supplements: </label> <br>
-            <input type="checkbox" id="github" name="user_links"><label class="light">GitHub</label><br>
-            <input type="checkbox" id="linkedin" name="user_links"><label class="light">LinkedIn</label><br>
-            <input type="checkbox" id="figma" name="user_links"><label class="light">Figma</label><br>
-            <input type="checkbox" id="invision" name="user_links"><label class="light">InVision</label><br>
-            <input type="checkbox" id="behance" name="user_links"><label class="light">Behance</label><br>
+            <label for="github">Github:</label>
+            <textarea id="github" name="supplements"></textarea>
+            <label for="github">Figma:</label>
+            <textarea id="figma" name="supplements"></textarea>
             
             <label for="name">Add image link: </label>
             <input type="url" id="img_link" name="img_link">
