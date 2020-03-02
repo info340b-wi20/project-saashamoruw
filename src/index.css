@@ -51,7 +51,7 @@ p {
 
 /* Nav bar styles */
  /*add Hamburger menu for small screens*/
- nav {
+ .nav {
   width: 100%;
   height: 7vh;
   background-color: #00b5cc;
@@ -62,47 +62,48 @@ p {
   z-index: 9999; 
   font-family: 'Monospace', sans-serif; 
   font-weight: 500;
-  display: flex;
-  margin-bottom: -1ch;
+  display: flex;  
 }
 
 
-nav #name {
+.nav #name {
   display:none;
 }
 
-nav .about {
+
+
+.nav .about {
 float: right;
 }
 
-h1 {
-  margin: 0 0 30px 0;
-  text-align: center;
-}
-
-nav ul h1 {
+.navbar h1 {
 display: none;
+text-align: center;
+padding-top: 1.25rem;
 }
 
-nav ul {
+.navbar {
 display: flex;
 float: left;
 list-style-type: none;
 padding: 0;
+margin-bottom: -10px;
 }
 
-nav li {
+.navbar li {
 display: inline-block;
-font-size: 3ch;
+font-size: 4ch;
+padding: 0 1rem;
 }
 
-nav i {
+.navbar i {
 color: #000;
 padding-right: 1ch;
 margin: 0 1ch;
 }
 
-nav img {
+
+.nav img {
 float: left;
 width: 7%;
 margin-right: 10px;
@@ -111,32 +112,38 @@ margin-right: 10px;
 
 
 @media screen and (min-width: 300px) {
-  nav img {
+  .nav img {
     width: 7%;
   }
 }
 
+.navbar li {
+  display: inline-block;
+  font-size: 4ch;
+  padding: 0 2.25rem;
+  }
+
 @media screen and (min-width: 700px) {
-  nav img {
+  .nav img {
     width: 40px;
   }
 
-nav {
+.nav {
   top: 0;
   bottom: 93.5%;
 }
 
 
-nav a .fa {
+.navbar .fa {
   display: none;
 }
 
-nav ul h1 {
+.navbar h1 {
   display: inline-block;
   font-size: 1rem;
 }
 
-nav #name {
+.nav #name {
   display: inline;
   color: white;
   font-family: 'Kaushan Script', fantasy;
@@ -144,14 +151,14 @@ nav #name {
   float: left;
 }
 
-nav li {
+.navbar li {
   display: inline-box;
   padding: 0;
   padding-top: 2vh; 
   margin-right: -20px;
 }
 
-nav ul {
+.navbar {
   margin: 15px;
   padding: 0;
   display: flex;
@@ -160,25 +167,25 @@ nav ul {
 }
 
 
-nav ul a {
+.navbar a {
   color: white;
   text-align: center;
   text-decoration: none;
   padding: 0 30px;
 }
 
-nav ul a:hover {
+.navbar a:hover {
 color: darkslategray;
 text-decoration: none;
 transition: opacity 5s ease-in-out;
 }
 
-nav ul a.active {
+.navbar a.active {
 color: black;
 text-decoration: none;
 }
 
-nav ul li {
+.navbar li {
  display: inline-block;
 }
 }
@@ -411,19 +418,32 @@ form {
 }
 .row {
   justify-content: center;
+  flex-wrap: wrap;
 }
-.card {
-  height: 300px;
-  margin: 15px; 
+
+.col {
+  padding: 10px;
+  display: flex;
+  justify-content: center;
 }
-p.card-title {
+
+
+.cardContainer {
+  display: inline-block;
+  height: 100%;
+}
+
+
+.cardTitle {
     font-weight: bold;
     font-size: 1.5rem;
  }
-.card-title {
+
+.cardText {
     font-size: 1em;
     font-weight: 1.5rem;
 }
+
 .highlight {
     background-color: #c4fff9;
     padding: .3em;
@@ -433,10 +453,11 @@ p.card-title {
 .fa {
   color: black;
 }
-@media screen and (min-width: 620px) {
-  .card {
-    height: 300px;
-  }
+
+.card {
+  height: 400px;
+  width: 300px;
+  border: none;
 }
 
 .links {
@@ -471,6 +492,8 @@ p.card-title {
     transition: 1s;
     transform-style: preserve-3d;
     position: relative;
+    size: 100%;
+    
   }
 
   .side_one {
@@ -486,6 +509,7 @@ p.card-title {
     background: white;
     transform: rotateY(-180deg);
     width: 100%;
+    height: 100%;
   }
 
   .side_one,

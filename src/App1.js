@@ -7,6 +7,7 @@ import {
     CardFooter, CardDeck
   } from 'reactstrap';
   
+import './index.css';
  //  import 'css/style.css'
  // import _ from 'lodash'
 
@@ -45,7 +46,7 @@ class CreateCard extends Component {
     render() {
         this.cardData = this.props.oneCardData;
         let card = (
-            <Col sm="12" md="4">
+            <Col className ="col">
                 <div className="cardContainer">
                     <div className="content-area">
                         <div className="side_one">
@@ -60,18 +61,18 @@ class CreateCard extends Component {
         );
         return card;
     }
-
 }
 
 class CreateSideOne extends Component {
     render() {
         this.cardData = this.props.cardData;
         let sideOne = (
-            <Card key={this.cardData.name}>
+            <Card className="card" key={this.cardData.name}>
                 <CardImg top width="100%" src={this.cardData.img} alt={this.cardData.alt} />
                 <CardBody>
-                    <CardTitle>{this.cardData.name} </CardTitle>
-                    <CardText>{this.cardData.description}</CardText>
+                    <CardTitle className="cardTitle">{this.cardData.name} </CardTitle>
+                    <CardText className = "cardText">{this.cardData.description}</CardText>
+                    
                 </CardBody>
                 <CardFooter>
                     <div className="links">
@@ -87,13 +88,21 @@ class CreateSideOne extends Component {
 }
 class CreateSideTwo extends Component {
     render() {
+        // shows up as objects
+      //  let skills = this.props.cardData.skills.map((i) => {      
+     //   let obj = <span className="highlight">{i}</span>;
+     //   return obj;
+     //   });
+
         this.cardData = this.props.cardData;
+        
+
         let sideTwo = (
-            <Card>
+            <Card className="card" key={this.cardData.name}>
                 <CardBody>
                     <CardTitle>{this.cardData.name}</CardTitle>
                     <CardText>{"Team Members: " + this.cardData.team}</CardText>
-                    <CardText><span className="highlighted">{"Skills/Languages" + this.cardData.skills}</span></CardText>
+                    <CardText><span className="highlight">{"Skills/Languages" + this.cardData.skills}</span></CardText>
                     <CardText>{"Purpose: " + this.cardData.purpose}</CardText>
                 </CardBody>
                 <CardFooter>
@@ -103,7 +112,7 @@ class CreateSideTwo extends Component {
                         </ul>
                     </div>
                     </CardFooter>
-            </Card>
+            </ Card>
         )
         return sideTwo;
     }
