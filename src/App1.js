@@ -2,15 +2,20 @@ import React, { Component } from 'react'; //import React Component
 import LinkIcon from '@material-ui/icons/Link';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import {
+    Card, CardImg, CardText, CardBody,
+    CardTitle, Row, 
+    CardFooter, CardDeck
+  } from 'reactstrap';
 
 // Takes in the data from properties
 export class createCardLayout extends Component{
     render() {
         this.cardsData = this.props.cardsData;
         return (
-            <div className="row">
+            <Row>
                 <createShowcaseCards cardsData={this.cardsData}/>
-            </div>
+            </Row>
         )
     }
 }
@@ -22,7 +27,11 @@ class createShowcaseCards extends Component {
             let oneCard = <createCard oneCardData = {card}/>
             return oneCard;
         });
-        return {cards}
+        return (
+            <CardDeck>
+            {cards}
+            </CardDeck>
+        )
     }
 }
 
@@ -52,21 +61,21 @@ class createSideOne extends Component {
     render() {
         this.cardData = this.props.cardData;
         let sideOne = (
-            <div className="card">
-                <img class="card-img-top" src={this.cardData.img} alt={this.cardData.alt}/>
-                <div className="card-body">
-                    <p className="card-title">{this.cardData.name}</p>
-                    <p className="card-text">{this.cardData.description}</p>
-                </div>
-                <div className="card-footer">
+            <Card>
+                <CardImg top width="100%" src={this.cardData.img} alt={this.cardData.alt} />
+                <CardBody>
+                    <CardTitle>{this.cardData.name} </CardTitle>
+                    <CardText>{this.cardData.description}</CardText>
+                </CardBody>
+                <CardFooter>
                     <div className="links">
                         <ul>
-                            <li><a href={this.cardData.links[0].github}><i class="fa fa-github" aria-label="github logo"></i></a></li>
+                            <li><Link to ={this.cardData.links[0].github}><FontAwesomeIcon icon="github" /></Link></li>
                             <li><Link to="saasha05.github.io"> <LinkIcon/> </Link> </li>
                         </ul>
                     </div>
-                </div>
-            </div>
+                </CardFooter>
+            </Card>
         )
         return {sideOne};
     }
@@ -76,22 +85,22 @@ class createSideTwo extends Component {
     render() {
         this.cardData = this.props.cardData;
         let sideOne = (
-            <div className="card">
-                <div className="card-body">
-                    <p className="card-title">{this.cardData.name}</p>
-                    <p className="card-text">{"Team Members:" + this.cardData.team}</p>
-                    <p className="card-text"><span className="highlighted">{"Skills/Languages" + this.cardData.skills}</span></p>
-                    <p className="card-text">{"Purpose: " + this.cardData.purpose}</p>
-                </div>
-                <div className="card-footer">
+            <Card>
+                <CardBody>
+                    <CardTitle>{this.cardData.name}</CardTitle>
+                    <CardText>{"Team Members:" + this.cardData.team}</CardText>
+                    <CardText><span className="highlighted">{"Skills/Languages" + this.cardData.skills}</span></CardText>
+                    <CardText>{"Purpose: " + this.cardData.purpose}</CardText>
+                </CardBody>
+                <CardFooter>
                     <div className="links">
                         <ul>
                             <li><Link to={this.cardData.links[0].github}> <FontAwesomeIcon icon="github" /> </Link> </li>
                             <li><Link to="google.com"> <LinkIcon/> </Link> </li>
                         </ul>
                     </div>
-                </div>
-            </div>
+                    </CardFooter>
+            </Card>
         )
         return {sideOne};
     }
