@@ -235,16 +235,16 @@ function createCardSideOne(obj) {
    card.classList.add("card");
    let cardBody = document.createElement('div');
    cardBody.classList.add("card-body");
-   let topImg = document.createElement('img');
-   topImg.classList.add("card-img-top");
+   //let topImg = document.createElement('img');
+  // topImg.classList.add("card-img-top");
    // Make footer with function
    let footer = document.createElement('div');
    footer.classList.add("card-footer");
    let links = createLinkList(obj.links[0]);
    footer.appendChild(links);
    // Adds link to image and adds image to card
-   topImg.src=obj.img;
-   topImg.alt=obj.alt;
+   //topImg.src=obj.img;
+   //topImg.alt=obj.alt;
    //Add title
    let title = document.createElement('p');
    title.classList.add('card-title');
@@ -255,7 +255,8 @@ function createCardSideOne(obj) {
    text.textContent = obj.description;
    // link everything
    cardBody.appendChild(title); cardBody.appendChild(text);
-   card.appendChild(topImg); card.appendChild(cardBody); card.appendChild(footer);
+   //card.appendChild(topImg); 
+   card.appendChild(cardBody); card.appendChild(footer);
    side.appendChild(card);
    return side;
 }
