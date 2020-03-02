@@ -4,7 +4,7 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
-import CARDS from './cards.json'; 
+import CARDS from './cards.js'; 
 
 ReactDOM.render(<App cardsData={CARDS} />, document.getElementById('root'));
 

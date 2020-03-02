@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { fab } from '@fortawesome/free-brands-svg-icons'
 import {
     Card, CardImg, CardText, CardBody,
-    CardTitle, Row, 
+    CardTitle, Row, Col,
     CardFooter, CardDeck
   } from 'reactstrap';
   
@@ -13,17 +13,13 @@ import {
 
 // Takes in the data from properties
 export class Projects extends Component{
-    
-    constructor(cardsData) {
-        super(cardsData); 
-        this.state = {
-            cardsData : this.props.cardsData
-        };
+    constructor(cards) {
+        super(cards);
+        this.cardsData = this.props.cards;
       }
 
 
     render() {
-        this.cardsData = this.props.cardsData;
         return (
             <Row>
                 <CreateShowcaseCards cardsData={this.cardsData}/>
@@ -40,9 +36,7 @@ class CreateShowcaseCards extends Component {
             return currCard;
         });
         return (
-            <CardDeck>
-            {cards}
-            </CardDeck>
+           cards
         );
     }
 }
@@ -51,7 +45,7 @@ class CreateCard extends Component {
     render() {
         this.cardData = this.props.oneCardData;
         let card = (
-            <div className="col-sm-12 col-md-4">
+            <Col sm="12" md="4">
                 <div className="cardContainer">
                     <div className="content-area">
                         <div className="side_one">
@@ -62,7 +56,7 @@ class CreateCard extends Component {
                         </div>
                     </div>
                 </div>
-            </div>
+            </Col>
         );
         return card;
     }
