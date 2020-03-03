@@ -3,8 +3,9 @@ import {Projects}  from './App1';
 //import {App2}  from '../stage-2/src/App2';
 import { Route } from 'react-router-dom';
 import Sign from './Sign';
-import {Join} from './Join'
-import {AddProjCard} from './form'
+import {Join} from './Join';
+import {AddProjCard} from './form';
+import {AddProjMemberCard} from './memberform';
 export default class App extends Component {
     constructor(cardsData) {
         super(cardsData); 
@@ -30,9 +31,9 @@ export default class App extends Component {
     <body className = "sign">
     <main>
     <NavBar/>
-    <section className="background-pic">
+    <div className="background-pic">
     <Banner />
-    </section>
+    </div>
 
     {content}
     <br/>
@@ -63,7 +64,7 @@ class NavBar extends Component {
     }
 
 
-
+//  <Router> <li><Route path="/" component = {App}><h1>EXPLORE</h1><i className = "fa fa-home"></i></Route></li></Router>
 //  <li><Route path="/" component = {App}><h1>EXPLORE</h1><i className = "fa fa-home"></i></Route></li>
     /** code for multiple pages 
  return (      
@@ -94,18 +95,6 @@ class NavBar extends Component {
             )
         }
     }
-
-
-  
-
-
-
-
-
-
-
-
-
 
 
 

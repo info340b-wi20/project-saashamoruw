@@ -3,9 +3,9 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-
-// import CARDS from './cards.js'; 
-import CARDS from './cards.js'; 
+// names and descriptions for Join.json taken taken from kickstarter.com
+ import CARDS from './cards.js'; 
+//import CARDS from './Join.json'; 
 
 ReactDOM.render(<App cardsData={CARDS} />, document.getElementById('root'));
 

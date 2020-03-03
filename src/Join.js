@@ -17,7 +17,6 @@ import { Typography } from '@material-ui/core';
 
 // Join Projects page 
 export class Join extends Component {
-
     constructor(cards) {
         super(cards);
         this.cardsData = this.props.cards;
@@ -37,7 +36,7 @@ export class Join extends Component {
 class CreateShowcaseCards extends Component {
     render() {
         this.cardsData = this.props.cardsData;
-        let cards = this.cardsData.map(function (oneCard) {
+        let cards = this.cardsData.map(function(oneCard) {
             let currCard = (<CreateCard oneCardData={oneCard} key={"card" + oneCard.name} />);
             return currCard;
         });
@@ -73,35 +72,31 @@ class CreateSideOne extends Component {
         this.cardData = this.props.cardData;
         let sideOne = (
             <Card className="card" key={this.cardData.name}>
-                <CardImg top width="100%" src={this.cardData.img} alt={this.cardData.alt} />
+                <CardImg top width="100%" height= "60%" src={this.cardData.img} alt={this.cardData.alt} />
                 <CardBody>
                     <CardTitle className="cardTitle">{this.cardData.name} </CardTitle>
                     <CardText className="cardText">{this.cardData.description}</CardText>
-
                 </CardBody>
-
-                <MessageButton />
+                <CardFooter>
+                    
+                </CardFooter>
             </Card>
         )
         return sideOne;
     }
 }
+
 class CreateSideTwo extends Component {
     render() {
-        // shows up as objects
-        //  let skills = this.props.cardData.skills.map((i) => {      
-        //   let obj = <span className="highlight">{i}</span>;
-        //   return obj;
-        //   });
+
 
         this.cardData = this.props.cardData;
-
         let sideTwo = (
             <Card className="card" key={this.cardData.name}>
                 <CardBody>
-                    <CardTitle>{this.cardData.name}</CardTitle>
-                    <CardText><span className="highlight">{"Skills/Languages" + this.cardData.skills}</span></CardText>
-                    <CardText>{"Positions Open: " + this.cardData.position}</CardText>
+                    <CardTitle  className="cardTitle">{this.cardData.name}</CardTitle>
+                    <CardText>{"Skills/Languages: "}<span className="highlight">{this.cardData.skills.join(', ')}</span></CardText>
+                    <CardText>{"Positions Open: " + this.cardData.position.join(', ')}</CardText>
                     <CardText>{"Members Needed: " + this.cardData.needed}</CardText>
                     <CardText>{"Duration: " + this.cardData.duration}</CardText>
                     <CardText>{"Start Date: " + this.cardData.start}</CardText>
@@ -109,10 +104,7 @@ class CreateSideTwo extends Component {
                     <CardText>{"Purpose: " + this.cardData.purpose}</CardText>
                     <CardText>{"Experience Level: " + this.cardData.exp}</CardText>
                 </CardBody>
-
-
                 <MessageButton />
-
             </ Card>
         )
         return sideTwo;
@@ -133,7 +125,7 @@ class MessageButton extends Component {
         this.handleOpenDialog = this.handleOpenDialog.bind(this);
         this.handleCloseDialog = this.handleCloseDialog.bind(this);
         this.handleSubmitDialog = this.handleSubmitDialog.bind(this);
-
+        this.handleSwitch = this.handleSwitch.bind(this);     
     }
 
     handleOpenDialog() {
@@ -155,12 +147,18 @@ class MessageButton extends Component {
         alert('Your message to join the project has been sent!');
     }
 
+    handleSwitch() {
+        this.setState({
+            
+        })
+    }
+
     render() {
         return (
-            <CardFooter>
+            <CardFooter className = "card-footer">
                 <div className="submit-button">
-                    <label for="submitbutton" aria-label="submit button"></label>
-                    <button id="button-submit" type="submit" className="btn btn-dark submit" onClick={this.handleOpenDialog}>{this.state.text}</button></ div>
+                    <button type="submit" className="btn btn-dark submit"  aria-label="button to join project" onClick={this.handleOpenDialog}>{this.state.text}</button>
+                </ div>
                 <Dialog open={this.state.openDialog} onClose={this.handleCloseDialog} aria-label="form-dialog-title">
                     <DialogTitle id="form-dialog-title">Request to Join: Message Project Group</DialogTitle>
                     <DialogContent>
