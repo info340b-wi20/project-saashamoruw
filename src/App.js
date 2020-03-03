@@ -4,7 +4,7 @@ import {Projects}  from './App1';
 import { Route } from 'react-router-dom';
 import Sign from './Sign';
 import {Join} from './Join'
-
+import {addProjCard} from './form'
 export default class App extends Component {
     constructor(cardsData) {
         super(cardsData); 
@@ -16,8 +16,13 @@ export default class App extends Component {
     render() {
         this.cardsData = this.props.cardsData;
         let content = (
-            <div className="projects">
-                <Projects cards={this.cardsData}/>
+            <div>
+                <section className="newSec">
+                    <addProjCard/>
+                </section>
+                <div className="projects">
+                    <Projects cards={this.cardsData}/>
+                </div>
             </div>
         );
       
