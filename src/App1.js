@@ -102,8 +102,8 @@ class CreateSideTwo extends Component {
                 <CardBody>
                     <CardTitle>{this.cardData.name}</CardTitle>
                     <CardText>{"Team Members: " + this.cardData.team}</CardText>
-                    <CardText><span className="highlight">{"Skills/Languages" + this.cardData.skills}</span></CardText>
-                    <CardText>{"Purpose: " + this.cardData.purpose}</CardText>
+                    <CardText>{"Skills/Languages" }<span className="highlight">{this.cardData.skills}</span></CardText>
+                    <CardText>{"Purpose: " } <span className="highlight">{this.cardData.purpose}</span></CardText>
                 </CardBody>
                 <CardFooter>
                     <div className="links">

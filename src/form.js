@@ -1,7 +1,7 @@
 import React, { Component } from 'react'; //import React Component
 import {
     Card, CardText, CardBody,
-    CardTitle, Row
+    CardTitle, Row, CardFooter
   } from 'reactstrap';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
@@ -10,48 +10,17 @@ import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
-import MenuItem from '@material-ui/core/MenuItem';
 
-const [purpose, setPurpose] = React.useState('EUR');
-const purposes = [
-    {
-      value: 'Personal',
-      label: 'Personal',
-    },
-    {
-      value: 'INFO340',
-      label: 'INFO340',
-    },
-    {
-      value: 'INFO360',
-      label: 'INFO360',
-    },
-    {
-      value: 'CSE373',
-      label: 'CSE373',
-    },
-    {
-        value: 'Capstone',
-        label: 'Capstone',
-    },
-    {
-        value: 'INFO201',
-        label: 'INFO201',
-    },
-  ];
-
-  const skills = ['R', 'HTML', 'CSS', 'JavaScript', 'React', 'Java', 'Figma'];
-
-export class addProjCard extends Component {
+export class AddProjCard extends Component {
     render() {
         return (
                 <Row>
                     <div className="addProj">
-                        <Card>
+                        <Card className="card" style={{ width: '18rem',height:'auto'}}>
                             <CardBody>
-                                <CardTitle>Showcase your own project!</CardTitle>
-                                <CardText>Do you want the world to see your cool work?</CardText>
-                                <addProjButton/>
+                                <CardTitle className="cardTitle">Showcase your own project!</CardTitle>
+                                <CardText className="cardText">Do you want the world to see your cool work?</CardText>
+                                <AddProjButton/>
                             </CardBody>
                         </Card>
                     </div>
@@ -60,7 +29,7 @@ export class addProjCard extends Component {
     }
 }
 
-class addProjButton extends Component {
+class AddProjButton extends Component {
     // this.state = {};
     constructor(props) {
         super(props);
@@ -91,105 +60,99 @@ class addProjButton extends Component {
             openDialog: false,
             text: 'Requested.'
         });
-        alert('Your message to join the project has been sent!');
+        alert('Your project has been added to be showcased!');
     }
-    handleChange(event) {
-        setPurpose(event.target.value);
-      };
 
     render() {
         return (
-            <CardText>
+            <CardFooter>
                 <div className="submit-button">
                     <label for="submitbutton" aria-label="submit button"></label>
-                    <button id="button-submit" type="submit" className="btn btn-dark submit" onClick={this.handleOpenDialog}>{this.state.text}</button></ div>
-               
-                    <Dialog open={this.state.openDialog} onClose={this.handleCloseDialog} aria-label="form-dialog-title">
-                        <DialogTitle id="form-dialog-title">Adding a new showcase project</DialogTitle>
-                        <DialogContent>
-                            <DialogContentText>To showcase your project, please fill out the following fields.</DialogContentText>
+                    <button id="button-submit" type="submit" className="btn btn-dark submit" onClick={this.handleOpenDialog}>{this.state.text}</button>
+                </div>
+            
+                <Dialog open={this.state.openDialog} onClose={this.handleCloseDialog} aria-label="form-dialog-title">
+                    <DialogTitle id="form-dialog-title">Adding a new showcase project</DialogTitle>
+                    <DialogContent>
+                        <DialogContentText>To showcase your project, please fill out the following fields.</DialogContentText>
+                        <TextField
+                            autoFocus
+                            margin="dense"
+                            placeholder="Enter Project Name"
+                            id="name"
+                            label="Name"
+                            type="name"
+                            fullWidth
+                            required="true"
+                        />
+                        <TextField
+                            autoFocus
+                            margin="dense"
+                            placeholder="Member names separated by commas"
+                            id="team"
+                            label="Team Members"
+                            type="name"
+                            fullWidth
+                            required="true"
+                        />
+                        <TextField
+                            autoFocus
+                            margin="dense"
+                            placeholder="https://images.pexels.com/photos/461077/pexels-photo-461077.jpeg"
+                            id="imgLink"
+                            label="Image Link"
+                            type="name"
+                            fullWidth
+                            required="false"
+                        />
+                        <TextField
+                            autoFocus
+                            margin="dense"
+                            placeholder="Someone typing on a computer"
+                            id="imgAlt"
+                            label="Describe your Image"
+                            type="name"
+                            fullWidth
+                            required="false"
+                        />
                             <TextField
-                                autoFocus
-                                margin="dense"
-                                placeholder="Enter Project Name"
-                                id="name"
-                                label="Name"
-                                type="name"
-                                fullWidth
-                                required="true"
+                            autoFocus
+                            margin="dense"
+                            placeholder="e.g. INFO340, Capstone"
+                            id="purpose"
+                            label="Purpose of Project"
+                            type="name"
+                            fullWidth
+                            required="true"
                             />
                             <TextField
-                                autoFocus
-                                margin="dense"
-                                placeholder="Team Members: separated by commas"
-                                id="team"
-                                label="team"
-                                type="name"
-                                fullWidth
-                                required="true"
+                            autoFocus
+                            margin="dense"
+                            placeholder="e.g. R, Data Analysis, Java"
+                            id="skills"
+                            label="Skills/Languages:"
+                            type="name"
+                            fullWidth
+                            required="true"
                             />
-                            <TextField
-                                autoFocus
-                                margin="dense"
-                                placeholder="Image Link"
-                                id="imgLink"
-                                label="link"
-                                type="name"
-                                fullWidth
-                                required="false"
-                            />
-                           <TextField
-                                autoFocus
-                                margin="dense"
-                                placeholder="A few words that describe your image"
-                                id="imgAlt"
-                                label="alt"
-                                type="name"
-                                fullWidth
-                                required="false"
-                            />
-                             <TextField
-                                id="purpose"
-                                select
-                                label="Select Purpose"
-                                value={purposes}
-                                onChange={this.handleChange}
-                                helperText="Please select the purpose of your project"
-                                >
-                                {purposes.map(option => (
-                                    <MenuItem key={option.value} value={option.value}>
-                                    {option.label}
-                                    </MenuItem>
-                                ))}
-                                </TextField>
-                                <TextField
-                                autoFocus
-                                margin="dense"
-                                placeholder="Skills/Languages: separated by commas"
-                                id="skills"
-                                label="skills"
-                                type="name"
-                                fullWidth
-                                required="true"
-                                />
 
-                                <TextField
-                                autoFocus
-                                margin="dense"
-                                placeholder="Link to your work"
-                                id="suppLink"
-                                label="link"
-                                type="name"
-                                fullWidth
-                                required="true"
-                                />
-                        </DialogContent>
-                        <DialogActions>
-                            <Button onClick={this.handleCloseDialog} color="primary">Cancel</Button>
-                            <Button onClick={this.handleSubmitDialog} color="primary">Send</Button>
-                        </DialogActions>
-                    </Dialog>
-                </CardText>
+                            <TextField
+                            autoFocus
+                            margin="dense"
+                            placeholder="github.com/anon"
+                            id="suppLink"
+                            label="Supplementary link"
+                            type="name"
+                            fullWidth
+                            required="true"
+                            />
+                    </DialogContent>
+                    <DialogActions>
+                        <Button onClick={this.handleCloseDialog} color="primary">Cancel</Button>
+                        <Button onClick={this.handleSubmitDialog} color="primary">Send</Button>
+                    </DialogActions>
+                </Dialog>
+            </CardFooter>
         );
     }
 }
