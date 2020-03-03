@@ -7,13 +7,7 @@ export default [
         "purpose": "Personal",
         "img": "https://images.unsplash.com/photo-1558285549-2a06f9a5fe65?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1000&q=60",
         "alt":"image of an airplane wing",
-        "links": [{
-            "github":"www.github.com",
-            "linkedin":"www.linkedin.com",
-            "behance":"",
-            "figma":"",
-            "invision":"www.invision.com"
-        }]
+        "link": "https://www.skyscanner.com/tips-and-inspiration/always-get-best-airfare-available-skyscanner-price-alerts"
     }, 
     {
         "name": "FindMyToilet",
@@ -23,13 +17,7 @@ export default [
         "purpose": "INFO 498",
         "img": "https://images.unsplash.com/photo-1533027052290-2b4ece075c42?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80",
         "img-alt":"image of a map",
-        "links": [{
-            "github":"www.github.com",
-            "linkedin":"",
-            "behance":"",
-            "figma":"",
-            "invision":"www.invision.com"
-        }]
+        "link": "https://findmytoilet.wordpress.com/"
     },
     {
         "name": "Brief",
@@ -39,13 +27,7 @@ export default [
         "purpose": "INFO 498",
         "img": "https://images.unsplash.com/photo-1495020689067-958852a7765e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80",
         "img-alt":"person reading a newspaper",
-        "links": [{
-            "github":"www.github.com",
-            "linkedin":"",
-            "behance":"",
-            "figma":"",
-            "invision":"www.invision.com"
-        }]
+        "link": "https://inshorts.com/"
     },
     {
         "name": "FoodEx",
@@ -55,14 +37,7 @@ export default [
         "purpose": "INFO 498",
         "img": "https://images.unsplash.com/photo-1493770348161-369560ae357d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80",
         "img-alt":"food in a net bag",
-        "links": [{
-            "github":"www.github.com",
-            "linkedin":"",
-            "behance":"",
-            "figma":"www.figma.com",
-            "invision":"www.invision.com"
-            
-        }]
+        "link": "https://olioex.com/"
     },
     {
         "name": "Jewel",
@@ -72,14 +47,7 @@ export default [
         "purpose": "Personal",
         "img": "https://www.fluxmagazine.com/wp-content/uploads/2019/08/Design-Web-2.jpg",
         "img-alt":"designing clothes",
-        "links": [{
-            "github":"www.github.com",
-            "linkedin":"",
-            "behance":"",
-            "figma":"www.figma.com",
-            "invision":"www.invision.com"
-            
-        }]
+        "link": "https://worthy.com"
     },
     {
         "name": "StockHawk",
@@ -89,13 +57,6 @@ export default [
         "purpose": "Capstone",
         "img": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80",
         "img-alt":"graphs on computer screen",
-        "links": [{
-            "github":"www.github.com",
-            "linkedin":"",
-            "behance":"",
-            "figma":"",
-            "invision":"www.invision.com"
-            
-        }]
+        "link": "https://www.marketwatch.com/tools/quotes/lookup.asp"
     }
 ]

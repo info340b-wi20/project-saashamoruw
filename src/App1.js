@@ -1,6 +1,6 @@
 import React, { Component } from 'react'; //import React Component
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { fab } from '@fortawesome/free-brands-svg-icons'
+import { faLink } from '@fortawesome/free-solid-svg-icons'
 import {
     Card, CardImg, CardText, CardBody,
     CardTitle, Row, Col,
@@ -76,7 +76,7 @@ class CreateSideOne extends Component {
                 <CardFooter>
                     <div className="links">
                         <ul>
-                            <a href={this.cardData.links[0].github}><FontAwesomeIcon icon={['fab', 'github']} /></a>
+                            <a href={this.cardData.link}><FontAwesomeIcon icon='faLink'/></a>
                         </ul>
                     </div>
                 </CardFooter>
@@ -87,28 +87,20 @@ class CreateSideOne extends Component {
 }
 class CreateSideTwo extends Component {
     render() {
-        // shows up as objects
-      //  let skills = this.props.cardData.skills.map((i) => {      
-     //   let obj = <span className="highlight">{i}</span>;
-     //   return obj;
-     //   });
-
         this.cardData = this.props.cardData;
-        
-
         let sideTwo = (
             <Card className="card" key={this.cardData.name}>
                 <CardImg top width="100%" src={this.cardData.img} alt={this.cardData.alt} />
                 <CardBody>
-                    <CardTitle>{this.cardData.name}</CardTitle>
-                    <CardText>{"Team Members: " + this.cardData.team}</CardText>
-                    <CardText>{"Skills/Languages" }<span className="highlight">{this.cardData.skills}</span></CardText>
+                    <CardTitle className="cardTitle">{this.cardData.name}</CardTitle>
+                    <CardText>{"Team Members: " + this.cardData.team.join(', ')}</CardText>
+                    <CardText>{"Skills/Languages" }<span className="highlight">{this.cardData.skills.join(', ')}</span></CardText>
                     <CardText>{"Purpose: " } <span className="highlight">{this.cardData.purpose}</span></CardText>
                 </CardBody>
                 <CardFooter>
                     <div className="links">
                         <ul>
-                        <a href={this.cardData.links[0].github}><FontAwesomeIcon icon={['fab', 'github']} /></a>
+                        <a href={this.cardData.link}><FontAwesomeIcon icon='faLink' /></a>
                         </ul>
                     </div>
                     </CardFooter>
