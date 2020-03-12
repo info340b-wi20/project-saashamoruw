@@ -1,7 +1,7 @@
 import React, { Component } from 'react'; //import React Component
 import {Projects}  from './App1';
 //import {App2}  from '../stage-2/src/App2';
-import { Route } from 'react-router-dom';
+import { Route, Router, Link } from 'react-router-dom';
 import Sign from './Sign';
 import {Join} from './Join';
 import {AddProjCard} from './form';
@@ -30,7 +30,13 @@ export default class App extends Component {
         return  (         
     <body className = "sign">
     <main>
-    <NavBar/>
+    <div className = "nav">
+            <img src={require('./projecthub.png')} alt="Project Hub logo"></img><a href="index.html"><span id="name">ProjectHub</span></a>
+            
+
+            <NavBar />
+        
+    </ div>
     <div className="background-pic">
     <Banner />
     </div>
@@ -51,15 +57,12 @@ export default class App extends Component {
 class NavBar extends Component {
     render() {
         return (
-        <div className = "nav">
-            <img src={require('./projecthub.png')} alt="Project Hub logo"></img><a href="index.html"><span id="name">ProjectHub</span></a>
-        <ul className = "navbar">          
-            <li><a href="index.html"><h1>EXPLORE</h1><i className = "fa fa-home"></i></a></li>
+            <ul className = "navbar">
+            <li><a href = "index.html"> <h1>EXPLORE</h1><i className = "fa fa-home" /></a></li>
             <li><a href="find.html"><h1>JOIN</h1><i className = "fa fa-weixin"></i></a></li>
             <li><a href="sign.html"><h1>LOG IN</h1><i className = "fa fa-user"></i></a></li>
             <li><a href="proposalV1.html"><h1>ABOUT</h1><i className = "fa fa-info-circle"></i></a></li>
-        </ul>
-        </div>
+            </ul>
     )}
     }
 
