@@ -11,16 +11,16 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 
-export class AddProjCard extends Component {
+export class AddProjMemberCard extends Component {
     render() {
         return (
                 <Row>
                     <div className="addProj">
                         <Card className="card" style={{ width: '18rem',height:'auto'}}>
                             <CardBody>
-                                <CardTitle className="cardTitle">Showcase your own project!</CardTitle>
-                                <CardText className="cardText">Do you want the world to see your cool work?</CardText>
-                                <AddProjButton/>
+                                <CardTitle className="cardTitle">Find members for your project!</CardTitle>
+                                <CardText className="cardText">Need people to work on your next big thing with?</CardText>
+                                <AddProjMemberButton/>
                             </CardBody>
                         </Card>
                     </div>
@@ -29,18 +29,32 @@ export class AddProjCard extends Component {
     }
 }
 
-class AddProjButton extends Component {
+class AddProjMemberButton extends Component {
     // this.state = {};
     constructor(props) {
         super(props);
         this.state = {
             openDialog: '',
-            text: 'Click here!'
+            text: 'Click here!',
+            name: '',
+            description: '',
+            skills: '',
+            team: '',
+            purpose: '',
+            img: '',
+            alt: '',
+            needed: '',
+            position: '',
+            duration: '',
+            start: '',
+            time: '',
+            exp: ''
         };
 
         this.handleOpenDialog = this.handleOpenDialog.bind(this);
         this.handleCloseDialog = this.handleCloseDialog.bind(this);
         this.handleSubmitDialog = this.handleSubmitDialog.bind(this);
+        this.onChange = this.onChange.bind(this);
 
     }
 
@@ -51,6 +65,7 @@ class AddProjButton extends Component {
     handleCloseDialog() {
         this.setState({
             openDialog: false
+
         });
         alert('Your message was discarded.');
     }
@@ -60,7 +75,17 @@ class AddProjButton extends Component {
             openDialog: false,
             text: 'Requested.'
         });
-        alert('Your project has been added to be showcased!');
+        alert('Your project has been added!');
+        let newCard = this.state;
+    //    <CreateShowcaseCards cardsData={[newCard]}/>
+
+    }
+
+
+    onChange() {
+        this.setState({
+//        [event.target.id]: event.target.value,
+        })
     }
 
     render() {
@@ -74,7 +99,7 @@ class AddProjButton extends Component {
                 <Dialog open={this.state.openDialog} onClose={this.handleCloseDialog} aria-label="form-dialog-title">
                     <DialogTitle id="form-dialog-title">Adding a new showcase project</DialogTitle>
                     <DialogContent>
-                        <DialogContentText>To showcase your project, please fill out the following fields.</DialogContentText>
+                        <DialogContentText>To find members your project, please fill out the following fields.</DialogContentText>
                         <TextField
                             autoFocus
                             margin="dense"
@@ -84,6 +109,18 @@ class AddProjButton extends Component {
                             type="name"
                             fullWidth
                             required="true"
+                            onChange={this.handleChange}
+                        />
+                         <TextField
+                            autoFocus
+                            margin="dense"
+                            placeholder="Project Description"
+                            id="desscription"
+                            label="Description"
+                            type="letter"
+                            fullWidth
+                            required="false"
+                            onChange={this.handleChange}
                         />
                         <TextField
                             autoFocus
@@ -94,26 +131,29 @@ class AddProjButton extends Component {
                             type="name"
                             fullWidth
                             required="true"
+                            onChange={this.handleChange}
                         />
                         <TextField
                             autoFocus
                             margin="dense"
                             placeholder="https://images.pexels.com/photos/461077/pexels-photo-461077.jpeg"
-                            id="imgLink"
+                            id="img"
                             label="Image Link"
                             type="name"
                             fullWidth
                             required="false"
+                            onChange={this.handleChange}
                         />
                         <TextField
                             autoFocus
                             margin="dense"
-                            placeholder="Someone typing on a computer"
-                            id="imgAlt"
+                            placeholder="e.g. someone typing on a computer"
+                            id="alt"
                             label="Describe your Image"
                             type="name"
                             fullWidth
                             required="false"
+                            onChange={this.handleChange}
                         />
                             <TextField
                             autoFocus
@@ -124,6 +164,7 @@ class AddProjButton extends Component {
                             type="name"
                             fullWidth
                             required="true"
+                            onChange={this.handleChange}
                             />
                             <TextField
                             autoFocus
@@ -134,18 +175,76 @@ class AddProjButton extends Component {
                             type="name"
                             fullWidth
                             required="true"
+                            onChange={this.handleChange}
                             />
-
                             <TextField
                             autoFocus
                             margin="dense"
-                            placeholder="github.com/anon"
-                            id="suppLink"
-                            label="Supplementary link"
+                            placeholder="Enter number of members needed"
+                            id="needed"
+                            label="Number of members needed"
                             type="name"
                             fullWidth
                             required="true"
+                            onChange={this.handleChange}
                             />
+                           <TextField
+                            autoFocus
+                            margin="dense"
+                            placeholder="e.g. UI/UX Developer, Software Engineer"
+                            id="position"
+                            label="Positions needed"
+                            type="name"
+                            fullWidth
+                            required="true"
+                            onChange={this.handleChange}
+                            />
+                           <TextField
+                            autoFocus
+                            margin="dense"
+                            placeholder="eg 6 weeks"
+                            id="duration"
+                            label="duration of project"
+                            type="name"
+                            fullWidth
+                            required="true"
+                            onChange={this.handleChange}
+                            />
+                           <TextField
+                            autoFocus
+                            margin="dense"
+                            placeholder="Enter approximate start date"
+                            id="start"
+                            label="start date"
+                            type="name"
+                            fullWidth
+                            required="true"
+                            onChange={this.handleChange}
+                            />
+                           <TextField
+                            autoFocus
+                            margin="dense"
+                            placeholder="Enter time in hours per week"
+                            id="time"
+                            label="Time Commitment"
+                            type="name"
+                            fullWidth
+                            required="true"
+                            onChange={this.handleChange}
+                            />
+                             <TextField
+                            autoFocus
+                            margin="dense"
+                            placeholder="Experience Level"
+                            id="exp"
+                            label="Experience Level"
+                            type="name"
+                            fullWidth
+                            required="true"
+                            onChange={this.handleChange}
+                            />
+
+                            
                     </DialogContent>
                     <DialogActions>
                         <Button onClick={this.handleCloseDialog} color="primary">Cancel</Button>

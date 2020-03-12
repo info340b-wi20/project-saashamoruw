@@ -6,7 +6,7 @@ import {
     CardTitle, Row, Col,
     CardFooter, CardDeck
   } from 'reactstrap';
-import {AddProjMemberCard} from './AddProjCard'  
+import {AddProjCard} from './AddProjCard'  
 import './index.css';
 import CARDS from './cards'; 
 
@@ -26,7 +26,7 @@ export class Projects extends Component{
         return (
             <div>
                 <section className="newSec">
-                    <AddProjMemberCard/>
+                    <AddProjCard/>
                 </section>
                 <div className="projects">
                 <Row>
