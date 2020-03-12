@@ -8,20 +8,30 @@ import {
   } from 'reactstrap';
 import {AddProjCard} from './AddProjCard'  
 import './index.css';
-import CARDS from './cards'; 
+import firebase from 'firebase/app'
 
 //App that returns all the mock projects in the form of cards
 export class Projects extends Component{
-    constructor(cards) {
-        super(cards);
-        this.cardsData = {CARDS}  
+    constructor(props) {
+        super(props);
+        this.state = {projects: []}
     }
 
     componentDidMount() {
-        this.setState({cardsData: {CARDS}});
+        this.projectsRef = firebase.database().ref('showcaseData');
+        this.projectsRef.on('value', (snapshot) => {
+            let data = snapshot.val();
+            let projectsArray = Object.keys(data).map( (theKey) => {
+              let projObj = data[theKey];
+              projObj.id = theKey;
+              return projObj;
+            })
+            this.setState({projects: projectsArray});
+          });
     }
-
-
+    componentWillUnmount() {
+        this.projectsRef.off();
+      }
     render() {
         return (
             <div>
@@ -30,7 +40,7 @@ export class Projects extends Component{
                 </section>
                 <div className="projects">
                 <Row>
-                    <CreateShowcaseCards cardsData={this.cardsData}/>
+                    <CreateShowcaseCards cardsData={this.state.projects}/>
                 </Row>
                 </div>
             </div>
@@ -40,6 +50,7 @@ export class Projects extends Component{
 
 class CreateShowcaseCards extends Component {
     render() {
+        this.cardsData = this.props.cardsData;
         let cards = this.cardsData.map(function(oneCard) {
             let currCard = (<CreateCard oneCardData = {oneCard} key={"card" + oneCard.name}/>);
             return currCard;
