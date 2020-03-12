@@ -5,6 +5,11 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import firebase from 'firebase/app';
+/*
+FIX:
+- Icons in cards
+*/
+
 
 // names and descriptions for Join.json taken taken from kickstarter.com
 

@@ -1,7 +1,4 @@
 import React, { Component } from 'react'; //import React Component
-import './index.css';
-import _ from 'lodash';
-// import Tabs from 'react-bootstrap/Tabs'
 
 
 
@@ -18,8 +15,6 @@ export class Sign extends Component {
     )
   }
 }
-
-//////////////
 
 // Tab contents for sign in or log in
 class TabContent extends Component {
@@ -54,7 +49,7 @@ class TabContent extends Component {
     event.preventDefault();
     let input = this.state;
     // let alertText;
-    if (input.password != input.confirm) {
+    if (input.password !== input.confirm) {
       alert('Passwords do not match.');
     } else {
     alert("Welcome! You are signed in!");
@@ -76,13 +71,13 @@ class TabContent extends Component {
 
   handleSwitch(event) {
     let page = event.target.name;
-    if (page == 'login') {
+    if (page === 'login') {
       this.setState({
         title: "Welcome Back!",
         button: "Log In!",
         checkbox: [(<br/>)]
       });
-    } else if (page == 'sign') {
+    } else if (page === 'sign') {
       this.setState({
         title: "Create an Account!",
         button: "Get Started!",

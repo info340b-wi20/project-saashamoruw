@@ -1,9 +1,9 @@
 import React, { Component } from 'react'; //import React Component
-import {Projects}  from './projectCards';
+import {Projects}  from './Components/projectCards';
 //import {App2}  from '../stage-2/src/App2';
-import Sign from './Sign';
-import {Join} from './Join';
-import {Route, Switch, Link, NavLink, Redirect} from 'react-router-dom'
+import {Sign} from './Components/Sign';
+import {Join} from './Components/Join';
+import {Route, Switch, NavLink, Redirect} from 'react-router-dom'
 export default class App extends Component {
 
     render() {  

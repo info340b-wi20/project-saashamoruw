@@ -1,13 +1,11 @@
 import React, { Component } from 'react'; //import React Component
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faLink } from '@fortawesome/free-solid-svg-icons'
 import {
     Card, CardImg, CardText, CardBody,
     CardTitle, Row, Col,
-    CardFooter, CardDeck
+    CardFooter
   } from 'reactstrap';
 import {AddProjCard} from './AddProjCard'  
-import './index.css';
 import firebase from 'firebase/app'
 import 'firebase/database';
 
