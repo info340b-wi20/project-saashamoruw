@@ -13,17 +13,16 @@ export default class App extends Component {
         <div className = "nav">
                 <img src={require('./projecthub.png')} alt="Project Hub logo"></img><a href="index.html"><span id="name">ProjectHub</span></a>
                 <NavBar />
-                <Switch>
-                    <Route exact path='/explore' component = {Projects}/>
-                    <Route path ='/join' component = {Join}/>
-                    <Route path ="/signin" component = {Sign}/>
-                    <Redirect to ="/explore"/>
-                </Switch>
-            
         </ div>
         <div className="background-pic">
             <Banner />
         </div>
+        <Switch>
+                    <Route exact path='/explore' component = {Projects}/>
+                    <Route path ='/join' component = {Join}/>
+                    <Route path ="/signin" component = {Sign}/>
+                    <Redirect to ="/explore"/>
+        </Switch>
      </main>
 </body>
 

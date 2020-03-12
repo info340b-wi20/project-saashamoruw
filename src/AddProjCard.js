@@ -10,6 +10,8 @@ import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
+import firebase from 'firebase/app'
+import 'firebase/database';
 
 export class AddProjCard extends Component {
     render() {
@@ -35,7 +37,8 @@ class AddProjButton extends Component {
         super(props);
         this.state = {
             openDialog: '',
-            text: 'Click here!'
+            text: 'Click here!',
+            proj: {}
         };
 
         this.handleOpenDialog = this.handleOpenDialog.bind(this);
@@ -58,9 +61,13 @@ class AddProjButton extends Component {
     handleSubmitDialog() {
         this.setState({
             openDialog: false,
-            text: 'Requested.'
+            text: 'Requested.',
         });
+        let projectsRef = firebase.database().ref('showcaseData');
+        projectsRef.push(this.state.proj);
+        this.setState({proj:{}}); //empty out post for next time
         alert('Your project has been added to be showcased!');
+        
     }
 
     render() {
@@ -84,6 +91,7 @@ class AddProjButton extends Component {
                             type="name"
                             fullWidth
                             required="true"
+                            value={this.state.proj.name}
                         />
                         <TextField
                             autoFocus

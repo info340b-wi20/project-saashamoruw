@@ -9,6 +9,7 @@ import {
 import {AddProjCard} from './AddProjCard'  
 import './index.css';
 import firebase from 'firebase/app'
+import 'firebase/database';
 
 //App that returns all the mock projects in the form of cards
 export class Projects extends Component{
@@ -26,12 +27,13 @@ export class Projects extends Component{
               projObj.id = theKey;
               return projObj;
             })
+            console.log(projectsArray);
             this.setState({projects: projectsArray});
           });
     }
     componentWillUnmount() {
         this.projectsRef.off();
-      }
+    }
     render() {
         return (
             <div>
@@ -72,7 +74,7 @@ class CreateCard extends Component {
                             <CreateSideOne cardData={this.cardData} key={"sideone" + this.cardData.name}/>
                         </div>
                         <div className="side_two">
-                        <CreateSideTwo cardData={this.cardData} key={"sidetwo" + this.cardData.name}/>
+                            <CreateSideTwo cardData={this.cardData} key={"sidetwo" + this.cardData.name}/>
                         </div>
                     </div>
                 </div>

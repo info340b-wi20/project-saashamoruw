@@ -7,7 +7,7 @@
             "team": ["John Doe", "Jane Doe", "Lane Doe"],
             "purpose": "Personal",
             "img": "https://images.unsplash.com/photo-1558285549-2a06f9a5fe65?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1000&q=60",
-            "alt":"image of an airplane wing",
+            "img-alt":"image of an airplane wing",
             "link": "https://www.skyscanner.com/tips-and-inspiration/always-get-best-airfare-available-skyscanner-price-alerts"
         }, 
         {
