@@ -27,7 +27,7 @@ export class Projects extends Component{
               projObj.id = theKey;
               return projObj;
             })
-            console.log(projectsArray);
+
             this.setState({projects: projectsArray});
           });
     }
