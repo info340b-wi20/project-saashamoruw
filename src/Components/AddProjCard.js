@@ -47,17 +47,13 @@ class AddProjButton extends Component {
             projTeam:[]
         };
 
-        this.handleOpenDialog = this.handleOpenDialog.bind(this);
-        this.handleCloseDialog = this.handleCloseDialog.bind(this);
-        this.handleSubmitDialog = this.handleSubmitDialog.bind(this);
-
     }
 
-    handleOpenDialog() {
+    handleOpenDialog = (event) => {
         this.setState({ openDialog: true });
     }
 
-    handleCloseDialog() {
+    handleCloseDialog = (event) => {
         this.setState({
             openDialog: false
         });
@@ -97,7 +93,7 @@ class AddProjButton extends Component {
         return (
             <CardFooter>
                 <div className="submit-button">
-                    <label for="submitbutton" aria-label="submit button"></label>
+                    <label htmlFor="submitbutton" aria-label="submit button"></label>
                     <button id="button-submit" type="submit" className="btn btn-dark submit" onClick={this.handleOpenDialog}>{this.state.text}</button>
                 </div>
             

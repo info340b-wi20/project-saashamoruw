@@ -8,6 +8,7 @@ import firebase from 'firebase/app';
 /*
 FIX:
 - Icons in cards
+- Favicon
 */
 
 

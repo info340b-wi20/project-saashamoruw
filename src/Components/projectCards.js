@@ -96,7 +96,7 @@ class CreateSideOne extends Component {
                 <CardFooter>
                     <div className="links">
                         <ul>
-                            <a href={this.cardData.link}><FontAwesomeIcon icon='faLink'/></a>
+                            <a href={this.cardData.link}>Project Link</a>
                         </ul>
                     </div>
                 </CardFooter>
@@ -120,7 +120,7 @@ class CreateSideTwo extends Component {
                 <CardFooter>
                     <div className="links">
                         <ul>
-                        <a href={this.cardData.link}><FontAwesomeIcon icon='faLink' /></a>
+                        <a href={this.cardData.link}>Project Link</a>
                         </ul>
                     </div>
                     </CardFooter>

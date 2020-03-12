@@ -8,23 +8,23 @@ export default class App extends Component {
 
     render() {  
         return  (         
-    <body className = "sign">
-    <main>
-        <div className = "nav">
-                <img src={require('./projecthub.png')} alt="Project Hub logo"></img><a href="index.html"><span id="name">ProjectHub</span></a>
-                <NavBar />
-        </ div>
-        <div className="background-pic">
-            <Banner />
-        </div>
-        <Switch>
-                    <Route exact path='/explore' component = {Projects}/>
-                    <Route path ='/join' component = {Join}/>
-                    <Route path ="/signin" component = {Sign}/>
-                    <Redirect to ="/explore"/>
-        </Switch>
-     </main>
-</body>
+      <div className = "sign">
+        <main>
+          <div className = "nav">
+                  <img src={require('./projecthub.png')} alt="Project Hub logo"></img><a href="index.html"><span id="name">ProjectHub</span></a>
+                  <NavBar />
+          </ div>
+          <div className="background-pic">
+              <Banner />
+          </div>
+          <Switch>
+                      <Route exact path='/explore' component = {Projects}/>
+                      <Route path ='/join' component = {Join}/>
+                      <Route path ="/signin" component = {Sign}/>
+                      <Redirect to ="/explore"/>
+          </Switch>
+        </main>
+      </div>
 
         )
     }
