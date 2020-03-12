@@ -6,31 +6,40 @@ import {
     CardTitle, Row, Col,
     CardFooter, CardDeck
   } from 'reactstrap';
-  
+import {AddProjMemberCard} from './AddProjCard'  
 import './index.css';
- //  import 'css/style.css'
- // import _ from 'lodash'
+import CARDS from './cards'; 
 
 //App that returns all the mock projects in the form of cards
 export class Projects extends Component{
     constructor(cards) {
         super(cards);
-        this.cardsData = this.props.cards;
-      }
+        this.cardsData = {CARDS}  
+    }
+
+    componentDidMount() {
+        this.setState({cardsData: {CARDS}});
+    }
 
 
     render() {
         return (
-            <Row>
-                <CreateShowcaseCards cardsData={this.cardsData}/>
-            </Row>
-        )
+            <div>
+                <section className="newSec">
+                    <AddProjMemberCard/>
+                </section>
+                <div className="projects">
+                <Row>
+                    <CreateShowcaseCards cardsData={this.cardsData}/>
+                </Row>
+                </div>
+            </div>
+        );
     }
 }
 
 class CreateShowcaseCards extends Component {
     render() {
-        this.cardsData = this.props.cardsData;
         let cards = this.cardsData.map(function(oneCard) {
             let currCard = (<CreateCard oneCardData = {oneCard} key={"card" + oneCard.name}/>);
             return currCard;

@@ -1,49 +1,29 @@
 import React, { Component } from 'react'; //import React Component
-import {Projects}  from './App1';
+import {Projects}  from './projectCards';
 //import {App2}  from '../stage-2/src/App2';
-import { Route, Router, Link } from 'react-router-dom';
 import Sign from './Sign';
 import {Join} from './Join';
-import {AddProjCard} from './form';
-import {AddProjMemberCard} from './memberform';
+import {Route, Switch, Link, NavLink, Redirect} from 'react-router-dom'
 export default class App extends Component {
-    constructor(cardsData) {
-        super(cardsData); 
-        this.state = {
-            cardsData : this.props.cardsData
-        };
-    }
-    
-    render() {
-        this.cardsData = this.props.cardsData;
-        let content = (
-            <div>
-                <section className="newSec">
-                    <AddProjCard/>
-                </section>
-                <div className="projects">
-                    <Projects cards={this.cardsData}/>
-                </div>
-            </div>
-        );
-      
+
+    render() {  
         return  (         
     <body className = "sign">
     <main>
-    <div className = "nav">
-            <img src={require('./projecthub.png')} alt="Project Hub logo"></img><a href="index.html"><span id="name">ProjectHub</span></a>
+        <div className = "nav">
+                <img src={require('./projecthub.png')} alt="Project Hub logo"></img><a href="index.html"><span id="name">ProjectHub</span></a>
+                <NavBar />
+                <Switch>
+                    <Route exact path='/explore' component = {Projects}/>
+                    <Route path ='/join' component = {Join}/>
+                    <Route path ="/signin" component = {Sign}/>
+                    <Redirect to ="/explore"/>
+                </Switch>
             
-
-            <NavBar />
-        
-    </ div>
-    <div className="background-pic">
-    <Banner />
-    </div>
-
-    {content}
-    <br/>
-    <Sign />
+        </ div>
+        <div className="background-pic">
+            <Banner />
+        </div>
      </main>
 </body>
 
@@ -58,10 +38,9 @@ class NavBar extends Component {
     render() {
         return (
             <ul className = "navbar">
-            <li><a href = "index.html"> <h1>EXPLORE</h1><i className = "fa fa-home" /></a></li>
-            <li><a href="find.html"><h1>JOIN</h1><i className = "fa fa-weixin"></i></a></li>
-            <li><a href="sign.html"><h1>LOG IN</h1><i className = "fa fa-user"></i></a></li>
-            <li><a href="proposalV1.html"><h1>ABOUT</h1><i className = "fa fa-info-circle"></i></a></li>
+            <li><NavLink to = "/explore" activeClassName="activeLink"> <h1>EXPLORE</h1><i className = "fa fa-home" /></NavLink></li>
+            <li><NavLink to = "/find" activeClassName="activeLink"><h1>JOIN</h1><i className = "fa fa-weixin"></i></NavLink></li>
+            <li><NavLink to ="/signin" activeClassName="activeLink"><h1>LOG IN</h1><i className = "fa fa-user"></i></NavLink></li>
             </ul>
     )}
     }
