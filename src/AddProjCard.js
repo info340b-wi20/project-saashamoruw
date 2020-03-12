@@ -61,7 +61,7 @@ class AddProjButton extends Component {
         this.setState({
             openDialog: false
         });
-        alert('Your message was discarded.');
+        alert('Your project was discarded.');
     }
 
     handleSubmitDialog = (event) => {
@@ -71,13 +71,24 @@ class AddProjButton extends Component {
         });
         let newProj = {
             name: this.state.projName,
+            description: this.state.projDescr,
             skills: this.state.projSkills,
-            team: this.state.projTeam
+            team: this.state.projTeam,
+            link: this.state.projLink,
+            purpose: this.state.projPurpose,
+            img: this.state.projImg,
+            alt: this.state.projAlt
         }
         console.log(newProj);
         let projectsRef = firebase.database().ref('showcaseData');
         projectsRef.push(newProj);
-        this.setState({projName:''}); 
+        this.setState({projName: '',
+        projDescr:'',
+        projImg:'',
+        projLink:'',
+        projPurpose:'',
+        projSkills:[],
+        projTeam:[]}); 
         alert('Your project has been added to be showcased!');
         
     }
@@ -108,6 +119,20 @@ class AddProjButton extends Component {
                                 this.setState({projName: event.target.value})
                             }}
                         />
+                         <TextField
+                            autoFocus
+                            margin="dense"
+                            placeholder="This project does..."
+                            id="name"
+                            label="Describe your project"
+                            type="name"
+                            fullWidth
+                            required="true"
+                            value={this.state.projDescr}
+                            onChange={this.updateDescr = (event) => {
+                                this.setState({projDescr: event.target.value})
+                            }}
+                        />
                         <TextField
                             autoFocus
                             margin="dense"
@@ -132,6 +157,10 @@ class AddProjButton extends Component {
                             type="name"
                             fullWidth
                             required="false"
+                            value={this.state.projImg}
+                            onChange={this.updateImg = (event) => {
+                                this.setState({projImg: event.target.value})
+                            }}
                         />
                         <TextField
                             autoFocus
@@ -142,16 +171,24 @@ class AddProjButton extends Component {
                             type="name"
                             fullWidth
                             required="false"
+                            value={this.state.projAlt}
+                            onChange={this.updateAlt = (event) => {
+                                this.setState({projAlt: event.target.value})
+                            }}
                         />
                             <TextField
                             autoFocus
                             margin="dense"
-                            placeholder="e.g. INFO340, Capstone"
+                            placeholder="e.g. INFO340"
                             id="purpose"
                             label="Purpose of Project"
                             type="name"
                             fullWidth
                             required="true"
+                            value={this.state.projPurpose}
+                            onChange={this.updatePurpose = (event) => {
+                                this.setState({projPurpose: event.target.value})
+                            }}
                             />
                             <TextField
                             autoFocus
@@ -177,6 +214,10 @@ class AddProjButton extends Component {
                             type="name"
                             fullWidth
                             required="true"
+                            value={this.state.projLink}
+                            onChange={this.updateLink = (event) => {
+                                this.setState({projLink: event.target.value})
+                            }}
                             />
                     </DialogContent>
                     <DialogActions>
