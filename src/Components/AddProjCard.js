@@ -14,6 +14,7 @@ import firebase from 'firebase/app'
 import 'firebase/database';
 
 export class AddProjCard extends Component {
+
     render() {
         return (
                 <Row>
@@ -22,7 +23,7 @@ export class AddProjCard extends Component {
                             <CardBody>
                                 <CardTitle className="cardTitle">Showcase your own project!</CardTitle>
                                 <CardText className="cardText">Do you want the world to see your cool work?</CardText>
-                                <AddProjButton/>
+                                <AddProjButton user={this.props.state.user}/>
                             </CardBody>
                         </Card>
                     </div>
@@ -38,6 +39,7 @@ class AddProjButton extends Component {
         this.state = {
             openDialog: '',
             text: 'Click here!',
+            user: this.props.user,
             projName: '',
             projDescr:'',
             projImg:'',
@@ -79,7 +81,8 @@ class AddProjButton extends Component {
             link: this.state.projLink,
             purpose: this.state.projPurpose,
             img: this.state.projImg,
-            alt: this.state.projAlt
+            alt: this.state.projAlt,
+            user: this.state.user
         }
         // Update the database
         let projectsRef = firebase.database().ref('showcaseData');
@@ -90,7 +93,8 @@ class AddProjButton extends Component {
         projLink:'',
         projPurpose:'',
         projSkills:[],
-        projTeam:[]}); 
+        projTeam:[],
+        user: {}}); 
         alert('Your project has been added to be showcased!');
         
     }
