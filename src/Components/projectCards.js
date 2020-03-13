@@ -1,5 +1,4 @@
 import React, { Component } from 'react'; //import React Component
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
     Card, CardImg, CardText, CardBody,
     CardTitle, Row, Col,

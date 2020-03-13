@@ -31,6 +31,15 @@ export class AddProjCard extends Component {
     }
 }
 
+const validateForm = (errors) => {
+    let valid = true;
+    Object.values(errors).forEach(
+      // if we have an error string set valid to false
+      (val) => val.length > 0 && (valid = false)
+    );
+    return valid;
+  }
+
 class AddProjButton extends Component {
     // this.state = {};
     constructor(props) {
@@ -60,11 +69,17 @@ class AddProjButton extends Component {
         alert('Your project was discarded.');
     }
 
+    
+
     handleSubmitDialog = (event) => {
+        event.preventDefault();
+        // add validation stuff
         this.setState({
             openDialog: false,
             text: 'Requested.'
         });
+
+        // create a new card for project
         let newProj = {
             name: this.state.projName,
             description: this.state.projDescr,
@@ -75,7 +90,7 @@ class AddProjButton extends Component {
             img: this.state.projImg,
             alt: this.state.projAlt
         }
-        console.log(newProj);
+        // Update the database
         let projectsRef = firebase.database().ref('showcaseData');
         projectsRef.push(newProj);
         this.setState({projName: '',
