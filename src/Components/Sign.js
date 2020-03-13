@@ -58,7 +58,7 @@ export class Sign extends Component {
 
 
 // sign up/log in form component
-class Form extends Component {
+export class Form extends Component {
   constructor(props) {
       super(props);
       this.state = {
