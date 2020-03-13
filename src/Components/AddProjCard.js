@@ -31,15 +31,6 @@ export class AddProjCard extends Component {
     }
 }
 
-const validateForm = (errors) => {
-    let valid = true;
-    Object.values(errors).forEach(
-      // if we have an error string set valid to false
-      (val) => val.length > 0 && (valid = false)
-    );
-    return valid;
-  }
-
 class AddProjButton extends Component {
     // this.state = {};
     constructor(props) {

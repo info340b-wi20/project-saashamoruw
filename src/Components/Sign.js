@@ -8,41 +8,8 @@ import firebase from 'firebase/app';
 export class Sign extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = this.props.state;
   }
-
-  componentDidMount() {
-     firebase.auth().onAuthStateChanged((currentUser) => {
-      if (currentUser) {
-        this.setState({user: currentUser});
-      } else {
-        this.setState({user: null});
-      }
-    })
-  }
-
-  // componentWillUnmount() {
-  //   this.authUnRegFunc();
-  // }
-
-
-  submitForm = (name, email, password, page) => {
-    this.setState({errorMessage: null });
-    if (page == 'sign') {
-    firebase.auth().createUserWithEmailAndPassword(email, password)
-    .then((userCredentials) => {
-        let user = userCredentials.user; 
-        let promise = user.updateProfile({ displayName: name });
-        return promise;
-    }).catch((error) => {
-      this.setState({errorMessage: error.message});
-    });
-  } else {
-    firebase.auth().signInWithEmailAndPassword(email, password).catch((error) => {
-      this.setState({errorMessage: error.message});
-    });
-  }
-}
 
   render() {
     return (
@@ -50,7 +17,7 @@ export class Sign extends Component {
       {this.state.errorMessage &&
         <p className="alert alert-danger">{this.state.errorMessage}</p>
       }     
-      <Form submitCallback={this.submitForm} />  
+      <Form submitCallback={this.props.submitCallback} />  
       </div>
     )
   }
@@ -58,7 +25,7 @@ export class Sign extends Component {
 
 
 // sign up/log in form component
-export class Form extends Component {
+class Form extends Component {
   constructor(props) {
       super(props);
       this.state = {
