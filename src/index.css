@@ -30,7 +30,14 @@ line-height: 1.5em;
 .invisible {
 display:none;
 }
-
+.signinError {
+  color: red;
+  text-align: center;
+  padding-top: 2em;
+  font-size: 3em;
+  margin-right: 5em;
+  margin-left: 5em;
+}
 /* from sign up page */
 .tab-button button:hover, button:active {	
 background-color:  #1C3041;	

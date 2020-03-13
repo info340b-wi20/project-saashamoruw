@@ -44,6 +44,14 @@ export default class App extends Component {
  }
 }
 render() { 
+  if(!this.state.user) {
+    return (
+      <div>
+        <h1 className = "signinError"> For copyright purposes, you are required to sign in to access this website</h1>
+        <Sign submitCallback = {this.submitForm} state = {this.state}/>
+      </div>
+    )
+  }
     return  (         
     <div className = "sign">
       <main>
