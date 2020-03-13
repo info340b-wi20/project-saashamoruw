@@ -9,20 +9,42 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import { Typography } from '@material-ui/core';
+import firebase from 'firebase/app'
+import 'firebase/database';
 
 
 // Join Projects page 
 export class Join extends Component {
-    constructor(cards) {
-        super(cards);
-        this.cardsData = this.props.cards;
+    constructor(props) {
+        super(props);
+        this.state =  {cards: []};
     }
+
+    componentDidMount() {
+        this.projectsRef = firebase.database().ref('joinCards');
+        this.projectsRef.on('value', (snapshot) => {
+            let data = snapshot.val();
+            let projectsArray = Object.keys(data).map( (theKey) => {
+              let projObj = data[theKey];
+              projObj.id = theKey;
+              return projObj;
+            })
+
+            this.setState({cards: projectsArray});
+          });
+    }
+    componentWillUnmount() {
+        this.projectsRef.off();
+    }
+
 
     render() {
         return (
+            <div className="projects">
             <Row>
-                <CreateShowcaseCards cardsData={this.cardsData} />
+                <CreateShowcaseCards cardsData={this.state.cards} />
             </Row>
+            </div>
         )
     }
 }
@@ -229,8 +251,6 @@ class MessageButton extends Component {
 
 
 
-
-export default Join;
 
 
 

@@ -5,6 +5,8 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import firebase from 'firebase/app';
+import 'firebase/auth';
+import 'firebase/database';
 /*
 FIX:
 - Icons in cards

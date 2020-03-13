@@ -571,11 +571,11 @@ form {
       display: flex;	
       list-style-type: none;	
       padding: 0;	
+      margin: 0px;
   }	
     
   .tabs li {	
-      flex-grow: 1;	
-      margin-bottom: 15px;	
+      flex-grow: 1;		
       display: block;
   }	
 
@@ -603,28 +603,29 @@ form {
 
   .tab-content .msg {	
     font-family: 'Kaushan Script', fantasy;	
-      font-size: 30px;	
-      margin-top: -15px;	
+    text-align: center;
+      margin-top: 0px;	
       color: #1C3041;	
+      font-size: 30px;
   }	
 
+/*   
   .tab-content .checkbox {
     margin-top: -30px;
     margin-bottom: -15px;
-  }
+  } */
 
   .tab-content .checkbox label {	
     font-size: 10px;	
     float: left;	
-    margin-left: 20px;	
-    margin-bottom: 10px;	
-
   }	
 
   .submit-button {
     display: flex;
     width: 100%;
   }
+
+
   
   .submit-button button {	
     padding: 15px;	
