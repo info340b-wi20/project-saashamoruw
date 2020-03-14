@@ -1,5 +1,4 @@
 import React, { Component } from 'react'; //import React Component
-//import _ from 'lodash'
 import { Card, CardImg, CardText, CardBody, CardTitle, Row, Col, CardFooter } from 'reactstrap';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
@@ -11,7 +10,6 @@ import DialogTitle from '@material-ui/core/DialogTitle';
 import { Typography } from '@material-ui/core';
 import firebase from 'firebase/app'
 import 'firebase/database';
-
 
 // Join Projects page 
 export class Join extends Component {
@@ -41,9 +39,7 @@ export class Join extends Component {
     render() {
         return (
             <div className="projects">
-            <Row>
-                <CreateShowcaseCards cardsData={this.state.cards} />
-            </Row>
+                <JoinCards cardsData={this.state.cards} />
             </div>
         )
     }
@@ -51,20 +47,22 @@ export class Join extends Component {
 
 
 
-class CreateShowcaseCards extends Component {
+class JoinCards extends Component {
     render() {
         this.cardsData = this.props.cardsData;
         let cards = this.cardsData.map(function(oneCard) {
-            let currCard = (<CreateCard oneCardData={oneCard} key={"card" + oneCard.name} />);
+            let currCard = (<OneCard oneCardData={oneCard} key={"card" + oneCard.name} />);
             return currCard;
         });
         return (
-            cards
+            <Row>
+                {cards}
+            </Row>
         );
     }
 }
 
-class CreateCard extends Component {
+class OneCard extends Component {
     render() {
         this.cardData = this.props.oneCardData;
         let card = (
@@ -72,10 +70,10 @@ class CreateCard extends Component {
                 <div className="cardContainer">
                     <div className="content-area">
                         <div className="side_one">
-                            <CreateSideOne cardData={this.cardData} key={"sideone" + this.cardData.name} />
+                            <SideOne cardData={this.cardData} key={"sideone" + this.cardData.name} />
                         </div>
                         <div className="side_two">
-                            <CreateSideTwo cardData={this.cardData} key={"sidetwo" + this.cardData.name} />
+                            <SideTwo cardData={this.cardData} key={"sidetwo" + this.cardData.name} />
                         </div>
                     </div>
                 </div>
@@ -85,7 +83,7 @@ class CreateCard extends Component {
     }
 }
 
-class CreateSideOne extends Component {
+class SideOne extends Component {
     render() {
         this.cardData = this.props.cardData;
         let sideOne = (
@@ -104,7 +102,7 @@ class CreateSideOne extends Component {
     }
 }
 
-class CreateSideTwo extends Component {
+class SideTwo extends Component {
     render() {
 
 
@@ -130,7 +128,6 @@ class CreateSideTwo extends Component {
 }
 
 // Form to message group!
-
 class MessageButton extends Component {
     // this.state = {};
     constructor(props) {
@@ -153,7 +150,6 @@ class MessageButton extends Component {
         this.setState({
             openDialog: false
         });
-        // FEEDBACK:  DO NOT use window.alert! Onscreen changes only!
         // checking if user details are coming up
         alert('Your message was discarded.' + this.state.user.email);
     }
@@ -253,63 +249,3 @@ class MessageButton extends Component {
         );
     }
 }
-
-
-
-
-
-
-/*
-
-// Banner Text
-class Banner extends Component {
-   render() {
-       return (
-          <div className="banner-text">
-               <h1>Discover Opportunities</h1>
-               <p>Find projects to work on and expore your passion!</p>
-           </div>
-       )
-   }
-}
-
-
-// search bar function if time?
-// Search Bar on pages
-class SearchBar extends Component {
-   render() {
-       return (
-           <div className="search-bar" role="search" aria-label="search bar">
-           <input type="text" placeholder="Search for position..."></input>
-           <button className = "btn btn-info">
-               <i className="fa fa-search fa-2x" aria-label="search icon"></i>
-           </button>
-       </div>
-       )
-   }
-}
-
-
-
-
-
-
-
-
-
-
-          <div className="side_two">
-        <div className="card">
-           <div className="card-body">
-              <p className="card-title"> {this.props.card.name} </p>
-              <p className="card-text"> {this.props.card.description} </p>
-              <p className="card-text">Languages/Skills: {skill} </p>
-              <p className="card-text">Positions Open: {positions} </p>
-              <p className="card-text">Members Needed: {this.props.card.members-needed} </p>
-              <p className="card-text">Duration: {this.props.card.duration} </p>
-              <p className="card-text">Start Date: {this.props.card.start} </p>
-              <p className="card-text">Time Commitment: {this.props.card.time} </p>
-              <p className="card-text">Experience Level: {this.props.card.exp-level} </p>
-              <p className="card-text"><a className="highlight"> {this.props.card.purpose} </a></p>
-           </div>
-*/

@@ -1,6 +1,6 @@
 # Project Hub
 By: Saasha Mor and Rajoshi Chakravarty
-This repository contains code for an interactive web app, created for the _Client-Side Web Development_ course at the UW iSchool the published Firebase site can be viewed [https://project-hub-2020.firebaseapp.com/](here)
+This repository contains code for an interactive web app, created for the _Client-Side Web Development_ course at the UW iSchool the published Firebase site can be viewed [here](https://project-hub-2020.firebaseapp.com/)
 
 ## Overview
 There are a lot of great projects produced by people. Project Hub is a one-stop-shop to show case any projects you worked on whether it was for a class, capstone, a hackathon or even a passion project. Your project can be anything from Software Development and Data Science to Graphic Design and UI/UX Design!
@@ -21,13 +21,13 @@ Here is what a user would typically do on Project Hub:
 - Users scroll through projects posted as "looking for members"
 - Each project will have a topic and requirements for team members
 - Users can filter projects on the basis of:
-- Role of Team Member needed
-- Time commitment of entire project
-- Time commitment per week
-- Purpose of project: Hackathon, Capstone etc.
-- Payment
-- Location
-- Value system
+- - Role of Team Member needed
+- - Time commitment of entire project
+- - Time commitment per week
+- - Purpose of project: Hackathon, Capstone etc.
+- - Payment
+- - Location
+- - Value system
 - User clicks "Send Request to Join Team" on project of choice
 - The request prompts the user to enter the necessary information as requested by the project creator for example resume, proof of highlights etc.
 

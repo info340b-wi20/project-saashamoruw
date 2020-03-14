@@ -473,38 +473,19 @@ color: black;
 }
 
 .card {
-height: 400px;
+height: 500px;
 width: 300px;
 border: none;
 }
 
+.links i {
+  padding: 1em;
+  font-size: 1em;
+  display:inline;
+}
 .links {
-position: relative;
-align-self: center;
+  align-self: center;
 }
-.links ul {
-text-align: center;
-padding: 0;
-}
-.links li {
-display: inline;
-padding: 10px;
-}
-
-.links .fa {
-font-size: 1.5em;
-}
-
-
-
-@media screen and (min-width: 940px) {
-.links .fa {
-  font-size: 2em;
-}
-}
-
-
-
 
 /* Card flip effect*/
 

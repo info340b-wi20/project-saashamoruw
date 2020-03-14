@@ -1,6 +1,6 @@
 import React, { Component } from 'react'; //import React Component
-import {Projects}  from './Components/projectCards';
-//import {App2}  from '../stage-2/src/App2';
+//import {Projects}  from './Components/projectCards';
+import {Projects} from './Components/projectCards';
 import {Sign} from './Components/Sign';
 import {Join} from './Components/Join';
 import {Route, Switch, NavLink, Redirect} from 'react-router-dom'

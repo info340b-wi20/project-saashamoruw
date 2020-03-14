@@ -1,7 +1,7 @@
 import React, { Component } from 'react'; //import React Component
 import firebase from 'firebase/app';
 import 'firebase/database';
-import {CreateShowcaseCards} from './projectCards';
+import {ShowcaseCards} from './projectCards';
 import {Redirect} from 'react-router-dom'
 
 export class currUserStuff extends Component {
@@ -54,7 +54,7 @@ export class currUserStuff extends Component {
                 })
                 this.setState({showcaseProjects: projectsArray});
               });
-            uploadedCards = (<CreateShowcaseCards cardData = {this.state.showcaseProjects}/>)
+            uploadedCards = (<ShowcaseCards cardData = {this.state.showcaseProjects}/>)
         }
 
         // requested is an array of card data for projects the user requested to join
@@ -72,7 +72,7 @@ export class currUserStuff extends Component {
                 })
                 this.setState({requestedProjects: requestedArray});
               });
-            requestedCards = (<CreateShowcaseCards cardData = {this.state.requestedProjects}/>)
+            requestedCards = (<ShowcaseCards cardData = {this.state.requestedProjects}/>)
         }
         
        /*  // messages sent by user
@@ -91,6 +91,7 @@ export class currUserStuff extends Component {
                     <label for="submitbutton" aria-label="submit button"></label>
                     <button id="button-submit" type="submit" className="btn btn-dark submit" onClick={this.handleSignOut}>Log Out</button>   
                 </div>
+                <h2>Dashboard</h2>
                 {/* <div>
                     <h1>Your Liked Projects</h1>
                     {likedCards}
