@@ -7,7 +7,6 @@ import {
     CardTitle, Row, Col,
     ListGroup, ListGroupItem,
   } from 'reactstrap';
-import { FaExternalLinkAlt, FaHeart } from "react-icons/fa";
 
 export class Projects extends Component{
     constructor(props) {
@@ -80,8 +79,8 @@ class OneCard extends Component {
                         <ListGroupItem> {"Skills/Languages: "} <span className="highlight">{this.cardData.skills.join(', ')}</span> </ListGroupItem>
                         <ListGroupItem>
                             <div className="links">
-                                <i><FaExternalLinkAlt size={20}/></i>
-                                <i><FaHeart size={20}/></i>
+                                <i className='fa fa-heart 'aria-label="like"></i>
+                                <a href={this.cardData.link}><i className="fa fa-link" aria-label="project link"></i> </a>
                             </div>
                         </ListGroupItem>
                     </ListGroup>

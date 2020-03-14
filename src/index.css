@@ -480,13 +480,18 @@ border: none;
 
 .links i {
   padding: 1em;
-  font-size: 1em;
+  font-size: 1.7em;
   display:inline;
+  color: black;
 }
+
 .links {
   align-self: center;
 }
 
+.links a {
+  text-decoration: none;
+}
 /* Card flip effect*/
 
 .content-area {

@@ -2,7 +2,6 @@ import React, { Component } from 'react'; //import React Component
 import firebase from 'firebase/app';
 import 'firebase/database';
 import {ShowcaseCards} from './projectCards';
-import {Redirect} from 'react-router-dom'
 
 export class currUserStuff extends Component {
     constructor(props) {
