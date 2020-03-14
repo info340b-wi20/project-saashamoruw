@@ -17,6 +17,7 @@ export class AddProjCard extends Component {
 
     render() {
         return (
+            <section className="newSec">
                 <Row>
                     <div className="addProj">
                         <Card className="card" style={{ width: '18rem',height:'auto'}}>
@@ -28,6 +29,7 @@ export class AddProjCard extends Component {
                         </Card>
                     </div>
                 </Row>
+            </section>
         );
     }
 }

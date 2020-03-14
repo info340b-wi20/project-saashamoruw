@@ -31,15 +31,12 @@ export class Projects extends Component{
     componentWillUnmount() {
         this.projectsRef.off();
     }
+    // FEEDBACK: the AddProjectCard should add to the state using a callback.
     render() {
         return (
             <div>
-                <section className="newSec">
-                    <AddProjCard/>
-                </section>
-                <div className="projects">
-                    <CreateShowcaseCards cardsData={this.state.projects}/>
-                </div>
+                <AddProjCard/>
+                <CreateShowcaseCards cardsData={this.state.projects}/>
             </div>
         );
     }
@@ -53,9 +50,11 @@ export class CreateShowcaseCards extends Component {
             return currCard;
         });
         return (
-            <Row>
-                {cards}
-           </Row>
+            <div className="projects">
+                <Row>
+                    {cards}
+                </Row>
+           </div>
         );
     }
 }

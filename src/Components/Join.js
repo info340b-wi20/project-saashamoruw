@@ -153,6 +153,7 @@ class MessageButton extends Component {
         this.setState({
             openDialog: false
         });
+        // FEEDBACK:  DO NOT use window.alert! Onscreen changes only!
         // checking if user details are coming up
         alert('Your message was discarded.' + this.state.user.email);
     }
