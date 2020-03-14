@@ -79,10 +79,11 @@ class OneCard extends Component {
         let database = firebase.database().ref('userData').child(email);
         this.likedProj = database.child('likedProjects');
         this.key = this.cardData.name.replace(' ', '');
-        this.ifLikeProj = false;
-        //this.ifLikeProj = this.likedProj.hasChild(this.key);
+        this.ifLikeProj = this.likedProj.child(this.key).once('value', function(snapshot) {
+            return (snapshot.val != null)
+        });
     }
-    // adds and removed from the database but the color doesn't change
+    // adds and removed from the database but the color doesn't change as per liked ones
     likeProj = () => {
         if(this.ifLikeProj) {
            this.likedProj.child(this.key).remove();
@@ -107,7 +108,7 @@ class OneCard extends Component {
                         <ListGroupItem> {"Skills/Languages: "} <span className="highlight">{this.cardData.skills.join(', ')}</span> </ListGroupItem>
                         <ListGroupItem>
                             <div className="links">
-                                <i className={'fa fa-heart' + (this.ifLikeProj ? 'colorRed': '')}aria-label="like" onClick={this.likeProj}></i>
+                                <i className={'fa fa-heart ' + (this.ifLikeProj ? 'colorRed': '')}aria-label="like" onClick={this.likeProj}></i>
                                 <a href={this.cardData.link} target="_blank" rel="noopener noreferrer"><i className="fa fa-link" aria-label="project link"></i> </a>
                             </div>
                         </ListGroupItem>

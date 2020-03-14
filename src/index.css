@@ -484,7 +484,10 @@ border: none;
   display:inline;
   color: black;
 }
-.i .colorRed {
+.links i:hover {
+  color:red;
+}
+.links .colorRed {
   color:red;
 }
 
