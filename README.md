@@ -10,6 +10,8 @@ This repository contains code for an interactive web app, created for the _Clien
     - Like a project
     - Request to join a project
 - Have the nav bar be "Log in" if user has not logged in with route to /signin, if user has logged in show "Dashboard"
+
+Less important: worth like 1 point each?
 - Check mobile site
 - Favicon not getting added??
 - The AddProjectCard should add to the state using a callback - ???
