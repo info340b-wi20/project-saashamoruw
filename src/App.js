@@ -5,7 +5,7 @@ import {Sign} from './Components/Sign';
 import {Join} from './Components/Join';
 import {Route, Switch, NavLink, Redirect} from 'react-router-dom'
 import firebase from 'firebase/app';
-import currUserStuff from './Components/currUserStuff';
+import {currUserStuff} from './Components/currUserStuff';
 
 export default class App extends Component {
 render() { 
