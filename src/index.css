@@ -484,6 +484,9 @@ border: none;
   display:inline;
   color: black;
 }
+.i .colorRed {
+  color:red;
+}
 
 .links {
   align-self: center;

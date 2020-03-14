@@ -75,24 +75,19 @@ class OneCard extends Component {
     constructor(props) {
         super(props)
         this.cardData = this.props.oneCardData;
-        this.ifLikeProj = false;
-    }
-    
-    likeProj = () => {
         let email = firebase.auth().currentUser.email.replace('.', '');
-        this.database = firebase.database().ref('userData').child(email);
-        let likedProj = this.database.child('likedProjects');
+        let database = firebase.database().ref('userData').child(email);
+        this.likedProj = database.child('likedProjects');
+        this.key = this.cardData.name.replace(' ', '');
+        this.ifLikeProj = false;
+        //this.ifLikeProj = this.likedProj.hasChild(this.key);
+    }
+    // adds and removed from the database but the color doesn't change
+    likeProj = () => {
         if(this.ifLikeProj) {
-            likedProj.on('value', (snapshot) => {
-                let data = snapshot.val();
-                Object.keys(data).map( (theKey) => {
-                    if(theKey === this.cardData.name.replace(' ', '')) {
-                        likedProj.child(theKey).remove();
-                    }
-                })
-            })
+           this.likedProj.child(this.key).remove();
         } else {
-            likedProj.push(this.cardData);
+            this.likedProj.child(this.key).set(this.cardData);
         }
         this.ifLikeProj = !this.ifLikeProj;
     }
@@ -112,7 +107,7 @@ class OneCard extends Component {
                         <ListGroupItem> {"Skills/Languages: "} <span className="highlight">{this.cardData.skills.join(', ')}</span> </ListGroupItem>
                         <ListGroupItem>
                             <div className="links">
-                                <i className={'fa fa-heart' + (this.ifLikeProj ? 'style="color:red;"': '')}aria-label="like" onClick={this.likeProj}></i>
+                                <i className={'fa fa-heart' + (this.ifLikeProj ? 'colorRed': '')}aria-label="like" onClick={this.likeProj}></i>
                                 <a href={this.cardData.link} target="_blank" rel="noopener noreferrer"><i className="fa fa-link" aria-label="project link"></i> </a>
                             </div>
                         </ListGroupItem>
