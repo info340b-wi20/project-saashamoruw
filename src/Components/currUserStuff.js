@@ -8,26 +8,6 @@ export class currUserStuff {
         this.state = {user: firebase.auth().currentUser};
         let database = firebase.database().ref('userData');
         // if there exists an object for this.state.user then render that shit
-
-        // from https://firebase.google.com/docs/reference/js/firebase.database.Reference
-        var adaRef = firebase.database().ref('users/ada');
-        adaRef.transaction(function(currentData) {
-        if (currentData === null) {
-            return { name: { first: 'Ada', last: 'Lovelace' } };
-        } else {
-            console.log('User ada already exists.');
-            return; // Abort the transaction.
-        }
-        }, function(error, committed, snapshot) {
-        if (error) {
-            console.log('Transaction failed abnormally!', error);
-        } else if (!committed) {
-            console.log('We aborted the transaction (because ada already exists).');
-        } else {
-            console.log('User ada added!');
-        }
-        console.log("Ada's data: ", snapshot.val());
-        });
     }
     render() {
         
