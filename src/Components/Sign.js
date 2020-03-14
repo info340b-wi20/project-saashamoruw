@@ -32,7 +32,7 @@ export class Sign extends Component {
 
   submitForm = (name, email, password, page) => {
     this.setState({errorMessage: null });
-    if (page == 'sign') {
+    if (page === 'sign') {
     firebase.auth().createUserWithEmailAndPassword(email, password)
     .then((userCredentials) => {
         let user = userCredentials.user; 

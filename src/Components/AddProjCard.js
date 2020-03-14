@@ -12,6 +12,7 @@ import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import firebase from 'firebase/app'
 import 'firebase/database';
+import {Redirect} from 'react-router-dom'
 
 export class AddProjCard extends Component {
 
@@ -52,6 +53,7 @@ class AddProjButton extends Component {
 
     handleOpenDialog = (event) => {
         this.setState({ openDialog: true });
+        
     }
 
     handleCloseDialog = (event) => {
@@ -68,7 +70,7 @@ class AddProjButton extends Component {
         // add validation stuff
         this.setState({
             openDialog: false,
-            text: 'Requested.'
+            text: 'Add another project.'
         });
 
         // create a new card for project
@@ -87,10 +89,12 @@ class AddProjButton extends Component {
         projectsRef.push(newProj);
         let userDataRef = firebase.database().ref('userData');
          // if there exists an object for this.state.user then add to that
-
          // if it doesn't then create an object for them, and add to that
-         let newUserData = {}
-
+        let email = this.state.user.email.replace('.', ''); // can't have special characters like .
+        let showcaseProj = userDataRef.child(email).child('showcaseProj');
+        showcaseProj.push(newProj);
+        
+       
         // Update database for user
         this.setState({projName: '',
         projDescr:'',

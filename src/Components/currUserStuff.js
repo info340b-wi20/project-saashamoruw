@@ -5,20 +5,15 @@ import 'firebase/database';
 export class currUserStuff {
     constructor(props) {
         super(props)
-        this.state = {user: firebase.auth().currentUser};
-        let database = firebase.database().ref('userData');
-        // if there exists an object for this.state.user then render that shit
+        let user = firebase.auth().currentUser;
+        let email = user.email.replace('.', '');
+        this.state = {user: user, 
+            userData: firebase.database().ref('userData').child(email)};
+        
+        
     }
 
-    // code to add to database
-
-    let database = firebase.database().ref('userData');
-    let email = this.state.user.email.replace('.', ''); // can't have special characters like .
-    database.child(email).set({ // will create if doesn't exist
-        po: "poop"
-    });
-
     render() {
-        
+        console.log(this.state);
     }
 }
