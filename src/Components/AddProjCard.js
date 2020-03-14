@@ -23,7 +23,7 @@ export class AddProjCard extends Component {
                             <CardBody>
                                 <CardTitle className="cardTitle">Showcase your own project!</CardTitle>
                                 <CardText className="cardText">Do you want the world to see your cool work?</CardText>
-                                <AddProjButton user={this.props.state.user}/>
+                                {/* <AddProjButton user={this.props.state.user}/> */}
                             </CardBody>
                         </Card>
                     </div>
