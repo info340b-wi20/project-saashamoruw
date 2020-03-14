@@ -29,6 +29,15 @@ export class currUserStuff {
         console.log("Ada's data: ", snapshot.val());
         });
     }
+
+    // code to add to database
+
+    let database = firebase.database().ref('userData');
+    let email = this.state.user.email.replace('.', ''); // can't have special characters like .
+    database.child(email).set({ // will create if doesn't exist
+        po: "poop"
+    });
+
     render() {
         
     }
