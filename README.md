@@ -4,7 +4,8 @@ This repository contains code for an interactive web app, created for the _Clien
 
 ## TO-DO
 - Fix dashboard code
-- Functionality to "like" a project, update likes - get from Problem 10
+- Functionality to "like" a project
+    - code added but the "click" thing doesn't work rn
 - Have the page redirect to sign in page if the user tries to 
     - Add a project to showcase
     - Like a project
