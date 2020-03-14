@@ -40,32 +40,37 @@ export class currUserStuff extends Component {
     
 
 
-        let uploaded =  userData.child(email).child('showcaseProj');
+        let uploaded =  firebase.database().ref('userData');
+        console.log(uploaded);
+        
         let uploadedCards;
-        if (uploaded === null ) {
-            uploadedCards = (<div><p>Nothing uploaded yet.</p></div>)
-        } else {
+        if (uploaded) {
             uploaded.on('value', (snapshot) => {
                 let data = snapshot.val();
-                let projectsArray = Object.keys(data).map( (theKey) => {
-                  let projObj = data[theKey];
-                  projObj.id = theKey;
+                console.log(data);
+                let projectsArray =  Object.keys(data).map((key) => {
+                  let projObj = data[key];
+                  projObj.id = key;
                   return projObj;
                 })
                 this.setState({showcaseProjects: projectsArray});
               });
-            uploadedCards = (<ShowcaseCards cardData = {this.state.showcaseProjects}/>)
+            uploadedCards = (<ShowcaseCards cardData = {this.state.showcaseProjects}/>) 
+        } else {
+            uploadedCards = (<div><p>Nothing uploaded yet.</p></div>)
         }
 
         // requested is an array of card data for projects the user requested to join
-       let requested = this.state.requestedProjects;
+       let requested = userData.child(email).child('requestedProj');
+       console.log(requested);
+       
         let requestedCards;
-        if (requested === null) {
+        if (!requested) {
             requestedCards = (<div><p>Nothing requested yet.</p></div>)
         } else {
             requested.on('value', (snapshot) => {
                 let data = snapshot.val();
-                let requestedArray = Object.keys(data).map( (theKey) => {
+                let requestedArray = data.map( (theKey) => {
                   let projObj = data[theKey];
                   projObj.id = theKey;
                   return projObj;
