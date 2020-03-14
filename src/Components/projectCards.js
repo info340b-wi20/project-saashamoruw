@@ -80,7 +80,7 @@ class OneCard extends Component {
                         <ListGroupItem>
                             <div className="links">
                                 <i className='fa fa-heart 'aria-label="like"></i>
-                                <a href={this.cardData.link}><i className="fa fa-link" aria-label="project link"></i> </a>
+                                <a href={this.cardData.link} target="_blank" rel="noopener noreferrer"><i className="fa fa-link" aria-label="project link"></i> </a>
                             </div>
                         </ListGroupItem>
                     </ListGroup>

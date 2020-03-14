@@ -2,6 +2,21 @@
 By: Saasha Mor and Rajoshi Chakravarty
 This repository contains code for an interactive web app, created for the _Client-Side Web Development_ course at the UW iSchool the published Firebase site can be viewed [here](https://project-hub-2020.firebaseapp.com/)
 
+## TO-DO
+- Fix dashboard code
+- Functionality to "like" a project, update likes - get from Problem 10
+- Have the page redirect to sign in page if the user tries to 
+    - Add a project to showcase
+    - Like a project
+    - Request to join a project
+- Have the nav bar be "Log in" if user has not logged in with route to /signin, if user has logged in show "Dashboard"
+- Check mobile site
+- Favicon not getting added??
+- The AddProjectCard should add to the state using a callback - ???
+- add role="button" and tab-index to your cards so that a screen reader knows that they can be flipped. Right now, they just navigate when I try to "click" on it using a screen reader
+- DO NOT use window.alert! Onscreen changes only!
+- fix console warnings
+
 ## Overview
 There are a lot of great projects produced by people. Project Hub is a one-stop-shop to show case any projects you worked on whether it was for a class, capstone, a hackathon or even a passion project. Your project can be anything from Software Development and Data Science to Graphic Design and UI/UX Design!
 
