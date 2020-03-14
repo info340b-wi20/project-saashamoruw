@@ -23,7 +23,7 @@ export class AddProjCard extends Component {
                             <CardBody>
                                 <CardTitle className="cardTitle">Showcase your own project!</CardTitle>
                                 <CardText className="cardText">Do you want the world to see your cool work?</CardText>
-                                {/* <AddProjButton user={this.props.state.user}/> */}
+                                <AddProjButton />
                             </CardBody>
                         </Card>
                     </div>
@@ -33,20 +33,19 @@ export class AddProjCard extends Component {
 }
 
 class AddProjButton extends Component {
-    // this.state = {};
     constructor(props) {
         super(props);
         this.state = {
             openDialog: '',
             text: 'Click here!',
-            user: this.props.user,
             projName: '',
             projDescr:'',
             projImg:'',
             projLink:'',
             projPurpose:'',
             projSkills:[],
-            projTeam:[]
+            projTeam:[],
+            user: firebase.auth().currentUser
         };
 
     }
@@ -82,11 +81,17 @@ class AddProjButton extends Component {
             purpose: this.state.projPurpose,
             img: this.state.projImg,
             alt: this.state.projAlt,
-            user: this.state.user
         }
-        // Update the database
+        // Update the database for showcase page
         let projectsRef = firebase.database().ref('showcaseData');
         projectsRef.push(newProj);
+        let userDataRef = firebase.database().ref('userData');
+         // if there exists an object for this.state.user then add to that
+
+         // if it doesn't then create an object for them, and add to that
+         let newUserData = {}
+
+        // Update database for user
         this.setState({projName: '',
         projDescr:'',
         projImg:'',
