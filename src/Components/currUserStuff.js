@@ -25,18 +25,32 @@ export class currUserStuff extends Component {
         // liked is an array of card data liked by user
         let likedCards;// pass in array of card data to card rendering function
         //// card stuff import
-        ////
-        ////
+       
 
-        if (liked == null || liked.length == 0) {
+        if (liked === null || liked.length === 0) {
             likedCards = (<div><p>Nothing liked yet.</p></div>)
+        } else {
+            likedCards = <CreateShowcaseCards cardData = {liked}/>
         }
+        
         // uploaded is an array of card data uploaded by user
-        let uploaded = database.child(email).ref('uploaded');
-        if (uploaded == null || uploaded.length == 0) {
-            uploadedCards = (<div><p>Nothing uploaded yet.</p></div>)
-        }
+        let uploaded = database.child(email).ref('showcaseProj');
         let uploadedCards;
+        if (uploaded === null || uploaded.length === 0) {
+            uploadedCards = (<div><p>Nothing uploaded yet.</p></div>)
+        } else {
+            uploadedCards = (<CreateShowcaseCards cardData = {liked}/>)
+        }
+
+        // requested is an array of card data for projects the user requested to join
+        let requested = database.child(email).ref('requestedProj');
+        let requestedCards;
+        if (requested === null || requested.length === 0) {
+            requestedCards = (<div><p>Nothing requested yet.</p></div>)
+        } else {
+            requestedCards = (<CreateShowcaseCards cardData = {requested}/>)
+        }
+        
         // messages sent by user
         let messageArray = database.child(email).ref('messages');
         let messages = messageArray.map((i) => {
@@ -53,7 +67,6 @@ export class currUserStuff extends Component {
             <label for="submitbutton" aria-label="submit button"></label>
             <button id="button-submit" type="submit" className="btn btn-dark submit" onClick={this.handleSignOut}>Log Out</button></div>          
             </div>
-            // content
             <div>
                 <h1>Your Liked Projects</h1>
                 {likedCards}
@@ -61,6 +74,10 @@ export class currUserStuff extends Component {
             <div>
                 <h1>Your Uploaded Projects</h1>
                 {uploadedCards}
+            </div>
+            <div>
+                <h1>Your Requested Projects</h1>
+                {requestedCards}
             </div>
             <div>
                 <h1>Your Messages</h1>

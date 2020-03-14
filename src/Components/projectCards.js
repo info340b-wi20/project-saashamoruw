@@ -38,9 +38,7 @@ export class Projects extends Component{
                     <AddProjCard/>
                 </section>
                 <div className="projects">
-                <Row>
                     <CreateShowcaseCards cardsData={this.state.projects}/>
-                </Row>
                 </div>
             </div>
         );
@@ -55,7 +53,9 @@ export class CreateShowcaseCards extends Component {
             return currCard;
         });
         return (
-           cards
+            <Row>
+                {cards}
+           </Row>
         );
     }
 }
