@@ -86,9 +86,10 @@ class AddProjButton extends Component {
         // Update the database for showcase page
         let projectsRef = firebase.database().ref('showcaseData');
         projectsRef.push(newProj);
+
+        // if there exists an object for this.state.user then add to that
+        // if it doesn't then create an object for them, and add to that
         let userDataRef = firebase.database().ref('userData');
-         // if there exists an object for this.state.user then add to that
-         // if it doesn't then create an object for them, and add to that
         let email = this.state.user.email.replace('.', ''); // can't have special characters like .
         let showcaseProj = userDataRef.child(email).child('showcaseProj');
         showcaseProj.push(newProj);

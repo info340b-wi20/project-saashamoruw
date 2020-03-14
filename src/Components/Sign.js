@@ -25,7 +25,6 @@ export class Sign extends Component {
 
   componentWillUnmount() {
     // this.authUnRegFunc();
-    console.log(this.state.user);
     return <Redirect to ="/explore"/>
   }
 
