@@ -11,50 +11,69 @@ export class currUserStuff extends Component {
             userData: firebase.database().ref('userData').child(email)};
     }
 
+    handleSignOut = () => {
+        this.setState({errorMessage:null}); 
+    
+        firebase.auth().signOut();
+      }
+
     render() {
-        if(this.state.userData.showcaseProj && this.state.userData.requestedProj) {
-            return (
+        let database = firebase.database().ref('userData');
+        let email = this.state.user.email.replace('.', '');
+        let liked = database.child(email).ref('liked');
+
+        // liked is an array of card data liked by user
+        let likedCards;// pass in array of card data to card rendering function
+        //// card stuff import
+        ////
+        ////
+
+        if (liked == null || liked.length == 0) {
+            likedCards = (<div><p>Nothing liked yet.</p></div>)
+        }
+        // uploaded is an array of card data uploaded by user
+        let uploaded = database.child(email).ref('uploaded');
+        if (uploaded == null || uploaded.length == 0) {
+            uploadedCards = (<div><p>Nothing uploaded yet.</p></div>)
+        }
+        let uploadedCards;
+        // messages sent by user
+        let messageArray = database.child(email).ref('messages');
+        let messages = messageArray.map((i) => {
+            return <p>{i}</p>
+        });
+        let msg = "Welcome, " + this.state.user.displayName + "!";
+
+        let content = (
+            // log out option
+            <div className="sign">
             <div>
-                <YourProj cardsData={this.state.userData.showcaseProj}/>
-                <RequestedProj cardsData={this.state.userData.requestedProj}/>
-            </div>)
-        }
-        if(this.state.userData.showcaseProj) {
-            return <YourProj cardsData={this.state.userData.showcaseProj}/>
-        }
-        if(this.state.userData.requestedProj) {
-            return <RequestedProj cardsData={this.state.userData.requestedProj}/>
-        }
-        return(
+            <h1>{msg}</h1>
+            <div className="submit-button">
+            <label for="submitbutton" aria-label="submit button"></label>
+            <button id="button-submit" type="submit" className="btn btn-dark submit" onClick={this.handleSignOut}>Log Out</button></div>          
+            </div>
+            // content
             <div>
-                <h2> current user: {this.state.user.email}</h2>
-                <h1>You don't have anything here yet</h1>
+                <h1>Your Liked Projects</h1>
+                {likedCards}
+            </div>
+            <div>
+                <h1>Your Uploaded Projects</h1>
+                {uploadedCards}
+            </div>
+            <div>
+                <h1>Your Messages</h1>
+                {messages}
+            </div>
             </div>
         )
-    }
-}
-class YourProj extends Component {
-    render() {
+
         return (
-            <div className="yourProj">
-                <h1>Your projects</h1>
-                <CreateShowcaseCards cardsData={this.state.userData.showcaseProj}/>
-            </div>
-            
-        )
+            { content }
+        );
 
-    }
-}
 
-class RequestedProj extends Component {
-    render() {
-          return (
-            <div className="likedProj">
-                <h1> Requested Projects</h1>
-                <CreateShowcaseCards cardsData={this.state.userData.requestedProj}/>
-            </div>
-            
-        )
     }
 }
 
