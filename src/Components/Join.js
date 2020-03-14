@@ -38,14 +38,28 @@ export class Join extends Component {
 
     render() {
         return (
-            <div className="projects">
-                <JoinCards cardsData={this.state.cards} />
+            <div>
+                <Banner/>
+                <div className="projects">
+                    <JoinCards cardsData={this.state.cards} />
+                </div>
             </div>
         )
     }
 }
 
-
+class Banner extends Component {
+    render() {
+        return (
+          <div className="background-pic">
+             <div className="banner-text">
+                <h1>Discover Opportunities</h1>
+                <p>Find projects to work on and expore your passion!</p>
+            </div>
+          </div>
+        )
+    }
+}
 
 class JoinCards extends Component {
     render() {

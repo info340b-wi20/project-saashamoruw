@@ -33,6 +33,7 @@ export class Projects extends Component{
     render() {
         return (
             <div>
+                <Banner/>
                 <section className="newSec">
                     <AddProjCard/>
                 </section>
@@ -43,7 +44,18 @@ export class Projects extends Component{
         );
     }
 }
-
+class Banner extends Component {
+    render() {
+        return (
+          <div className="background-pic">
+             <div className="banner-text">
+                <h1>Browse projects</h1>
+                <p>Explore a vast database of innovative projects around the world! </p>
+            </div>
+          </div>
+        )
+    }
+}
 export class ShowcaseCards extends Component {
     render() {
         this.cardsData = this.props.cardsData;

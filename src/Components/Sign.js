@@ -53,15 +53,27 @@ export class Sign extends Component {
   render() {
     return (
       <div>
-      {this.state.errorMessage &&
-        <p className="alert alert-danger">{this.state.errorMessage}</p>
-      }     
-      <Form submitCallback={this.submitForm} />  
+        <Banner/>  
+        {this.state.errorMessage &&
+              <p className="alert alert-danger">{this.state.errorMessage}</p>}   
+        <Form submitCallback={this.submitForm} />  
       </div>
     )
   }
 }
 
+class Banner extends Component {
+  render() {
+      return (
+        <div className="background-pic">
+           <div className="banner-text">
+              <h1>Log in</h1>
+              <p>Unlock more functionality including a personalized dashboard!</p>
+          </div>
+        </div>
+      )
+  }
+}
 
 // sign up/log in form component
  class Form extends Component {
@@ -143,7 +155,6 @@ export class Sign extends Component {
               <div >
                 <h1 className="msg">{this.state.title}</h1>
                 </div>
-
               {this.state.nameField}
 
               <div className="form-input">
@@ -153,7 +164,6 @@ export class Sign extends Component {
               <div className="form-input">
                   <label for="password"><b>Password</b></label>
                   <input type="password" for="password" id="password" name="password" aria-label="input password" placeholder="Enter Password" minLength={6} required onChange={this.handleChange} /></div>
-
               {this.state.checkbox}
               <div className="submit-button">
                   <label for="submitbutton" aria-label="submit button"></label>
