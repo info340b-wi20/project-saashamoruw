@@ -21,13 +21,12 @@ Here is what a user would typically do on Project Hub:
 - Users scroll through projects posted as "looking for members"
 - Each project will have a topic and requirements for team members
 - Users can filter projects on the basis of:
-- - Role of Team Member needed
-- - Time commitment of entire project
-- - Time commitment per week
-- - Purpose of project: Hackathon, Capstone etc.
-- - Payment
-- - Location
-- - Value system
+    - Role of Team Member needed
+    - Time commitment of entire project
+    - Time commitment per week
+    - Purpose of project: Hackathon, Capstone etc.
+    - Payment
+    - Location
 - User clicks "Send Request to Join Team" on project of choice
 - The request prompts the user to enter the necessary information as requested by the project creator for example resume, proof of highlights etc.
 
