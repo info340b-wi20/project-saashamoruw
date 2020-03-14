@@ -1,6 +1,6 @@
 # Project Hub
 By: Saasha Mor and Rajoshi Chakravarty
-This repository contains code for an interactive web app, created for the _Client-Side Web Development_ course at the UW iSchool the published site can be viewed at [](https://project-hub-2020.firebaseapp.com/)
+This repository contains code for an interactive web app, created for the _Client-Side Web Development_ course at the UW iSchool the published Firebase site can be viewed [https://project-hub-2020.firebaseapp.com/](here)
 
 ## Overview
 There are a lot of great projects produced by people. Project Hub is a one-stop-shop to show case any projects you worked on whether it was for a class, capstone, a hackathon or even a passion project. Your project can be anything from Software Development and Data Science to Graphic Design and UI/UX Design!
@@ -10,6 +10,7 @@ What if you don't have any projects to showcase? Don't worry! Project Hub can al
 ## Existing Solutions
 Github brings together the world's largest community of developers to discover, share, and build better software. It has capability to have open source projects to private team ones
 Open Science Framework is a platform to showcase all your research projects with the ability to upload sources from Github, Dropbox and Amazon S3
+
 ### What's missing?
 The point of showcasing projects are to show them off. It is a great way to show the world your highlights while working on a topic that intrigues you as well as add value to the world with a working prototype that people can use. Although, the existing solutions are great to be able to collaborate on projects, they are not good ways to "show-off" projects
 
@@ -31,14 +32,14 @@ Here is what a user would typically do on Project Hub:
 - The request prompts the user to enter the necessary information as requested by the project creator for example resume, proof of highlights etc.
 
 - Potential team member and project creator can chat on the app to finalize
-#### Showcase Projects
+### Showcase Projects
 - User creates a project to showcase with the name of the project
 - User adds brief descriptions of the project along with team members/li>
 - Users can add purpose of the project like Hackathon, Capstone, Personal etc.
 - The web app prompts to add source code or any other materials from Github
 - User clicks submit which places the project showcase in a browsable tile format
 
-### Dashboard
+### Personalized dashboard
 - Users can "like" showcased projects which would appear on their dashboard
 - The projects the user has showcased will also appear on their dashboard, along with the number of likes it has
 - The user can also see the pending or accepted requests to join projects
