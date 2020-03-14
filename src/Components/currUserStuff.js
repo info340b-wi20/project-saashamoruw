@@ -8,17 +8,16 @@ export class currUserStuff {
         this.state = {user: firebase.auth().currentUser};
         let database = firebase.database().ref('userData');
         // if there exists an object for this.state.user then render that shit
-    }
 
-    // code to add to database
 
-    let database = firebase.database().ref('userData');
-    let email = this.state.user.email.replace('.', ''); // can't have special characters like .
+    render() {
+        // code to change database
+        let database = firebase.database().ref('userData');
+    let email = this.state.user.email.replace('.', ''); // can't accept special chars like .
     database.child(email).set({ // will create if doesn't exist
         po: "poop"
     });
 
-    render() {
         
     }
 }
