@@ -137,8 +137,11 @@ class MessageButton extends Component {
         super(props);
         this.state = {
             openDialog: '',
-            text: 'Request to Join!'
+            text: 'Request to Join!',
+            // getting user!
+            user: firebase.auth().currentUser
         };
+
 
         this.handleOpenDialog = this.handleOpenDialog.bind(this);
         this.handleCloseDialog = this.handleCloseDialog.bind(this);
@@ -154,7 +157,8 @@ class MessageButton extends Component {
         this.setState({
             openDialog: false
         });
-        alert('Your message was discarded.');
+        // checking if user details are coming up
+        alert('Your message was discarded.' + this.state.user.email);
     }
 
     handleSubmitDialog() {
