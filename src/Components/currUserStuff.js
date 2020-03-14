@@ -6,13 +6,17 @@ import {ShowcaseCards} from './projectCards';
 export class currUserStuff extends Component {
     constructor(props) {
         super(props)
-        this.state = {user: firebase.auth().currentUser, showcaseProjects: {}, requestedProjects: {}};
+        this.state = ({
+            user: firebase.auth().currentUser, 
+            showcaseProjects: {}, 
+            requestedProjects: {}
+        });
         // no user for some reason???
         console.log(this.state.user);
     }
     componentDidMount() {
         let email = this.state.user.email.replace('.', '');
-        this.database = firebase.database().ref('userData').child(email);
+        let database = firebase.database().ref('userData').child(email);
     }
 
     componentWillUnmount() {
@@ -24,24 +28,21 @@ export class currUserStuff extends Component {
         firebase.auth().signOut();
       }
 
-    render() {
-       /*  // liked is an array of card data liked by user
-        let liked = database.child(email).ref('liked');
-       
-        let likedCards;// pass in array of card data to card rendering function
-        //// card stuff import
-       
 
-        if (liked === null || liked.length === 0) {
-            likedCards = (<div><p>Nothing liked yet.</p></div>)
-        } else {
-            likedCards = <CreateShowcaseCards cardData = {liked}/>
+    render() {
+        let email = this.state.user.email.replace('.', '');
+        let userData = firebase.database().ref('userData').child(email);
+        if (userData === null || userData.length === 0) {
+           userData.push(email);
+           this.state.showcaseProjects = {};
+           this.state.requestedProjects = {};            
         }
-         */
-        // uploaded is an array of card data uploaded by user
-        let uploaded = this.database.child('showcaseProj');
+    
+
+
+        let uploaded =  userData.child(email).child('showcaseProj');
         let uploadedCards;
-        if (uploaded === null || uploaded.length === 0) {
+        if (uploaded === null ) {
             uploadedCards = (<div><p>Nothing uploaded yet.</p></div>)
         } else {
             uploaded.on('value', (snapshot) => {
@@ -57,9 +58,9 @@ export class currUserStuff extends Component {
         }
 
         // requested is an array of card data for projects the user requested to join
-        let requested = this.database.child('requestedProj');
+       let requested = this.state.requestedProjects;
         let requestedCards;
-        if (requested === null || requested.length === 0) {
+        if (requested === null) {
             requestedCards = (<div><p>Nothing requested yet.</p></div>)
         } else {
             requested.on('value', (snapshot) => {
