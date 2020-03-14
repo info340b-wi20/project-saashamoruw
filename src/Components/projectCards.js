@@ -47,7 +47,7 @@ export class Projects extends Component{
     }
 }
 
-class CreateShowcaseCards extends Component {
+export class CreateShowcaseCards extends Component {
     render() {
         this.cardsData = this.props.cardsData;
         let cards = this.cardsData.map(function(oneCard) {

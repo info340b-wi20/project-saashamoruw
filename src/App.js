@@ -5,6 +5,7 @@ import {Sign} from './Components/Sign';
 import {Join} from './Components/Join';
 import {Route, Switch, NavLink, Redirect} from 'react-router-dom'
 import firebase from 'firebase/app';
+import currUserStuff from './Components/currUserStuff';
 
 export default class App extends Component {
   constructor(props) {
@@ -30,6 +31,7 @@ render() {
             <Route exact path='/explore' component = {Projects}/>
             <Route path ='/join' component = {Join}/>
             <Route path ="/signin" component = {Sign}/>
+            <Route path ="/mystuff" component = {currUserStuff}/>
             <Redirect to ="/explore"/> 
         </Switch>
       </main>
@@ -42,7 +44,7 @@ render() {
 class NavBar extends Component {
   constructor(props) {
     super(props)
-    this.state = this.props.state;
+    this.state = {user: firebase.auth().currentUser}
   }
     render() {
         return (
@@ -50,7 +52,7 @@ class NavBar extends Component {
             <li><NavLink to = "/explore" activeClassName="activeLink"> <h1>EXPLORE</h1><i className = "fa fa-home" /></NavLink></li>
             <li><NavLink to = "/join" activeClassName="activeLink"><h1>JOIN</h1><i className = "fa fa-weixin"></i></NavLink></li>
             <li><NavLink to ="/signin" activeClassName="activeLink"><h1>LOG IN</h1><i className = "fa fa-user"></i></NavLink></li>
-            {/* {this.state.user && <li><NavLink to ="/mystuff"><h1>MY STUFF</h1></NavLink></li>} */}
+            <li><NavLink to ="/mystuff" activeClassName="activeLink"><h1>MY STUFF</h1><i className = "fa fa-user"></i></NavLink></li>
             </ul>
     )}
     }

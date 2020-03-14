@@ -12,7 +12,6 @@ import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import firebase from 'firebase/app'
 import 'firebase/database';
-import {Redirect} from 'react-router-dom'
 
 export class AddProjCard extends Component {
 

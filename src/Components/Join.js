@@ -122,7 +122,7 @@ class CreateSideTwo extends Component {
                     <CardText>{"Purpose: " + this.cardData.purpose}</CardText>
                     <CardText>{"Experience Level: " + this.cardData.exp}</CardText>
                 </CardBody>
-                <MessageButton />
+                <MessageButton cardData = {this.cardData}/>
             </ Card>
         )
         return sideTwo;
@@ -139,21 +139,17 @@ class MessageButton extends Component {
             openDialog: '',
             text: 'Request to Join!',
             // getting user!
-            user: firebase.auth().currentUser
+            user: firebase.auth().currentUser,
+            cardData: this.props.cardData
         };
-
-
-        this.handleOpenDialog = this.handleOpenDialog.bind(this);
-        this.handleCloseDialog = this.handleCloseDialog.bind(this);
-        this.handleSubmitDialog = this.handleSubmitDialog.bind(this);
-        this.handleSwitch = this.handleSwitch.bind(this);     
+    
     }
 
-    handleOpenDialog() {
+    handleOpenDialog = (event) => {
         this.setState({ openDialog: true });
     }
 
-    handleCloseDialog() {
+    handleCloseDialog = (event) => {
         this.setState({
             openDialog: false
         });
@@ -161,15 +157,19 @@ class MessageButton extends Component {
         alert('Your message was discarded.' + this.state.user.email);
     }
 
-    handleSubmitDialog() {
+    handleSubmitDialog = (event) => {
         this.setState({
             openDialog: false,
             text: 'Requested.'
         });
+        let userDataRef = firebase.database().ref('userData');
+        let email = this.state.user.email.replace('.', ''); // can't have special characters like .
+        let requestedProj = userDataRef.child(email).child('requestedProj');
+        requestedProj.push(this.state.cardData);
         alert('Your message to join the project has been sent!');
     }
 
-    handleSwitch() {
+    handleSwitch = (event) => {
         this.setState({
             
         })
