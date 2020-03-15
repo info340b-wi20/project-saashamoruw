@@ -5,6 +5,8 @@ This repository contains code for an interactive web app, created for the _Clien
 ## TO-DO
 - Fix dashboard code
 - Load in already requested projects if user has signed in and show as requested. Do we want option to un-request?
+- FOR BOTH OF THE ABOVE
+    - The loops to get the data don't run for some reason
 - Have the page redirect to sign in page if the user tries to 
     - Add a project to showcase
     - Like a project

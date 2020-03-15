@@ -7,12 +7,12 @@ import {
     CardTitle, Row, Col,
     ListGroup, ListGroupItem,
   } from 'reactstrap';
-import { Redirect } from 'react-router-dom';
+import {Redirect } from 'react-router-dom';
 
 export class Projects extends Component{
     constructor(props) {
         super(props);
-        this.state = {projects: []}
+        this.state = {projects: [], user:firebase.auth().currentUser}
     }
 
     componentDidMount() {
@@ -59,6 +59,7 @@ class Banner extends Component {
 export class ShowcaseCards extends Component {
     render() {
         this.cardsData = this.props.cardsData;
+        console.log(this.cardsData);
         let cards = this.cardsData.map(function(oneCard) {
             let currCard = (<OneCard oneCardData = {oneCard} key={"card" + oneCard.name}/>);
             return currCard;
@@ -100,7 +101,8 @@ class OneCard extends Component {
     likeProj = () => {
         if(firebase.auth().currentUser === null) {
             // nothing happens
-            return <Redirect push to ="/signin"/>
+            console.log("NO");
+            return <Redirect to ="/signin"/>
         } else {
             if(this.state.ifLikeProj) {
                 this.likedProj.child(this.key).remove();

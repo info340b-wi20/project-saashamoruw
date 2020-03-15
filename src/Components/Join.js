@@ -61,7 +61,7 @@ class Banner extends Component {
     }
 }
 
-class JoinCards extends Component {
+export class JoinCards extends Component {
     render() {
         this.cardsData = this.props.cardsData;
         let cards = this.cardsData.map(function(oneCard) {
@@ -153,14 +153,17 @@ class MessageButton extends Component {
             user: firebase.auth().currentUser,
             cardData: this.props.cardData
         };
+    }
+    componentWillMount() {
         // To change state of already requested projects
         if(this.state.user !== null) {
             let email = this.state.user.email.replace('.', ''); // can't have special characters like .
             let userData = firebase.database().ref('userData').child(email);
             this.requestedProj = userData.child('requestedProj');
             let cardKey = this.state.cardData.name.replace(' ', '');
+            let ifTrue = false;
             if(this.requestedProj !== null) {
-                // doesn't go into this loop??
+                // DEBUG: doesn't go into this loop??
                 this.requestedProj.once('value', function(snapshot) {
                     let data = snapshot.val();
                     // if there are no requested projects yet
@@ -169,13 +172,14 @@ class MessageButton extends Component {
                     }
                     Object.keys(data).map( (theKey) => {
                         if(theKey === cardKey) {
-                            this.setState({text: 'Requested'});
+                            ifTrue = true;
                         }
-                    })
-                }, function(error){
-                    console.log(error);
+                    });
                 });
             }
+            if(ifTrue) {
+                this.setState({text: 'Requested'});
+            }   
         }
     }
 
@@ -183,7 +187,7 @@ class MessageButton extends Component {
         if(this.state.user === null) {
             return <Redirect from ="/join" to ="/signin"/>
         } 
-        else if(this.state.text == 'Requested.') {
+        else if(this.state.text === 'Requested.') {
             alert('Your request has already been sent');
         } else {
             this.setState({ openDialog: true });
