@@ -156,21 +156,24 @@ class MessageButton extends Component {
         // To change state of already requested projects
         if(this.state.user !== null) {
             let email = this.state.user.email.replace('.', ''); // can't have special characters like .
-            this.requestedProj =  firebase.database().ref('userData').child(email).child('requestedProj');
-            console.log(this.requestedProj);
+            let userData = firebase.database().ref('userData').child(email);
+            this.requestedProj = userData.child('requestedProj');
+            let cardKey = this.state.cardData.name.replace(' ', '');
             if(this.requestedProj !== null) {
-                // doesn't work?????
-                this.requestedProj.on('value', (snapshot) => {
+                // doesn't go into this loop??
+                this.requestedProj.once('value', function(snapshot) {
                     let data = snapshot.val();
                     // if there are no requested projects yet
                     if(data === null) {
                         return;
                     }
                     Object.keys(data).map( (theKey) => {
-                        if(theKey === this.key) {
-                        this.setState({text: 'Requested'});
+                        if(theKey === cardKey) {
+                            this.setState({text: 'Requested'});
                         }
                     })
+                }, function(error){
+                    console.log(error);
                 });
             }
         }
