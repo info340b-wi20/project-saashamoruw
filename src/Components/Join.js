@@ -154,7 +154,7 @@ class MessageButton extends Component {
             cardData: this.props.cardData
         };
     }
-    componentWillMount() {
+    componentDidMount() {
         // To change state of already requested projects
         if(this.state.user !== null) {
             let email = this.state.user.email.replace('.', ''); // can't have special characters like .

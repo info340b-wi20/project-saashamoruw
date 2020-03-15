@@ -14,69 +14,56 @@ export class currUserStuff extends Component {
             showcaseProjects: {},
             requestedProjects: {},
         });
-        this.showcaseProjects={};
-        this.requestedProjects={};
-        if(this.state.user === null) {
-            console.log("NO");
-            return <Redirect to ="/signin"/>
-        }
+        //this.showcaseProjects={};
+        //this.requestedProjects={};
+        
     }
 
 
-
+    componentWillMount() {
+        if(this.state.user === null) {
+            return <Redirect to="/signin"/>
+        }
+    }
     componentDidMount() {
+        if(this.state.user === null) {
+            return <Redirect to="/signin"/>
+        }
         // this.authUnRegFunc = firebase.auth().onAuthStateChanged((currentUser) => {
         //     if (currentUser) {
         //       this.setState({ user: currentUser });
-        let showcaseProjects = {};
-        let requestedProjects = {};
-
+        this.showcaseProjects = {};
+        this.requestedProjects = {};
         let email = this.state.user.email.replace('.', '');
-        let database = firebase.database();
-        let userData = database.ref('userData').child(email);
+        let userData = firebase.database().ref('userData')
         if (userData !== null && userData.length !== 0) {
-            // user exists 
-            console.log("User exists");
+            // user now exists 
             // put all showcase cards for the user into this
-            let showcase = userData.child('showcaseProj')
-            if (showcase !== undefined) {
-                console.log("HERE");
-                // DEBUG: Doesn't enter this loop?
-                showcase.on('value', (snapshot) => {
-                    let data = snapshot.val();
-                    if(data === null) {return;}
-                    console.log("HERE2");
-                    showcaseProjects = Object.keys(data).map((key) => {
-                        console.log("HERE3");
-                        let projObj = data[key];
-                        projObj.id = key;
-                        return projObj;
-                    });
+            let showcase = firebase.database().ref('userData').child(email).child('showcaseProj')
+            this.showcaseProjects = showcase.on('value', (snapshot) => {
+                let data = snapshot.val();
+                // no ref basically
+                if(data === null) {return;}
+                let array = Object.keys(data).map((key) => {
+                    let projObj = data[key];
+                    projObj.id = key;
+                    return projObj;
                 });
-            }
-             //check if array is correct
-           console.log(showcaseProjects)
-           this.setState({showcaseProjects: showcaseProjects});
-           console.log(this.state.showcaseProjects);
+                this.setState({showcaseProjects: array});
+            });
 
             // put all requested proj cards for the user into this
-            let requested = userData.child('requestedProj');
-            if (requested!== undefined) {
-                 // DEBUG: Doesn't enter this loop?
-                requested.on('value', function(snapshot) {
-                    let data = snapshot.val();
-                    if(data === null) {return;}
-                    requestedProjects = Object.keys(data).map((key) => {
-                        let projObj = data[key];
-                        projObj.id = key;
-                        return projObj;
-                    });
+            let requested = firebase.database().ref('userData').child(email).child('requestedProj');
+            this.requestedProjects = requested.on('value', (snapshot) => {
+                let data = snapshot.val();
+                if(data === null) { return;}
+                let reqArray = Object.keys(data).map((key) => {
+                    let projObj = data[key];
+                    projObj.id = key;
+                    return projObj;
                 });
-                //check if array is correct
-                console.log(requestedProjects);
-                this.setState({requestedProjects: requestedProjects});
-                console.log(this.state.showcaseProjects)
-            }
+                this.setState({requestedProjects: reqArray});
+            });
         } // ends if user does exist
         
 
@@ -94,23 +81,18 @@ export class currUserStuff extends Component {
 
 
     render() {
-
         let requestedCards;
         let showcaseCards;
         if (Object.keys(this.state.showcaseProjects).length === 0) {
-            showcaseCards = (<h1>You don't have any showcased projects</h1>);
-            console.log("showcase no")
+            showcaseCards = (<h2>You don't have any showcased projects</h2>);
         } else {
-            console.log("showcase yes")
-            showcaseCards = (<ShowcaseCards cardData={this.state.showcaseProjects} />)
+            showcaseCards = (<ShowcaseCards cardsData={this.state.showcaseProjects} />)
         }
-        
+
         if (Object.keys(this.state.requestedProjects).length === 0) {
-            requestedCards = (<h1>You don't have any requested projects :( </h1>);
-            console.log("req no")
+            requestedCards = (<h2>You don't have any requested projects :( </h2>);
         } else {
-            console.log("req yes")
-            requestedCards = (<JoinCards cardData={this.state.requestedProjects} />)
+            requestedCards = (<JoinCards cardsData={this.state.requestedProjects} />)
         }
         // } else {
         //     requestedCards = (<div><p>Nothing requested yet.</p></div>)
@@ -122,8 +104,9 @@ export class currUserStuff extends Component {
          let messages = messageArray.map((i) => {
              return <p>{i}</p>
          });
+          let msg = "Welcome, " + this.state.user.displayName + "!";
          */
-        let msg = "Welcome, " + this.state.user.displayName + "!";
+       
 
            
 
