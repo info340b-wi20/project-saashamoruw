@@ -23,7 +23,6 @@ export class Projects extends Component{
               projObj.id = theKey;
               return projObj;
             })
-
             this.setState({projects: projectsArray});
           });
     }
@@ -74,42 +73,48 @@ export class ShowcaseCards extends Component {
 class OneCard extends Component {
     constructor(props) {
         super(props)
-        this.cardData = this.props.oneCardData;
+        this.state = {cardData: this.props.oneCardData, ifLikeProj: false}
         let email = firebase.auth().currentUser.email.replace('.', '');
-        let database = firebase.database().ref('userData').child(email);
-        this.likedProj = database.child('likedProjects');
-        this.key = this.cardData.name.replace(' ', '');
-        this.ifLikeProj = this.likedProj.child(this.key).once('value', function(snapshot) {
-            return (snapshot.val != null)
-        });
+        this.likedProj = firebase.database().ref('userData').child(email).child('likedProjects');
+        this.key = this.state.cardData.name.replace(' ', '');
+        this.likedProj.on('value', (snapshot) => {
+            let data = snapshot.val();
+            debugger
+            Object.keys(data).map( (theKey) => {
+                debugger
+              if(theKey === this.key) {
+                this.setState({ifLikeProj: true});
+              }
+            })
+          });
     }
     // adds and removed from the database but the color doesn't change as per liked ones
     likeProj = () => {
-        if(this.ifLikeProj) {
-           this.likedProj.child(this.key).remove();
+        if(this.state.ifLikeProj) {
+            this.likedProj.child(this.key).remove();
         } else {
-            this.likedProj.child(this.key).set(this.cardData);
+            this.likedProj.child(this.key).set(this.state.cardData);
         }
-        this.ifLikeProj = !this.ifLikeProj;
+        this.setState({ifLikeProj: !this.state.ifLikeProj});
     }
 
     render() {
         return(
             <Col className ="col">
-                <Card className="card" key={this.cardData.name}>
-                    <CardImg top width="100%" src={this.cardData.img} alt={this.cardData.alt} />
+                <Card className="card normal" key={this.state.cardData.name}>
+                    <CardImg top width="100%" src={this.state.cardData.img} alt={this.state.cardData.alt} />
                     <CardBody>
-                        <CardTitle className="cardTitle">{this.cardData.name} </CardTitle>
-                        <CardText>{"Purpose: " } <span className="highlight">{this.cardData.purpose}</span></CardText>
-                        <CardText className = "cardText">{this.cardData.description}</CardText>
+                        <CardTitle className="cardTitle">{this.state.cardData.name} </CardTitle>
+                        <CardText>{"Purpose: " } <span className="highlight">{this.state.cardData.purpose}</span></CardText>
+                        <CardText className = "cardText">{this.state.cardData.description}</CardText>
                     </CardBody>
                     <ListGroup>
-                        <ListGroupItem> {"Team Members: " + this.cardData.team.join(', ')} </ListGroupItem>
-                        <ListGroupItem> {"Skills/Languages: "} <span className="highlight">{this.cardData.skills.join(', ')}</span> </ListGroupItem>
+                        <ListGroupItem> {"Team Members: " + this.state.cardData.team.join(', ')} </ListGroupItem>
+                        <ListGroupItem> {"Skills/Languages: "} <span className="highlight">{this.state.cardData.skills.join(', ')}</span> </ListGroupItem>
                         <ListGroupItem>
                             <div className="links">
-                                <i className={'fa fa-heart ' + (this.ifLikeProj ? 'colorRed': '')}aria-label="like" onClick={this.likeProj}></i>
-                                <a href={this.cardData.link} target="_blank" rel="noopener noreferrer"><i className="fa fa-link" aria-label="project link"></i> </a>
+                                <i className={'fa fa-heart' + (this.state.ifLikeProj ? ' colorRed': '')}aria-label="like" onClick={this.likeProj}></i>
+                                <a href={this.state.cardData.link} target="_blank" rel="noopener noreferrer"><i className="fa fa-link" aria-label="project link"></i> </a>
                             </div>
                         </ListGroupItem>
                     </ListGroup>

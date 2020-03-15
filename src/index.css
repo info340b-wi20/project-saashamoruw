@@ -6,7 +6,7 @@
 
 body {
   font-family: 'Montserrat', sans-serif; 
-  font-size: 10px;
+  font-size: 12px;
 }
 
 
@@ -473,9 +473,15 @@ color: black;
 }
 
 .card {
-height: 500px;
+height: 450px;
 width: 300px;
 border: none;
+}
+
+.card.normal {
+  height: 600px;
+  width: 300px;
+  border: none;
 }
 
 .links i {
@@ -483,12 +489,18 @@ border: none;
   font-size: 1.7em;
   display:inline;
   color: black;
+  transition: 0.5s;
 }
 .links i:hover {
   color:red;
 }
-.links .colorRed {
+i.colorRed {
   color:red;
+  transition: 0.5s;
+}
+
+i.colorRed:hover {
+  color:black;
 }
 
 .links {
