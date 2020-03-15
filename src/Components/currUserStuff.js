@@ -103,13 +103,7 @@ export class currUserStuff extends Component {
            
 
         return (
-                // log out option
-                <div className="sign">
-                <h1>{msg}</h1>
-                <div className="submit-button">
-                    <label for="submitbutton" aria-label="submit button"></label>
-                    <button id="button-submit" type="submit" className="btn btn-dark submit" onClick={this.handleSignOut}>Log Out</button>
-                </div>
+            <div>
                 <h2>Dashboard</h2>
                 {/* <div>
                     <h1>Your Liked Projects</h1>

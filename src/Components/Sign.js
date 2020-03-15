@@ -47,6 +47,7 @@ export class Sign extends Component {
   }
   if (this.state.errorMessage == null) {
     this.setState({errorMessage: "Success!"});
+    return <Redirect push to ="/explore"/>
   }
 }
 
@@ -96,9 +97,6 @@ class Banner extends Component {
               <label className="form-check-label" for="check">Agree to Terms and Conditions.</label><br />
           </div>)]
       };
-
-      this.handleChange = this.handleChange.bind(this);
-      this.handleSwitch = this.handleSwitch.bind(this);
   }
 
   // submitting form

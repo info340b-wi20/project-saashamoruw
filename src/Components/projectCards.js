@@ -7,6 +7,7 @@ import {
     CardTitle, Row, Col,
     ListGroup, ListGroupItem,
   } from 'reactstrap';
+import { Redirect } from 'react-router-dom';
 
 export class Projects extends Component{
     constructor(props) {
@@ -74,28 +75,40 @@ class OneCard extends Component {
     constructor(props) {
         super(props)
         this.state = {cardData: this.props.oneCardData, ifLikeProj: false}
-        let email = firebase.auth().currentUser.email.replace('.', '');
-        this.likedProj = firebase.database().ref('userData').child(email).child('likedProjects');
-        this.key = this.state.cardData.name.replace(' ', '');
-        this.likedProj.on('value', (snapshot) => {
-            let data = snapshot.val();
-            debugger
-            Object.keys(data).map( (theKey) => {
-                debugger
-              if(theKey === this.key) {
-                this.setState({ifLikeProj: true});
-              }
-            })
-          });
-    }
-    // adds and removed from the database but the color doesn't change as per liked ones
-    likeProj = () => {
-        if(this.state.ifLikeProj) {
-            this.likedProj.child(this.key).remove();
-        } else {
-            this.likedProj.child(this.key).set(this.state.cardData);
+        // to update the colors of the already liked projects depending on the user
+        if(firebase.auth().currentUser !==  null) {
+            let email = firebase.auth().currentUser.email.replace('.', '');
+            let userData = firebase.database().ref('userData').child(email);
+            this.likedProj = userData.child('likedProjects');
+            this.key = this.state.cardData.name.replace(' ', '');
+            if(this.likedProj !== undefined) {
+                this.likedProj.on('value', (snapshot) => {
+                    let data = snapshot.val();
+                    // if there are no liked projects yet
+                    if(data === null) {
+                        return;
+                    }
+                    Object.keys(data).map( (theKey) => {
+                        if(theKey === this.key) {
+                            this.setState({ifLikeProj: true});
+                        }
+                    })
+                });
+            }
         }
-        this.setState({ifLikeProj: !this.state.ifLikeProj});
+    }
+    likeProj = () => {
+        if(firebase.auth().currentUser === null) {
+            // nothing happens
+            return <Redirect push to ="/signin"/>
+        } else {
+            if(this.state.ifLikeProj) {
+                this.likedProj.child(this.key).remove();
+            } else {
+                this.likedProj.child(this.key).set(this.state.cardData);
+            }
+            this.setState({ifLikeProj: !this.state.ifLikeProj});
+        }
     }
 
     render() {

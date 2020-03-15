@@ -10,7 +10,7 @@ import DialogTitle from '@material-ui/core/DialogTitle';
 import { Typography } from '@material-ui/core';
 import firebase from 'firebase/app'
 import 'firebase/database';
-
+import { Redirect } from 'react-router-dom';
 // Join Projects page 
 export class Join extends Component {
     constructor(props) {
@@ -153,19 +153,45 @@ class MessageButton extends Component {
             user: firebase.auth().currentUser,
             cardData: this.props.cardData
         };
-    
+        // To change state of already requested projects
+        if(this.state.user !== null) {
+            let email = this.state.user.email.replace('.', ''); // can't have special characters like .
+            this.requestedProj =  firebase.database().ref('userData').child(email).child('requestedProj');
+            console.log(this.requestedProj);
+            if(this.requestedProj !== null) {
+                // doesn't work?????
+                this.requestedProj.on('value', (snapshot) => {
+                    let data = snapshot.val();
+                    // if there are no requested projects yet
+                    if(data === null) {
+                        return;
+                    }
+                    Object.keys(data).map( (theKey) => {
+                        if(theKey === this.key) {
+                        this.setState({text: 'Requested'});
+                        }
+                    })
+                });
+            }
+        }
     }
 
     handleOpenDialog = (event) => {
-        this.setState({ openDialog: true });
+        if(this.state.user === null) {
+            return <Redirect from ="/join" to ="/signin"/>
+        } 
+        else if(this.state.text == 'Requested.') {
+            alert('Your request has already been sent');
+        } else {
+            this.setState({ openDialog: true });
+        }
     }
 
     handleCloseDialog = (event) => {
         this.setState({
             openDialog: false
         });
-        // checking if user details are coming up
-        alert('Your message was discarded.' + this.state.user.email);
+        alert('Your message was discarded.');
     }
 
     handleSubmitDialog = (event) => {
@@ -173,10 +199,7 @@ class MessageButton extends Component {
             openDialog: false,
             text: 'Requested.'
         });
-        let userDataRef = firebase.database().ref('userData');
-        let email = this.state.user.email.replace('.', ''); // can't have special characters like .
-        let requestedProj = userDataRef.child(email).child('requestedProj');
-        requestedProj.push(this.state.cardData);
+        this.requestedProj.child(this.state.cardData.name.replace(' ', '')).set(this.state.cardData);
         alert('Your message to join the project has been sent!');
     }
 

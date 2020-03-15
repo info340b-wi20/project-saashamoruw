@@ -19,6 +19,7 @@ render() {
             <Route path ='/join' component = {Join}/>
             <Route path ="/signin" component = {Sign}/>
             <Route path ="/mystuff" component = {currUserStuff}/>
+            <Route path ="/logout" component = {Signout}/>
             <Redirect to ="/explore"/> 
         </Switch>
       </main>
@@ -27,7 +28,13 @@ render() {
   }
 }
 
-
+class Signout extends Component {
+  constructor(props) {
+    super(props)
+    firebase.auth().signOut();
+    return <Redirect to = "/explore"/>
+  }
+}
 class NavBar extends Component {
   // constructor(props) {
   //   super(props)
@@ -82,7 +89,6 @@ class NavBar extends Component {
       // if (!(firebase.auth().currentUser === null)) {
       //   dashNav =  (<li><NavLink to ="/mystuff" activeClassName="activeLink"><h1>DASHBOARD</h1><i className = "fa fa-user"></i></NavLink></li>);
       // }
-
         return (
           <div className = "nav">
                 <img src={require('./projecthub.png')} alt="Project Hub logo"></img><a href="index.html"><span id="name">ProjectHub</span></a>
@@ -91,6 +97,7 @@ class NavBar extends Component {
                   <li><NavLink to = "/join" activeClassName="activeLink"><h1>JOIN</h1><i className = "fa fa-weixin"></i></NavLink></li>
                   <li><NavLink to ="/signin" activeClassName="activeLink"><h1>LOG IN</h1><i className = "fa fa-user"></i></NavLink></li>
                   <li><NavLink to ="/mystuff" activeClassName="activeLink"><h1>DASHBOARD</h1><i className = "fa fa-user"></i></NavLink></li>
+                  <li><NavLink to ="/logout"><h1>LOG OUT</h1><i className = "fa fa-user"></i></NavLink></li>
                    {/* {this.dashNav}  */}
                 </ul>
           </div>

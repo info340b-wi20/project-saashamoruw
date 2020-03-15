@@ -4,13 +4,13 @@ This repository contains code for an interactive web app, created for the _Clien
 
 ## TO-DO
 - Fix dashboard code
-- Functionality to "like" a project
-    - code added but the right color doesn't show up right now
+- Load in already requested projects if user has signed in and show as requested. Do we want option to un-request?
 - Have the page redirect to sign in page if the user tries to 
     - Add a project to showcase
     - Like a project
     - Request to join a project
-- Have the nav bar be "Log in" if user has not logged in with route to /signin, if user has logged in show "Dashboard"
+- Have the nav bar be "Log in" if user has not logged in with route to /signin, if user has logged in show "Dashboard" and "Sign out"
+    - The state of the nav bar doesn't update?
 
 Less important: worth like 1 point each?
 - Check mobile site
