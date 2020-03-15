@@ -12,12 +12,15 @@ export class currUserStuff extends Component {
             requestedProjects: {},
         });
         console.log(this.state.showcaseProjects);
-        console.log(this.state.user);
     }
 
 
 
     componentDidMount() {
+        // this.authUnRegFunc = firebase.auth().onAuthStateChanged((currentUser) => {
+        //     if (currentUser) {
+        //       this.setState({ user: currentUser });
+
         let email = this.state.user.email.replace('.', '');
         this.database = firebase.database();
         let userData = this.database.ref('userData').child(email);
