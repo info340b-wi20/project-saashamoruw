@@ -15,11 +15,7 @@ export class currUserStuff extends Component {
         console.log(this.state.user);
     }
 
-    // index.js:1 Warning: Can't perform a React state update on an unmounted
-    //  component. This is a no-op, but it indicates a memory leak 
-    //  in your application. To fix, cancel all subscriptions and 
-    //  asynchronous tasks in the componentWillUnmount method.
-    // in currUserStuff
+
 
     componentDidMount() {
         let email = this.state.user.email.replace('.', '');

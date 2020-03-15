@@ -29,12 +29,60 @@ render() {
 
 
 class NavBar extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {user: firebase.auth().currentUser}
-  }
+  // constructor(props) {
+  //   super(props)
+  //   this.state = {
+  //     // path: '/signin',
+  //     // text: 'Sign In'
+  //     dashNav: (<li><NavLink to ="/mystuff" activeClassName="activeLink"><h1>DASHBOARD</h1><i className = "fa fa-user"></i></NavLink></li>)
+  //   }
+  // }
+
+
+  // componentDidMount() {
+  //     let currentUser = firebase.auth().currentUser;
+  //       if (currentUser === null) {
+  //         this.setState({ 
+  //           dashNav: {}
+  //         });
+  
+  //       } else {
+  //         this.setState({ 
+  //           dashNav: (<li><NavLink to ="/mystuff" activeClassName="activeLink"><h1>DASHBOARD</h1><i className = "fa fa-user"></i></NavLink></li>)
+  //         });
+  //       }
+  //   }
+
+  // componentDidMount() {
+  //   let currentUser = firebase.auth().currentUser;
+  //     if (currentUser === null) {
+  //       this.setState({ 
+  //         user: currentUser ,
+  //         path: '/signin',
+  //         text: 'LOG IN'
+  //       });
+
+  //     } else {
+  //       this.setState({ 
+  //         user: null,
+  //         path: '/mystuff',
+  //         text: 'DASHBOARD'
+  //       });
+  //     }
+  // }
+
+  // componentWillUnmount() {
+  //   this.authUnRegFunc();
+  // }
+
+
   // Should change depending on if the user is logged in or not
     render() {
+      // let dashNav = {};
+      // if (!(firebase.auth().currentUser === null)) {
+      //   dashNav =  (<li><NavLink to ="/mystuff" activeClassName="activeLink"><h1>DASHBOARD</h1><i className = "fa fa-user"></i></NavLink></li>);
+      // }
+
         return (
           <div className = "nav">
                 <img src={require('./projecthub.png')} alt="Project Hub logo"></img><a href="index.html"><span id="name">ProjectHub</span></a>
@@ -43,6 +91,7 @@ class NavBar extends Component {
                   <li><NavLink to = "/join" activeClassName="activeLink"><h1>JOIN</h1><i className = "fa fa-weixin"></i></NavLink></li>
                   <li><NavLink to ="/signin" activeClassName="activeLink"><h1>LOG IN</h1><i className = "fa fa-user"></i></NavLink></li>
                   <li><NavLink to ="/mystuff" activeClassName="activeLink"><h1>DASHBOARD</h1><i className = "fa fa-user"></i></NavLink></li>
+                   {/* {this.dashNav}  */}
                 </ul>
           </div>
     )}
