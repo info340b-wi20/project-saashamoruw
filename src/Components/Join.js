@@ -10,8 +10,8 @@ import DialogTitle from '@material-ui/core/DialogTitle';
 import { Typography } from '@material-ui/core';
 import firebase from 'firebase/app'
 import 'firebase/database';
-import { Redirect, Route, Switch } from 'react-router-dom';
-import { Signout } from '../App'
+import { Redirect } from 'react-router-dom';
+
 // Join Projects page 
 export class Join extends Component {
     constructor(props) {

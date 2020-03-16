@@ -1,10 +1,8 @@
 import React, { Component } from 'react'; //import React Component
 import firebase from 'firebase/app';
-// import {StyledFirebaseAuth} from 'react-firebaseui/StyledFirebaseAuth';
 import {Redirect} from 'react-router-dom';
 import 'firebase/auth';
 
-// https://material-ui.com/components/dialogs/ use for log in
 // Sign In page 
 export class Sign extends Component {
   constructor(props) {
@@ -13,8 +11,7 @@ export class Sign extends Component {
   }
 
   componentDidMount() {
-   // this.authUnRegFunc = 
-    firebase.auth().onAuthStateChanged((currentUser) => {
+    this.authUnRegFunc = firebase.auth().onAuthStateChanged((currentUser) => {
       if (currentUser) {
         this.setState({user: currentUser});
       } else {
@@ -24,9 +21,9 @@ export class Sign extends Component {
   }
 
   componentWillUnmount() {
-    // this.authUnRegFunc();
-    return <Redirect to ="/explore"/>
-  }
+     this.authUnRegFunc();
+
+  } 
 
 
   submitForm = (name, email, password, page) => {
