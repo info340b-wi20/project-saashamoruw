@@ -29,16 +29,14 @@ export class currUserStuff extends Component {
         if(this.state.user === null) {
             return <Redirect to="/signin"/>
         }
-        // this.authUnRegFunc = firebase.auth().onAuthStateChanged((currentUser) => {
-        //     if (currentUser) {
-        //       this.setState({ user: currentUser });
-        this.showcaseProjects = {};
-        this.requestedProjects = {};
+    
         let email = this.state.user.email.replace('.', '');
         let userData = firebase.database().ref('userData')
+
         if (userData !== null && userData.length !== 0) {
             // user now exists 
-            // put all showcase cards for the user into this
+
+            // SHOWCASED
             let showcase = firebase.database().ref('userData').child(email).child('showcaseProj')
             this.showcaseProjects = showcase.on('value', (snapshot) => {
                 let data = snapshot.val();
@@ -52,7 +50,7 @@ export class currUserStuff extends Component {
                 this.setState({showcaseProjects: array});
             });
 
-            // put all requested proj cards for the user into this
+            // REQUESTED for user
             let requested = firebase.database().ref('userData').child(email).child('requestedProj');
             this.requestedProjects = requested.on('value', (snapshot) => {
                 let data = snapshot.val();
@@ -63,6 +61,19 @@ export class currUserStuff extends Component {
                     return projObj;
                 });
                 this.setState({requestedProjects: reqArray});
+            });
+
+            //LIKED
+            let liked= firebase.database().ref('userData').child(email).child('likedProjects');
+            this.requestedProjects = requested.on('value', (snapshot) => {
+                let data = snapshot.val();
+                if(data === null) { return;}
+                let likeArray = Object.keys(data).map((key) => {
+                    let projObj = data[key];
+                    projObj.id = key;
+                    return projObj;
+                });
+                this.setState({likedProjects: likeArray});
             });
         } // ends if user does exist
         
@@ -81,18 +92,19 @@ export class currUserStuff extends Component {
 
 
     render() {
-        let requestedCards;
-        let showcaseCards;
-        if (Object.keys(this.state.showcaseProjects).length === 0) {
-            showcaseCards = (<h2>You don't have any showcased projects</h2>);
-        } else {
+        let requestedCards = (<h2>You don't have any requested projects :( </h2>);
+        let showcaseCards = (<h2>You don't have any showcased projects</h2>);
+        let likedCards = (<h2>You don't have any liked projects</h2>);
+        if (Object.keys(this.state.showcaseProjects).length !== 0) {
             showcaseCards = (<ShowcaseCards cardsData={this.state.showcaseProjects} />)
         }
 
-        if (Object.keys(this.state.requestedProjects).length === 0) {
-            requestedCards = (<h2>You don't have any requested projects :( </h2>);
-        } else {
+        if (Object.keys(this.state.requestedProjects).length !== 0) {
             requestedCards = (<JoinCards cardsData={this.state.requestedProjects} />)
+        }
+
+        if (Object.keys(this.state.likedProjects).length !== 0) {
+            likedCards = (<ShowcaseCards cardsData={this.state.likedProjects} />)
         }
         // } else {
         //     requestedCards = (<div><p>Nothing requested yet.</p></div>)
@@ -113,10 +125,10 @@ export class currUserStuff extends Component {
         return (
             <div>
                 <h2>Dashboard</h2>
-                {/* <div>
+                <div>
                     <h1>Your Liked Projects</h1>
                     {likedCards}
-                </div> */}
+                </div>
                 <div className = "newSec">
                     <h1>Your Uploaded Projects</h1>
                     {showcaseCards}

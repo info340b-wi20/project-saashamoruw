@@ -59,7 +59,6 @@ class Banner extends Component {
 export class ShowcaseCards extends Component {
     render() {
         this.cardsData = this.props.cardsData;
-        console.log(this.cardsData);
         let cards = this.cardsData.map(function(oneCard) {
             let currCard = (<OneCard oneCardData = {oneCard} key={"card" + oneCard.name}/>);
             return currCard;
