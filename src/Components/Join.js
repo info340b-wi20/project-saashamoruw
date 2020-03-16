@@ -128,12 +128,12 @@ class SideTwo extends Component {
             <Card className="card" key={this.cardData.name} tabindex="1" role="button" aria-pressed="true">
                 <CardBody>
                     <CardTitle className="cardTitle">{this.cardData.name}</CardTitle>
-                    <CardText>{"Skills/Languages: "}<span className="highlight">{this.cardData.skills.join(', ')}</span></CardText>
-                    <CardText>{"Positions Open: " + this.cardData.position.join(', ')}</CardText>
+                    <CardText>{"Skills/Languages: "}<span className="highlight">{this.cardData.skills === undefined ? "" : this.cardData.skills.join(', ')}</span></CardText>
+                    <CardText>{"Positions Open: "} + {this.cardData.position === undefined ? "" : this.cardData.position.join(', ')}</CardText>
                     <CardText>{"Members Needed: " + this.cardData.needed}</CardText>
                     <CardText>{"Duration: " + this.cardData.duration}</CardText>
                     <CardText>{"Start Date: " + this.cardData.start}</CardText>
-                    <CardText>{"Time Commitement: " + this.cardData.time}</CardText>
+                    <CardText>{"Time Commitment: " + this.cardData.time}</CardText>
                     <CardText>{"Purpose: " + this.cardData.purpose}</CardText>
                     <CardText>{"Experience Level: " + this.cardData.exp}</CardText>
                 </CardBody>

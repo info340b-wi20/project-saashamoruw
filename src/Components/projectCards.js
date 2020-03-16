@@ -140,8 +140,8 @@ class OneCard extends Component {
                         <CardText className="cardText">{this.state.cardData.description}</CardText>
                     </CardBody>
                     <ListGroup>
-                        <ListGroupItem> {"Team Members: " + this.state.cardData.team.join(', ')} </ListGroupItem>
-                        <ListGroupItem> {"Skills/Languages: "} <span className="highlight">{this.state.cardData.skills.join(', ')}</span> </ListGroupItem>
+                        <ListGroupItem> {"Team Members: " + (this.state.cardData.team === undefined ? "" : this.state.cardData.team.join(', '))} </ListGroupItem>
+                        <ListGroupItem> {"Skills/Languages: "} <span className="highlight">{this.state.cardData.skills === undefined ? "" : this.state.cardData.skills.join(', ')}</span> </ListGroupItem>
                         <ListGroupItem>
                             <div className="links">
                                 <i className={'fa fa-heart' + (this.state.ifLikeProj ? ' colorRed' : '')} aria-label="like" onClick={this.likeProj}></i>
