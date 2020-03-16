@@ -4,19 +4,12 @@ This repository contains code for an interactive web app, created for the _Clien
 
 ## TO-DO
 - Do we want option to un-request?
-- CSS on mobile 
-    - nav won't show icons - some issue with padding or margins
-    - The longer nav bar is fkd in both vs
-
 
 Less important: worth like 1 point each?
 - Better feedback for signin/sign out? // success message shows now though before redirecting!
 - weird gap when you make screen smaller so that sideways scroll comes in?
-- Check mobile site
-- The AddProjectCard should add to the state using a callback - ???
-- add role="button" and tab-index to your cards so that a screen reader knows that they can be flipped. Right now, they just navigate when I try to "click" on it using a screen reader
-- DO NOT use window.alert! Onscreen changes only!
-- fix console warnings
+- Check mobile sites
+    - nav bar is visible but weird
 - Also have code to add card to find members on join page - can implement if we have time 
 - for some reason Join card bottom isn't rounded - make entire card not rounded or fix bottom?
 
