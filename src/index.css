@@ -420,11 +420,33 @@ label.light {
 margin-top: -40px;
 }
 
+
+/*Dashboard card div style*/
+.dashBack {
+  background-color:rgba(255, 255, 255, 0.6);
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  border-radius: 10px;
+  text-align: center;
+
+}
+
 /* Card styles*/
 .projects {
 padding-right: 2%;
 padding-left: 2%
 }
+
+.projects h1 {
+  font-family: 'Kaushan Script', fantasy;
+  font-size: 2.5rem;
+  color: #1C3041 ;
+  text-align: center;
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+  /* color scheme: 00b5cc-ff3366-08090a-f1f7ee-c4fff9-#1C3041*/
+}
+
 .row {
 justify-content: center;
 flex-wrap: wrap;

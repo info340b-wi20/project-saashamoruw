@@ -123,16 +123,18 @@ export class currUserStuff extends Component {
 
         return (
             <div>
-                <h2>Dashboard</h2>
-                <div>
+                 <Banner/>
+                <div className="projects">
                     <h1>Your Liked Projects</h1>
+                    <div className = "dashBack">
                     {likedCards}
+                    </div>
                 </div>
-                <div className = "newSec">
+                <div className="projects">
                     <h1>Your Uploaded Projects</h1>
                     {showcaseCards}
                 </div>
-                <div className = "newSec">
+                <div className="projects">
                     <h1>Your Requested Projects</h1>
                     {requestedCards}
                 </ div>
@@ -143,6 +145,19 @@ export class currUserStuff extends Component {
             </div>
         );
 
+    }
+}
+
+class Banner extends Component {
+    render() {
+        return (
+          <div className="background-pic">
+             <div className="banner-text">
+                <h1>Dashboard</h1>
+                <p>Check out your activity on ProjectHub!</p>
+            </div>
+          </div>
+        )
     }
 }
 
