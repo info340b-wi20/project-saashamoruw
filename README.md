@@ -12,6 +12,7 @@ This repository contains code for an interactive web app, created for the _Clien
 
 
 Less important: worth like 1 point each?
+- Better feedback for signin/sign out // success message is in red
 - Check mobile site
 - The AddProjectCard should add to the state using a callback - ???
 - add role="button" and tab-index to your cards so that a screen reader knows that they can be flipped. Right now, they just navigate when I try to "click" on it using a screen reader

@@ -20,7 +20,7 @@ export default class App extends Component {
             <Route path="/signin" component={Sign} />
             <Route path="/mystuff" component={currUserStuff} />
             <Route path="/logout" component={Signout} />
-            <Redirect to="/signin" />
+            <Redirect to="/explore" />
           </Switch>
         </main>
       </div>
@@ -29,13 +29,9 @@ export default class App extends Component {
 }
 
 class Signout extends Component {
-  constructor(props) {
-    super(props)
+  render() { 
     firebase.auth().signOut();
-    return <Redirect to="/explore" />
-  }
-  render() {
-    return <Route exact path='/explore' component={Projects} />
+    return <Redirect push to='/explore'/>;
   }
 }
 

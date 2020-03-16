@@ -91,7 +91,7 @@ class OneCard extends Component {
         if (firebase.auth().currentUser !== null) {
             let email = firebase.auth().currentUser.email.replace('.', '');
             this.likedData = firebase.database().ref('userData').child(email).child('likedProjects');
-            let key = this.state.cardData.name.replace(' ', '');
+            this.key = this.state.cardData.name.replace(' ', '');
             this.likedProj = this.likedData.on('value', (snapshot) => {
                 let data = snapshot.val();
 
@@ -100,7 +100,7 @@ class OneCard extends Component {
                     return;
                 }
                 Object.keys(data).map((theKey) => {
-                    if (theKey === key) {
+                    if (theKey === this.key) {
                         this.setState({ ifLikeProj: true });
                     }
                 });
