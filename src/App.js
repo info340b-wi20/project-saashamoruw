@@ -56,7 +56,7 @@ class NavBar extends Component {
        <li><NavLink to="/explore" activeClassName="activeLink"> <h1>EXPLORE</h1><i className="fa fa-home" /></NavLink></li>
        <li><NavLink to="/join" activeClassName="activeLink"><h1>JOIN</h1><i className="fa fa-weixin"></i></NavLink></li>
        <li><NavLink to="/mystuff" activeClassName="activeLink"><h1>DASHBOARD</h1><i className="fa fa-user"></i></NavLink></li>
-       <li><NavLink to="/logout"><h1>LOG OUT</h1><i className="fa fa-user"></i></NavLink></li>
+       <li className = 'exit'><NavLink to="/logout"><h1>LOG OUT</h1><i className="fa fa-sign-out"></i></NavLink></li>
      </ul>)
           });
         } else {
@@ -66,7 +66,7 @@ class NavBar extends Component {
       <li><NavLink to="/explore" activeClassName="activeLink"> <h1>EXPLORE</h1><i className="fa fa-home" /></NavLink></li>
       <li><NavLink to="/join" activeClassName="activeLink"><h1>JOIN</h1><i className="fa fa-weixin"></i></NavLink></li>
       <li><NavLink to="/signin" activeClassName="activeLink"><h1>LOG IN </h1><i className="fa fa-user"></i></NavLink></li>
-      <li><NavLink to="/logout"><h1>LOG OUT</h1><i className="fa fa-user"></i></NavLink></li>
+      <li className = 'exit'><NavLink to="/logout"><h1>LOG OUT</h1><i className="fa fa-sign-out"></i></NavLink></li>
     </ul>)
           
           });

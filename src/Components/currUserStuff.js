@@ -142,16 +142,26 @@ export class currUserStuff extends Component {
     }
 }
 
-class Signout extends Component {
-    constructor(props) {
-      super(props)
-      firebase.auth().signOut();
-      return <Redirect to="/explore" />
-    }
-    render() {
-      return <Route exact path='/explore' component={Projects} />
-    }
-  }
+// class Signout extends Component {
+//     constructor(props) {
+//       super(props)
+//       firebase.auth().signOut();
+//       return <Redirect to="/explore" />
+//     }
+
+
+
+//     render() {
+//       return <Route exact path='/explore' component={Projects} />
+    
+
+//     return (<div className="submit-button">
+//     <button type="submit" className="btn btn-dark submit"  aria-label="button to join project" onClick={this.handleOpenDialog}>{this.state.text}</button>
+// </ div>)
+//   }
+// }
+
+
 
 class Banner extends Component {
     render() {

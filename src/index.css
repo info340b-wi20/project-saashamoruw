@@ -112,7 +112,8 @@ margin: 0 1ch;
 
 .nav img {
 float: left;
-width: 5%;
+width: auto;
+height: 2rem;
 margin-right: 10px;
 }
 
@@ -120,8 +121,8 @@ margin-right: 10px;
 
 @media screen and (min-width: 1100px) {
   .nav img {
-    width: 5%;
-    height: 100%;
+    width: auto;
+    height: 2rem;
   }
 }
 
@@ -133,8 +134,8 @@ padding: 0rem 0rem 1rem 3rem;
 
 @media screen and (min-width: 700px) {
 .nav img {
-  width: 4%;
-  height: 100%;
+  width: auto;
+  height: 2rem;
 }
 
 .nav {
