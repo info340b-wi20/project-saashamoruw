@@ -9,21 +9,21 @@ This repository contains code for an interactive web app, created for the _Clien
     - Like a project
     - Request to join a project
 - CSS on mobile nav won't show icons - some issue with padding or margins
-- weird gap when you make screen smaller so that sideways scroll comes in?
 
 
 Less important: worth like 1 point each?
-- Better feedback for signin/sign out // success message is in red
+- Better feedback for signin/sign out? // success message shows now though before redirecting!
+- weird gap when you make screen smaller so that sideways scroll comes in?
 - Check mobile site
 - The AddProjectCard should add to the state using a callback - ???
 - add role="button" and tab-index to your cards so that a screen reader knows that they can be flipped. Right now, they just navigate when I try to "click" on it using a screen reader
 - DO NOT use window.alert! Onscreen changes only!
 - fix console warnings
-- user stays logged in every session cause of user authentication? Check if can be changed in rules? // not as imp
 - Also have code to add card to find members on join page - can implement if we have time 
+- for some reason Join card bottom isn't rounded - make entire card not rounded or fix bottom?
 
 ## Feedback
-- -1, your sections should be inside the components themselves (in App.js)
+- -1, your sections should be inside the components themselves (in App.js) // for all pages? Sign in not like that rn 
 - -0.5, delete CRA logos
 - -3, the AddProjectCard should add to the state using a callback.
 - -2, what will happen after new project is added? What is the goal of the site? Will I be joining projects?

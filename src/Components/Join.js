@@ -42,10 +42,8 @@ export class Join extends Component {
     render() {
         return (
             <div>
-                <Banner />
-                <div className="projects">
+                <Banner />              
                     <JoinCards cardsData={this.state.cards} />
-                </div>
             </div>
         )
     }
@@ -72,9 +70,11 @@ export class JoinCards extends Component {
             return currCard;
         });
         return (
+            <div className="projects">
             <Row>
                 {cards}
             </Row>
+            </div>
         );
     }
 }
