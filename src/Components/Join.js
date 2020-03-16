@@ -189,7 +189,6 @@ class MessageButton extends Component {
 
     handleOpenDialog = (event) => {
         if (this.state.user === null) {
-            alert("You must log in");
             this.setState({redirect: true});
         }
         else if (this.state.text === 'Requested.') {

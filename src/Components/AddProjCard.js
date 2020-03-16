@@ -12,6 +12,7 @@ import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import firebase from 'firebase/app'
 import 'firebase/database';
+import { Redirect } from 'react-router-dom';
 
 export class AddProjCard extends Component {
 
@@ -47,12 +48,16 @@ class AddProjButton extends Component {
             projPurpose:'',
             projSkills:[],
             projTeam:[],
-            user: firebase.auth().currentUser
+            user: firebase.auth().currentUser,
+            redirect: false
         };
 
     }
 
     handleOpenDialog = (event) => {
+        if(this.state.user === null) {
+            this.setState({redirect: true});
+        }
         this.setState({ openDialog: true });
         
     }
@@ -111,6 +116,9 @@ class AddProjButton extends Component {
     }
 
     render() {
+        if(this.state.redirect) {
+            return  (<Redirect to="/signin" />)
+        }
         return (
             <CardFooter>
                 <div className="submit-button">
