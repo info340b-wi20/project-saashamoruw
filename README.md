@@ -23,22 +23,22 @@ Less important: worth like 1 point each?
 - Also have code to add card to find members on join page - can implement if we have time 
 
 ## Feedback
--1, your sections should be inside the components themselves (in App.js)
--0.5, delete CRA logos
--3, the AddProjectCard should add to the state using a callback.
--2, what will happen after new project is added? What is the goal of the site? Will I be joining projects?
--2, try not to mix different style libraries (reactstrap, materialUI)
--1, FontAwesome not correctly used.
--1, DO NOT use window.alert! Onscreen changes only!
--1, add role="button" and tab-index to your cards so that a screen reader knows that they can be flipped. Right now, they just navigate when I try to "click" on it using a screen reader
--0.5, on mobile, the nav cuts off half of the bottom button.
--0.5, no body inside of React. That is defined in index.html
--0.5, no space between attributes (props) ???
--1, please format your React code.
--1, name classes after things, not verbs (not "CreateCard" but "Card")
--1, fix errors/warnings in console!
--1, remove commented out code
--1, fill out personalized readme!
+- -1, your sections should be inside the components themselves (in App.js)
+- -0.5, delete CRA logos
+- -3, the AddProjectCard should add to the state using a callback.
+- -2, what will happen after new project is added? What is the goal of the site? Will I be joining projects?
+- -2, try not to mix different style libraries (reactstrap, materialUI)
+- -1, FontAwesome not correctly used.
+- -1, DO NOT use window.alert! Onscreen changes only!
+- -1, add role="button" and tab-index to your cards so that a screen reader knows that they can be flipped. Right now, they just navigate when I try to "click" on it using a screen reader
+- -0.5, on mobile, the nav cuts off half of the bottom button.
+- -0.5, no body inside of React. That is defined in index.html
+- -0.5, no space between attributes (props) ???
+- -1, please format your React code.
+- -1, name classes after things, not verbs (not "CreateCard" but "Card")
+- -1, fix errors/warnings in console!
+- -1, remove commented out code
+- -1, fill out personalized readme!
 
 ## Overview
 There are a lot of great projects produced by people. Project Hub is a one-stop-shop to show case any projects you worked on whether it was for a class, capstone, a hackathon or even a passion project. Your project can be anything from Software Development and Data Science to Graphic Design and UI/UX Design!
