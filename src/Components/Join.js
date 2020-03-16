@@ -11,6 +11,7 @@ import { Typography } from '@material-ui/core';
 import firebase from 'firebase/app'
 import 'firebase/database';
 import { Redirect } from 'react-router-dom';
+import {AddProjMemberCard} from './AddProjMemberCard';
 
 // Join Projects page 
 export class Join extends Component {
@@ -42,8 +43,9 @@ export class Join extends Component {
     render() {
         return (
             <div>
-                <Banner />              
-                    <JoinCards cardsData={this.state.cards} />
+                <Banner />
+                <AddProjMemberCard/>              
+                <JoinCards cardsData={this.state.cards} />
             </div>
         )
     }
@@ -104,7 +106,7 @@ class SideOne extends Component {
     render() {
         this.cardData = this.props.cardData;
         let sideOne = (
-            <Card className="card" key={this.cardData.name}>
+            <Card className="card" key={this.cardData.name} tabindex="0" role="button" aria-pressed="false">
                 <CardImg top width="100%" height="60%" src={this.cardData.img} alt={this.cardData.alt} />
                 <CardBody>
                     <CardTitle className="cardTitle">{this.cardData.name} </CardTitle>
@@ -121,11 +123,9 @@ class SideOne extends Component {
 
 class SideTwo extends Component {
     render() {
-
-
         this.cardData = this.props.cardData;
         let sideTwo = (
-            <Card className="card" key={this.cardData.name}>
+            <Card className="card" key={this.cardData.name} tabindex="1" role="button" aria-pressed="true">
                 <CardBody>
                     <CardTitle className="cardTitle">{this.cardData.name}</CardTitle>
                     <CardText>{"Skills/Languages: "}<span className="highlight">{this.cardData.skills.join(', ')}</span></CardText>
@@ -164,7 +164,7 @@ class MessageButton extends Component {
         // if (this.state.user === null) {
         //     this.setState({ redirect: true })
         // }
-        // To change state of already requested projects
+        // To change state of already requested projects for the current user
         if (this.state.user !== null) {
             let email = this.state.user.email.replace('.', ''); // can't have special characters like .
             this.requestedData = firebase.database().ref('userData').child(email).child('requestedProj');
@@ -183,6 +183,10 @@ class MessageButton extends Component {
                     return false;
                 });
             });
+
+            // to get the owner of the project
+            let projAdmin = this.state.cardData.user.replace('.', '');
+            this.projRef = firebase.database().ref('userData').child(projAdmin).child('findMemProj').child(cardKey);
 
         }
     }
@@ -210,7 +214,10 @@ class MessageButton extends Component {
             openDialog: false,
             text: 'Requested.'
         });
+        // updates for the current user
         this.requestedData.child(this.state.cardData.name.replace(' ', '')).set(this.state.cardData);
+
+        this.projRef.child('requests').push(this.state.user.email)
         alert('Your message to join the project has been sent!');
     }
 

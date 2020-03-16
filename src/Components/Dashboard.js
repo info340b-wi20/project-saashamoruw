@@ -13,6 +13,7 @@ export class Dashboard extends Component {
             likedProjects: {},
             showcaseProjects: {},
             requestedProjects: {},
+            teammateProjects: {}
         });
     }
 
@@ -70,13 +71,23 @@ export class Dashboard extends Component {
                 });
                 this.setState({likedProjects: likeArray});
             });
+
+            //TEAMMATE SHOWCASE
+            let teammate= firebase.database().ref('userData').child(email).child('findMemProj');
+            this.requestedProjects = teammate.on('value', (snapshot) => {
+                let data = snapshot.val();
+                if(data === null) { return;}
+                let teamArray = Object.keys(data).map((key) => {
+                    let projObj = data[key];
+                    projObj.id = key;
+                    this.reqEmail = projObj.requests;
+                    return projObj;
+                });
+                this.setState({teammateProjects: teamArray});
+            });
         } // end of if user exists 
         
     }
-
-    // componentWillUnmount() {
-    //     this.database.off()
-    // }
 
     handleSignOut = () => {
         this.setState({ errorMessage: null });
@@ -88,6 +99,7 @@ export class Dashboard extends Component {
         let requestedCards = (<h2>You haven't requested to join any projects yet.</h2>);
         let showcaseCards = (<h2>You haven't uploaded any projects yet.</h2>);
         let likedCards = (<h2>You haven't liked any projects yet.</h2>);
+        let teamCards =  (<h2>You haven't requested teammates yet.</h2>);
 
         if (Object.keys(this.state.showcaseProjects).length !== 0) {
             showcaseCards = (<ShowcaseCards cardsData={this.state.showcaseProjects} />)
@@ -99,6 +111,24 @@ export class Dashboard extends Component {
 
         if (Object.keys(this.state.likedProjects).length !== 0) {
             likedCards = (<ShowcaseCards cardsData={this.state.likedProjects} />)
+        }
+        if (Object.keys(this.state.teammateProjects).length !== 0) {
+            let emails = "You have requests from: ";
+            if(this.reqEmail !== undefined) {
+                Object.keys(this.reqEmail).map((key) => {
+                    emails = emails + this.reqEmail[key] + "   ";
+
+                })
+            } else {
+                emails = "You have no requests yet"
+            }
+            teamCards = (
+                <div>
+                    <JoinCards cardsData={this.state.teammateProjects} />
+                    <p> {emails}</p>
+                
+                </div>
+            )
         }
         let banner;
         if(this.state.user === null) {
@@ -128,10 +158,12 @@ export class Dashboard extends Component {
                     {requestedCards}
                     </div>
                 </ div>
-                {/* <div>
-                        <h1>Your Messages</h1>
-                        {messages}
-                    </div>  */}
+                <div className="projects">
+                    <h1>Your Teammate Requests</h1>
+                    <div className = "dashBack">
+                    {teamCards}
+                    </div>
+                </ div>
             </div>
         );
 

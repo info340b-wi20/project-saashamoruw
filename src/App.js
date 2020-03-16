@@ -13,7 +13,6 @@ export default class App extends Component {
         <main>
           <NavBar state={this.state} />
           <Switch>
-            {/* Always prompt user to sign in first*/}
             <Route exact path='/explore' component={Explore} />
             <Route path='/join' component={Join} />
             <Route path="/signin" component={Sign} />

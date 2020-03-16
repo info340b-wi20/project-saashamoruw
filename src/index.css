@@ -27,6 +27,11 @@ p {
 line-height: 1.5em;
 }
 
+ul {
+  margin : 0;
+  margin-block-end: 0;
+  margin-block-start: 0;
+}
 .invisible {
 display:none;
 }
@@ -58,18 +63,18 @@ display: flex;
 
 /* Nav bar styles */
 /*add Hamburger menu for small screens*/
-.nav {
-width: 100%;
-height: 7vh;
-background-color: #00b5cc;
-position: fixed;
-bottom: 0;
-left: 0;
-z-index: 9999; 
-font-family: 'Monospace', sans-serif; 
-font-weight: 500;
-display: flex;  
-}
+.nav { 
+  width: 100%;
+  height: 7vh;
+  background-color: #00b5cc;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 9999; 
+  font-family: 'Monospace', sans-serif; 
+  font-weight: 500;
+  display: flex;  
+  }
 
 
 .nav #name {
@@ -89,11 +94,12 @@ padding-top: 1.25rem;
 
 .navbar {
 display: flex;
-float: left;
 list-style-type: none;
+width: 90%;
+padding-bottom: 5px;
 }
 
-.navbar li {
+  .navbar li {
   display: inline-block;
   font-size: 3ch;
   vertical-align: middle;
@@ -118,8 +124,10 @@ margin: 0 1ch;
 
 .nav .ul {
   width: 100%;
+  margin-bottom: 0;
 }
-@media screen and (max-width: 400px) {
+
+@media screen and (max-width: 510px) {
   .navbar i {
     padding-right: 0.5ch;
   }
@@ -135,8 +143,24 @@ margin: 0 1ch;
   .navbar li {
     font-size: 2ch;
     padding-right: 10%;
+  }
+    .nav {
+      height: 5vh;
     }
 
+}
+
+@media screen and (max-width: 325px) {
+  .navbar {
+    width: auto;
+  }
+  .nav {
+    height: 3vh;
+  }
+  .navbar li {
+    font-size: 1.7ch;
+    padding-right: 10%;
+  }
 }
 @media screen and (min-width: 1100px) {
   .nav img {
@@ -160,6 +184,7 @@ margin: 0 1ch;
 
   .nav {
   top: 0;
+  position: fixed;
   }
 
   .navbar .exit .fa {
@@ -201,6 +226,7 @@ margin: 0 1ch;
   .navbar {
     display: flex;
     float: left;
+    width: auto;
   }
 
 

@@ -10,21 +10,26 @@ import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
+import firebase from 'firebase/app'
+import 'firebase/database';
+import { Redirect } from 'react-router-dom';
 
 export class AddProjMemberCard extends Component {
     render() {
         return (
+            <section className="newSec">
                 <Row>
                     <div className="addProj">
                         <Card className="card" style={{ width: '18rem',height:'auto'}}>
                             <CardBody>
-                                <CardTitle className="cardTitle">Find members for your project!</CardTitle>
-                                <CardText className="cardText">Need people to work on your next big thing with?</CardText>
-                                <AddProjMemberButton/>
+                                <CardTitle className="cardTitle">Find Teammates!</CardTitle>
+                                <CardText className="cardText">Add a listing for projects you need teammates for!</CardText>
+                                <AddProjMemberButton />
                             </CardBody>
                         </Card>
                     </div>
                 </Row>
+            </section>
         );
     }
 }
@@ -35,59 +40,104 @@ class AddProjMemberButton extends Component {
         this.state = {
             openDialog: '',
             text: 'Click here!',
-            name: '',
-            description: '',
-            skills: '',
-            team: '',
-            purpose: '',
-            img: '',
-            alt: '',
-            needed: '',
-            position: '',
-            duration: '',
-            start: '',
-            time: '',
-            exp: ''
+            user: firebase.auth().currentUser,
+            redirect: false,
+            projName: '',
+            projDescr:'',
+            projImg:'',
+            projAlt:'',
+            projPurpose:'',
+            projSkills:[],
+            projTeam:[],
+            projNeeded: '',
+            projPos:[],
+            projDur:'',
+            projTime:'',
+            projExp:'',
+            projStart:'' 
         };
 
-        this.handleOpenDialog = this.handleOpenDialog.bind(this);
-        this.handleCloseDialog = this.handleCloseDialog.bind(this);
-        this.handleSubmitDialog = this.handleSubmitDialog.bind(this);
-        this.onChange = this.onChange.bind(this);
-
     }
 
-    handleOpenDialog() {
+    handleOpenDialog = (event) => {
+        if(this.state.user === null) {
+            this.setState({redirect: true});
+        }
         this.setState({ openDialog: true });
+        
     }
 
-    handleCloseDialog() {
+    handleCloseDialog = (event) => {
         this.setState({
             openDialog: false
-
         });
-        alert('Your message was discarded.');
+        alert('Your project was discarded.');
     }
 
-    handleSubmitDialog() {
+    
+
+    handleSubmitDialog = (event) => {
+        event.preventDefault();
+        // add validation stuff
         this.setState({
             openDialog: false,
-            text: 'Requested.'
+            text: 'Add another project.'
         });
-        alert('Your project has been added!');
-        let newCard = this.state;
-    //    <CreateShowcaseCards cardsData={[newCard]}/>
 
-    }
+        // create a new card for project
+        let newProj = {
+            name: this.state.projName,
+            description: this.state.projDescr,
+            skills: this.state.projSkills,
+            team: this.state.projTeam,
+            purpose: this.state.projPurpose,
+            img: this.state.projImg,
+            alt: this.state.projAlt,
+            needed: this.state.projNeeded,
+            position: this.state.projPos,
+            duration: this.state.projDur,
+            time: this.state.projTime,
+            exp: this.state.projExp,
+            start: this.state.projStart,
+            user: this.state.user.email
+        }
+        let cardKey = this.state.projName.replace(' ', '');
+        // Update the database for showcase page
+        let projectsRef = firebase.database().ref('joinCards');
+        projectsRef.child(cardKey).set(newProj);
 
+        // if there exists an object for this.state.user then add to that
+        // if it doesn't then create an object for them, and add to that
+        let userDataRef = firebase.database().ref('userData');
+        let email = this.state.user.email.replace('.', ''); // can't have special characters like .
 
-    onChange() {
-        this.setState({
-//        [event.target.id]: event.target.value,
-        })
+        // Update the state for the users teammate request projects
+        let findMem = userDataRef.child(email).child('findMemProj');
+        findMem.child(cardKey).set(newProj);
+        
+       
+        // Update database for user
+        this.setState({projName: '',
+        projDescr:'',
+        projImg:'',
+        projAlt:'',
+        projPurpose:'',
+        projSkills:[],
+        projTeam:[],
+        projNeeded: '',
+        projPos:[],
+        projDur:'',
+        projTime:'',
+        projExp:'',
+        projStart:''}); 
+        alert('Your project has been added to attract teammates!');
+        
     }
 
     render() {
+        if(this.state.redirect) {
+            return  (<Redirect to="/signin" />)
+        }
         return (
             <CardFooter>
                 <div className="submit-button">
@@ -96,7 +146,7 @@ class AddProjMemberButton extends Component {
                 </div>
             
                 <Dialog open={this.state.openDialog} onClose={this.handleCloseDialog} aria-label="form-dialog-title">
-                    <DialogTitle id="form-dialog-title">Adding a new showcase project</DialogTitle>
+                    <DialogTitle id="form-dialog-title">Adding a listing to find team members</DialogTitle>
                     <DialogContent>
                         <DialogContentText>To find members your project, please fill out the following fields.</DialogContentText>
                         <TextField
@@ -108,7 +158,8 @@ class AddProjMemberButton extends Component {
                             type="name"
                             fullWidth
                             required="true"
-                            onChange={this.handleChange}
+                            onChange = {this.updateName = (event) =>
+                            this.setState({projName: event.target.value})}
                         />
                          <TextField
                             autoFocus
@@ -119,7 +170,8 @@ class AddProjMemberButton extends Component {
                             type="letter"
                             fullWidth
                             required="false"
-                            onChange={this.handleChange}
+                            onChange={this.updateDescr = (event) =>
+                                this.setState({projDescr: event.target.value})}
                         />
                         <TextField
                             autoFocus
@@ -130,7 +182,9 @@ class AddProjMemberButton extends Component {
                             type="name"
                             fullWidth
                             required="true"
-                            onChange={this.handleChange}
+                            onChange={this.updateTeam = (event) => {
+                                let teamstr = event.target.value.split(",");
+                                this.setState({projTeam: teamstr})}}
                         />
                         <TextField
                             autoFocus
@@ -141,7 +195,8 @@ class AddProjMemberButton extends Component {
                             type="name"
                             fullWidth
                             required="false"
-                            onChange={this.handleChange}
+                            onChange={this.updateImg = (event) => {
+                                this.setState({projImg: event.target.value})}}
                         />
                         <TextField
                             autoFocus
@@ -152,7 +207,8 @@ class AddProjMemberButton extends Component {
                             type="name"
                             fullWidth
                             required="false"
-                            onChange={this.handleChange}
+                            onChange={this.updateAlt = (event) => {
+                                this.setState({projAlt: event.target.value})}}
                         />
                             <TextField
                             autoFocus
@@ -163,7 +219,8 @@ class AddProjMemberButton extends Component {
                             type="name"
                             fullWidth
                             required="true"
-                            onChange={this.handleChange}
+                            onChange={this.updatePurpose = (event) => {
+                                this.setState({projPurpose: event.target.value})}}
                             />
                             <TextField
                             autoFocus
@@ -174,7 +231,10 @@ class AddProjMemberButton extends Component {
                             type="name"
                             fullWidth
                             required="true"
-                            onChange={this.handleChange}
+                            onChange={this.updateSkills = (event) => {
+                                let skillsstr = event.target.value.split(",");
+                                this.setState({projSkills: skillsstr})
+                            }}
                             />
                             <TextField
                             autoFocus
@@ -185,7 +245,8 @@ class AddProjMemberButton extends Component {
                             type="name"
                             fullWidth
                             required="true"
-                            onChange={this.handleChange}
+                            onChange={this.updateNeeded = (event) => {
+                                this.setState({projNeeded: event.target.value})}}
                             />
                            <TextField
                             autoFocus
@@ -196,7 +257,9 @@ class AddProjMemberButton extends Component {
                             type="name"
                             fullWidth
                             required="true"
-                            onChange={this.handleChange}
+                            onChange={this.updatePos = (event) => {
+                                let posstr = event.target.value.split(",");
+                                this.setState({projPos: posstr})}}
                             />
                            <TextField
                             autoFocus
@@ -207,7 +270,8 @@ class AddProjMemberButton extends Component {
                             type="name"
                             fullWidth
                             required="true"
-                            onChange={this.handleChange}
+                            onChange={this.updateDur = (event) => {
+                                this.setState({projDur: event.target.value})}}
                             />
                            <TextField
                             autoFocus
@@ -218,7 +282,8 @@ class AddProjMemberButton extends Component {
                             type="name"
                             fullWidth
                             required="true"
-                            onChange={this.handleChange}
+                            onChange={this.updateStart = (event) => {
+                                this.setState({projStart: event.target.value})}}
                             />
                            <TextField
                             autoFocus
@@ -229,7 +294,8 @@ class AddProjMemberButton extends Component {
                             type="name"
                             fullWidth
                             required="true"
-                            onChange={this.handleChange}
+                            onChange={this.updateTime = (event) => {
+                                this.setState({projTime: event.target.value})}}
                             />
                              <TextField
                             autoFocus
@@ -240,7 +306,8 @@ class AddProjMemberButton extends Component {
                             type="name"
                             fullWidth
                             required="true"
-                            onChange={this.handleChange}
+                            onChange={this.updateExp= (event) => {
+                                this.setState({projExp: event.target.value})}}
                             />
 
                             
