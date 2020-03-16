@@ -66,7 +66,7 @@ export class currUserStuff extends Component {
 
             //LIKED
             let liked= firebase.database().ref('userData').child(email).child('likedProjects');
-            this.requestedProjects = requested.on('value', (snapshot) => {
+            this.requestedProjects = liked.on('value', (snapshot) => {
                 let data = snapshot.val();
                 if(data === null) { return;}
                 let likeArray = Object.keys(data).map((key) => {
@@ -91,9 +91,9 @@ export class currUserStuff extends Component {
 
 
     render() {
-        let requestedCards = (<h2>You don't have any requested projects</h2>);
-        let showcaseCards = (<h2>You don't have any showcased projects</h2>);
-        let likedCards = (<h2>You don't have any liked projects</h2>);
+        let requestedCards = (<h2>You don't have any requested projects.</h2>);
+        let showcaseCards = (<h2>You don't have any showcased projects.</h2>);
+        let likedCards = (<h2>You don't have any liked projects.</h2>);
         if (Object.keys(this.state.showcaseProjects).length !== 0) {
             showcaseCards = (<ShowcaseCards cardsData={this.state.showcaseProjects} />)
         }
@@ -132,11 +132,15 @@ export class currUserStuff extends Component {
                 </div>
                 <div className="projects">
                     <h1>Your Uploaded Projects</h1>
+                    <div className = "dashBack">
                     {showcaseCards}
+                    </div>
                 </div>
                 <div className="projects">
                     <h1>Your Requested Projects</h1>
+                    <div className = "dashBack">
                     {requestedCards}
+                    </div>
                 </ div>
                 {/* <div>
                         <h1>Your Messages</h1>
