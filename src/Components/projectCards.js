@@ -14,6 +14,7 @@ export class Explore extends Component {
         super(props);
         this.state = {
             projects: [],
+            redirect: false
         }
     }
 
@@ -103,6 +104,7 @@ class OneCard extends Component {
                     if (theKey === this.key) {
                         this.setState({ ifLikeProj: true });
                     }
+                    return false;
                 });
             });
         }
@@ -111,9 +113,7 @@ class OneCard extends Component {
 
     likeProj = () => {
         if (firebase.auth().currentUser === null) {
-            // nothing happens
-            console.log("NO");
-            return <Redirect to="/signin" />
+           this.setState({redirect: true})
         } else {
             if (this.state.ifLikeProj) {
                 this.likedData.child(this.key).remove();
@@ -125,6 +125,11 @@ class OneCard extends Component {
     }
 
     render() {
+        if(this.state.redirect) {
+            if (this.state.user === null) {
+                return  (<Redirect to="/signin" />)
+            }
+        }
         return (
             <Col className="col">
                 <Card className="card normal" key={this.state.cardData.name}>

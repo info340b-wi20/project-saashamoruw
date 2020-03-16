@@ -161,9 +161,9 @@ class MessageButton extends Component {
 
 
     componentDidMount() {
-        if (this.state.user === null) {
-            this.setState({ redirect: true })
-        }
+        // if (this.state.user === null) {
+        //     this.setState({ redirect: true })
+        // }
         // To change state of already requested projects
         if (this.state.user !== null) {
             let email = this.state.user.email.replace('.', ''); // can't have special characters like .
@@ -180,6 +180,7 @@ class MessageButton extends Component {
                             redirect: false
                         });
                     }
+                    return false;
                 });
             });
 
@@ -189,7 +190,7 @@ class MessageButton extends Component {
     handleOpenDialog = (event) => {
         if (this.state.user === null) {
             alert("You must log in");
-            return (<Redirect to="/signin" />); //have to redirect in render method i think
+            this.setState({redirect: true});
         }
         else if (this.state.text === 'Requested.') {
             alert('Your request has already been sent');
@@ -215,10 +216,9 @@ class MessageButton extends Component {
     }
 
     render() {
-        // if (this.state.redirect) {
-        //     return  (<Redirect to="/signin" />)
-        // } // redirects but changes entire page from join to switch before rending
-
+        if (this.state.redirect) {
+            return  (<Redirect to="/signin" />)
+        } // redirects but changes entire page from join to switch before rending
         return (
             <CardFooter className="card-footer">
                 <div className="submit-button">
