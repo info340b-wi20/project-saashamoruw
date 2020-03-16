@@ -78,7 +78,6 @@ display:none;
 }
 
 
-
 .nav .about {
 float: right;
 }
@@ -143,6 +142,12 @@ top: 0;
 bottom: 93.5%;
 }
 
+
+.navbar .exit .fa {
+display: inline-block;
+font-size: 1.5rem;
+color: #1C3041;
+}
 
 .navbar .fa {
 display: none;

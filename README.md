@@ -3,16 +3,13 @@ By: Saasha Mor and Rajoshi Chakravarty
 This repository contains code for an interactive web app, created for the _Client-Side Web Development_ course at the UW iSchool the published Firebase site can be viewed [here](https://project-hub-2020.firebaseapp.com/)
 
 ## TO-DO
-- Load in already requested projects if user has signed in and show as requested. Do we want option to un-request?
-- FOR BOTH OF THE ABOVE
-    - The loops to get the data don't run for some reason: fix as per the currUserStuff code
-- Have the page redirect to sign in page if the user tries to 
+- Do we want option to un-request?
+- Have the page redirect to sign in page if the user tries to // return Redirect isn't working
     - Add a project to showcase
     - Like a project
     - Request to join a project
-- Have the nav bar be "Log in" if user has not logged in with route to /signin, if user has logged in show "Dashboard" and "Sign out"
-    - The state of the nav bar doesn't update?
-    - Or atleast redirect when clicked?
+- CSS on mobile nav won't show icons - some issue with padding or margins
+
 
 Less important: worth like 1 point each?
 - Check mobile site
@@ -20,6 +17,7 @@ Less important: worth like 1 point each?
 - add role="button" and tab-index to your cards so that a screen reader knows that they can be flipped. Right now, they just navigate when I try to "click" on it using a screen reader
 - DO NOT use window.alert! Onscreen changes only!
 - fix console warnings
+- user stays logged in every session cause of user authentication? Check if can be changed in rules? // not as imp
 
 ## Overview
 There are a lot of great projects produced by people. Project Hub is a one-stop-shop to show case any projects you worked on whether it was for a class, capstone, a hackathon or even a passion project. Your project can be anything from Software Development and Data Science to Graphic Design and UI/UX Design!
