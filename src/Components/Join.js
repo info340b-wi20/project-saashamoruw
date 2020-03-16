@@ -15,7 +15,9 @@ import { Redirect } from 'react-router-dom';
 export class Join extends Component {
     constructor(props) {
         super(props);
-        this.state =  {cards: []};
+        this.state =  ({
+            cards: []
+        });
     }
 
     componentDidMount() {
@@ -146,40 +148,38 @@ class MessageButton extends Component {
     // this.state = {};
     constructor(props) {
         super(props);
-        this.state = {
+        this.state = ({
             openDialog: '',
             text: 'Request to Join!',
             // getting user!
             user: firebase.auth().currentUser,
             cardData: this.props.cardData
-        };
+        });
     }
+
+
     componentDidMount() {
+        if(this.state.user === null) {
+            return {};
+        }
         // To change state of already requested projects
         if(this.state.user !== null) {
             let email = this.state.user.email.replace('.', ''); // can't have special characters like .
-            let userData = firebase.database().ref('userData').child(email);
-            this.requestedProj = userData.child('requestedProj');
+            this.requestedData = firebase.database().ref('userData').child(email).child('requestedProj');     
             let cardKey = this.state.cardData.name.replace(' ', '');
-            let ifTrue = false;
-            if(this.requestedProj !== null) {
-                // DEBUG: doesn't go into this loop??
-                this.requestedProj.once('value', function(snapshot) {
-                    let data = snapshot.val();
-                    // if there are no requested projects yet
-                    if(data === null) {
-                        return;
+            this.requestedProj =  this.requestedData.on('value', (snapshot) => {
+                let data = snapshot.val();
+                if(data === null) {return;}
+                Object.keys(data).map( (theKey) => {
+                    if(theKey === cardKey) {
+                        this.setState({
+                            text: 'Requested',
+                            openDialog: false
+                        });                       
                     }
-                    Object.keys(data).map( (theKey) => {
-                        if(theKey === cardKey) {
-                            ifTrue = true;
-                        }
-                    });
                 });
-            }
-            if(ifTrue) {
-                this.setState({text: 'Requested'});
-            }   
+            });            
+           
         }
     }
 
@@ -206,15 +206,15 @@ class MessageButton extends Component {
             openDialog: false,
             text: 'Requested.'
         });
-        this.requestedProj.child(this.state.cardData.name.replace(' ', '')).set(this.state.cardData);
+        this.requestedData.child(this.state.cardData.name.replace(' ', '')).set(this.state.cardData);
         alert('Your message to join the project has been sent!');
     }
 
-    handleSwitch = (event) => {
-        this.setState({
+    // handleSwitch = (event) => {
+    //     this.setState({
             
-        })
-    }
+    //     })
+    // }
 
     render() {
         return (

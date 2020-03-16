@@ -25,6 +25,7 @@ export class currUserStuff extends Component {
             return <Redirect to="/signin"/>
         }
     }
+
     componentDidMount() {
         if(this.state.user === null) {
             return <Redirect to="/signin"/>
@@ -77,8 +78,6 @@ export class currUserStuff extends Component {
             });
         } // ends if user does exist
         
-
-
     }
 
     // componentWillUnmount() {
@@ -92,7 +91,7 @@ export class currUserStuff extends Component {
 
 
     render() {
-        let requestedCards = (<h2>You don't have any requested projects :( </h2>);
+        let requestedCards = (<h2>You don't have any requested projects</h2>);
         let showcaseCards = (<h2>You don't have any showcased projects</h2>);
         let likedCards = (<h2>You don't have any liked projects</h2>);
         if (Object.keys(this.state.showcaseProjects).length !== 0) {
