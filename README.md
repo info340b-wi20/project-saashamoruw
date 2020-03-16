@@ -1,6 +1,6 @@
 # Project Hub
 By: Saasha Mor and Rajoshi Chakravarty
-This repository contains code for an interactive web app, created for the _Client-Side Web Development_ course at the UW iSchool the published Firebase site can be viewed [here](https://project-hub-2020.firebaseapp.com/)
+This repository contains code for an interactive web app, created for the _Client-Side Web Development_ course at the UW iSchool the published Firebase site can be viewed [here](https://project-hub-2020.firebaseapp.com/).
 
 ## TO-DO
 - Do we want option to un-request?

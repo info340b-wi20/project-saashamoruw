@@ -1,11 +1,10 @@
 import React, { Component } from 'react'; //import React Component
-//import {Projects}  from './Components/projectCards';
-import { Projects } from './Components/projectCards';
+import { Explore } from './Components/projectCards';
 import { Sign } from './Components/Sign';
 import { Join } from './Components/Join';
 import { Route, Switch, NavLink, Redirect } from 'react-router-dom'
 import firebase from 'firebase/app';
-import { currUserStuff } from './Components/currUserStuff';
+import { Dashboard } from './Components/Dashboard';
 
 export default class App extends Component {
   render() {
@@ -15,10 +14,10 @@ export default class App extends Component {
           <NavBar state={this.state} />
           <Switch>
             {/* Always prompt user to sign in first*/}
-            <Route exact path='/explore' component={Projects} />
+            <Route exact path='/explore' component={Explore} />
             <Route path='/join' component={Join} />
             <Route path="/signin" component={Sign} />
-            <Route path="/mystuff" component={currUserStuff} />
+            <Route path="/mystuff" component={Dashboard} />
             <Route path="/logout" component={Signout} />
             <Redirect to="/explore" />
           </Switch>

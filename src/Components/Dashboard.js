@@ -5,7 +5,7 @@ import { ShowcaseCards } from './projectCards';
 import {JoinCards} from './Join';
 import {Redirect} from 'react-router-dom';
 
-export class currUserStuff extends Component {
+export class Dashboard extends Component {
     constructor(props) {
         super(props)
         this.state = ({
@@ -70,7 +70,7 @@ export class currUserStuff extends Component {
                 });
                 this.setState({likedProjects: likeArray});
             });
-        } // ends if user does exist
+        } // end of if user exists 
         
     }
 
@@ -85,9 +85,9 @@ export class currUserStuff extends Component {
 
 
     render() {
-        let requestedCards = (<h2>You don't have any requested projects.</h2>);
-        let showcaseCards = (<h2>You don't have any showcased projects.</h2>);
-        let likedCards = (<h2>You don't have any liked projects.</h2>);
+        let requestedCards = (<h2>You haven't requested to join any projects yet.</h2>);
+        let showcaseCards = (<h2>You haven't uploaded any projects yet.</h2>);
+        let likedCards = (<h2>You haven't liked any projects yet.</h2>);
 
         if (Object.keys(this.state.showcaseProjects).length !== 0) {
             showcaseCards = (<ShowcaseCards cardsData={this.state.showcaseProjects} />)
@@ -100,14 +100,6 @@ export class currUserStuff extends Component {
         if (Object.keys(this.state.likedProjects).length !== 0) {
             likedCards = (<ShowcaseCards cardsData={this.state.likedProjects} />)
         }
-
-        /*  // messages sent by user
-         let messageArray = database.child(email).ref('messages');
-         let messages = messageArray.map((i) => {
-             return <p>{i}</p>
-         });
-          
-         */
             
         return (
             <div>
@@ -142,27 +134,6 @@ export class currUserStuff extends Component {
     }
 }
 
-// class Signout extends Component {
-//     constructor(props) {
-//       super(props)
-//       firebase.auth().signOut();
-//       return <Redirect to="/explore" />
-//     }
-
-
-
-//     render() {
-//       return <Route exact path='/explore' component={Projects} />
-    
-
-//     return (<div className="submit-button">
-//     <button type="submit" className="btn btn-dark submit"  aria-label="button to join project" onClick={this.handleOpenDialog}>{this.state.text}</button>
-// </ div>)
-//   }
-// }
-
-
-
 class Banner extends Component {
     render() {
         return (
@@ -179,4 +150,4 @@ class Banner extends Component {
 
 
 
-export default currUserStuff;
+export default Dashboard;

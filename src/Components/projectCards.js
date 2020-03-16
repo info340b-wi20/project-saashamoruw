@@ -9,7 +9,7 @@ import {
 } from 'reactstrap';
 import { Redirect } from 'react-router-dom';
 
-export class Projects extends Component {
+export class Explore extends Component {
     constructor(props) {
         super(props);
         this.state = {
