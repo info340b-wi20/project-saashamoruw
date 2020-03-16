@@ -4,11 +4,9 @@ This repository contains code for an interactive web app, created for the _Clien
 
 ## TO-DO
 - Do we want option to un-request?
-- Have the page redirect to sign in page if the user tries to // return Redirect has to be in render method
-    - Add a project to showcase
-    - Like a project
-    - Request to join a project
-- CSS on mobile nav won't show icons - some issue with padding or margins
+- CSS on mobile 
+    - nav won't show icons - some issue with padding or margins
+    - The longer nav bar is fkd in both vs
 
 
 Less important: worth like 1 point each?

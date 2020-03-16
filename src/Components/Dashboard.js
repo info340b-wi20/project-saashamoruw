@@ -100,12 +100,16 @@ export class Dashboard extends Component {
         if (Object.keys(this.state.likedProjects).length !== 0) {
             likedCards = (<ShowcaseCards cardsData={this.state.likedProjects} />)
         }
-            
+        let banner;
+        if(this.state.user === null) {
+            banner = <Banner/>
+        } else {
+            banner =  <Banner username= {this.state.user.displayName}/>
+        }
         return (
             <div>
-                 <Banner/>
+                {banner}
                 <div className="projects">
-                <h1 style = {{color: 'white', margin: '10px 0px 0px 20px'}}>{"Welcome, " + this.state.user.displayName + "!"}</h1>
 
                     <h1>Your Liked Projects</h1>
                     <div className = "dashBack">
@@ -136,10 +140,16 @@ export class Dashboard extends Component {
 
 class Banner extends Component {
     render() {
+        let name;
+        if(this.props.username === undefined) {
+            name = "";
+        } else {
+            name = this.props.username
+        }
         return (
           <div className="background-pic">
              <div className="banner-text">
-                <h1>Dashboard</h1>
+                <h1>{"Welcome " + name + "!"}</h1>
                 <p>Check out your activity on ProjectHub!</p>
             </div>
           </div>
