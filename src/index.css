@@ -92,7 +92,6 @@ padding-top: 1.25rem;
 display: flex;
 float: left;
 list-style-type: none;
-padding: 0;
 margin-bottom: -10px;
 }
 
@@ -100,6 +99,7 @@ margin-bottom: -10px;
 display: inline-block;
 font-size: 4ch;
 padding: 0 1rem;
+ vertical-align: middle;
 }
 
 .navbar i {
@@ -113,10 +113,14 @@ margin: 0 1ch;
 float: left;
 width: auto;
 height: 2rem;
+padding-left: 10px;
+margin-top: 15px;
 margin-right: 10px;
 }
 
-
+.nav .ul {
+  width: 100%;
+}
 
 @media screen and (min-width: 1100px) {
   .nav img {
@@ -129,82 +133,89 @@ margin-right: 10px;
 display: inline-block;
 font-size: 4ch;
 padding: 0rem 0rem 1rem 3rem;
+vertical-align: middle;
 }
 
 @media screen and (min-width: 700px) {
-.nav img {
-  width: auto;
-  height: 2rem;
+  .nav img {
+    width: auto;
+    height: 2rem;
+    margin-top: 10px;
+  }
+
+  .nav {
+  top: 0;
+  bottom: 93.5%;
+  }
+
+
+  .navbar .exit .fa {
+  display: inline-block;
+  font-size: 1.5rem;
+  color: #1C3041;
+  }
+
+  .navbar .fa {
+  display: none;
+  }
+
+  .navbar h1 {
+  display: inline-block;
+  font-size: 1rem;
+  }
+
+  .nav #name {
+  display: inline;
+  color: white;
+  font-family: 'Kaushan Script', fantasy;
+  font-size: 1.25rem;
+  float: left;
+  }
+  .navbar li {
+  display: inline-box;
+  margin-right: -20px;
+  vertical-align: middle;
+  }
+
+  .navbar {
+  display: flex;
+  float: left;
+  margin-top: -10px;
+  padding: 0;
+  }
+
+
+  .navbar a {
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  padding: 0 30px;
+  }
+  span#name {
+  margin-top: 10px;
+}
+  .navbar a:hover {
+  color: darkslategray;
+  text-decoration: underline;
+  transition: opacity 5s ease-in-out;
+  }
+
+  .navbar a.active {
+  color: black;
+  text-decoration: none;
+  }
+
+  .navbar li {
+  display: inline-block;
+  }
 }
 
-.nav {
-top: 0;
-bottom: 93.5%;
+@media screen and (min-width: 400px) {
+  ul.navbar {
+    margin-bottom: 10%;
+    margin-left: 0;
+  }
 }
-
-
-.navbar .exit .fa {
-display: inline-block;
-font-size: 1.5rem;
-color: #1C3041;
-}
-
-.navbar .fa {
-display: none;
-}
-
-.navbar h1 {
-display: inline-block;
-font-size: 1rem;
-}
-
-.nav #name {
-display: inline;
-color: white;
-font-family: 'Kaushan Script', fantasy;
-font-size: 1.25rem;
-float: left;
-}
-
-.navbar li {
-display: inline-box;
-padding: 0;
-padding-top: 2vh; 
-margin-right: -20px;
-}
-
-.navbar {
-margin: 15px;
-padding: 0;
-display: flex;
-float: left;
-margin-top: -22px;
-}
-
-
-.navbar a {
-color: white;
-text-align: center;
-text-decoration: none;
-padding: 0 30px;
-}
-
-.navbar a:hover {
-color: darkslategray;
-text-decoration: none;
-transition: opacity 5s ease-in-out;
-}
-
-.navbar a.active {
-color: black;
-text-decoration: none;
-}
-
-.navbar li {
-display: inline-block;
-}
-}
-
 #addProjForm {
 margin-top: 2em;
 padding: 1em;
