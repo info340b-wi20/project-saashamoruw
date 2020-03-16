@@ -14,11 +14,7 @@ export class currUserStuff extends Component {
             showcaseProjects: {},
             requestedProjects: {},
         });
-        //this.showcaseProjects={};
-        //this.requestedProjects={};
-        
     }
-
 
     componentWillMount() {
         if(this.state.user === null) {
@@ -30,10 +26,8 @@ export class currUserStuff extends Component {
         if(this.state.user === null) {
             return <Redirect to="/signin"/>
         }
-    
         let email = this.state.user.email.replace('.', '');
         let userData = firebase.database().ref('userData')
-
         if (userData !== null && userData.length !== 0) {
             // user now exists 
 
@@ -51,7 +45,7 @@ export class currUserStuff extends Component {
                 this.setState({showcaseProjects: array});
             });
 
-            // REQUESTED for user
+            // REQUESTED 
             let requested = firebase.database().ref('userData').child(email).child('requestedProj');
             this.requestedProjects = requested.on('value', (snapshot) => {
                 let data = snapshot.val();
@@ -106,10 +100,6 @@ export class currUserStuff extends Component {
         if (Object.keys(this.state.likedProjects).length !== 0) {
             likedCards = (<ShowcaseCards cardsData={this.state.likedProjects} />)
         }
-        // } else {
-        //     requestedCards = (<div><p>Nothing requested yet.</p></div>)
-        // }
-
 
         /*  // messages sent by user
          let messageArray = database.child(email).ref('messages');
@@ -118,10 +108,7 @@ export class currUserStuff extends Component {
          });
           
          */
-       
-
-           
-
+            
         return (
             <div>
                  <Banner/>
@@ -155,6 +142,17 @@ export class currUserStuff extends Component {
     }
 }
 
+class Signout extends Component {
+    constructor(props) {
+      super(props)
+      firebase.auth().signOut();
+      return <Redirect to="/explore" />
+    }
+    render() {
+      return <Route exact path='/explore' component={Projects} />
+    }
+  }
+
 class Banner extends Component {
     render() {
         return (
@@ -167,6 +165,8 @@ class Banner extends Component {
         )
     }
 }
+
+
 
 
 export default currUserStuff;
