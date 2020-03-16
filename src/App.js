@@ -29,9 +29,9 @@ export default class App extends Component {
 }
 
 class Signout extends Component {
-  render() { 
+  render() {
     firebase.auth().signOut();
-    return <Redirect push to='/explore'/>;
+    return <Redirect push to='/explore' />;
   }
 }
 
@@ -43,41 +43,41 @@ class NavBar extends Component {
     }
   }
 
-    componentDidMount() {
-      this.authUnRegFunc = firebase.auth().onAuthStateChanged((currentUser) => {
-        if (currentUser) {
-          this.setState({ 
-            user: currentUser, 
-            dashNav: (<ul className="navbar">
-       <li><NavLink to="/explore" activeClassName="activeLink"> <h1>EXPLORE</h1><i className="fa fa-home" /></NavLink></li>
-       <li><NavLink to="/join" activeClassName="activeLink"><h1>JOIN</h1><i className="fa fa-weixin"></i></NavLink></li>
-       <li><NavLink to="/mystuff" activeClassName="activeLink"><h1>DASHBOARD</h1><i className="fa fa-user"></i></NavLink></li>
-       <li className = 'exit'><NavLink to="/logout"><h1>LOG OUT</h1><i className="fa fa-sign-out"></i></NavLink></li>
-     </ul>)
-          });
-        } else {
-          this.setState({ 
-            user: null,
-            dashNav: (<ul className="navbar">
-      <li><NavLink to="/explore" activeClassName="activeLink"> <h1>EXPLORE</h1><i className="fa fa-home" /></NavLink></li>
-      <li><NavLink to="/join" activeClassName="activeLink"><h1>JOIN</h1><i className="fa fa-weixin"></i></NavLink></li>
-      <li><NavLink to="/signin" activeClassName="activeLink"><h1>LOG IN </h1><i className="fa fa-user"></i></NavLink></li>
-    </ul>)
-          
-          });
-        }
-      });
-    }
-  
-    componentWillUnmount() {
-      this.authUnRegFunc();
-    }
-   
+  componentDidMount() {
+    this.authUnRegFunc = firebase.auth().onAuthStateChanged((currentUser) => {
+      if (currentUser) {
+        this.setState({
+          user: currentUser,
+          dashNav: (<ul className="navbar">
+            <li><NavLink to="/explore" activeClassName="activeLink"> <h1>EXPLORE</h1><i className="fa fa-home" /></NavLink></li>
+            <li><NavLink to="/join" activeClassName="activeLink"><h1>JOIN</h1><i className="fa fa-weixin"></i></NavLink></li>
+            <li><NavLink to="/mystuff" activeClassName="activeLink"><h1>DASHBOARD</h1><i className="fa fa-user"></i></NavLink></li>
+            <li className='exit'><NavLink to="/logout"><h1>LOG OUT</h1><i className="fa fa-sign-out"></i></NavLink></li>
+          </ul>)
+        });
+      } else {
+        this.setState({
+          user: null,
+          dashNav: (<ul className="navbar">
+            <li><NavLink to="/explore" activeClassName="activeLink"> <h1>EXPLORE</h1><i className="fa fa-home" /></NavLink></li>
+            <li><NavLink to="/join" activeClassName="activeLink"><h1>JOIN</h1><i className="fa fa-weixin"></i></NavLink></li>
+            <li><NavLink to="/signin" activeClassName="activeLink"><h1>LOG IN </h1><i className="fa fa-user"></i></NavLink></li>
+          </ul>)
+
+        });
+      }
+    });
+  }
+
+  componentWillUnmount() {
+    this.authUnRegFunc();
+  }
+
   render() {
     return (
       <div className="nav">
         <img src={require('./projecthub.png')} alt="Project Hub logo"></img><a href="index.html"><span id="name">ProjectHub</span></a>
-       {this.state.dashNav}
+        {this.state.dashNav}
       </div>
     );
   }

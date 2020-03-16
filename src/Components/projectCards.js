@@ -36,9 +36,9 @@ export class Projects extends Component {
         return (
             <div>
                 <Banner />
-                <section className="newSec">
+                <div className="projects">
                     <AddProjCard />
-                </section>
+                </div>
                 <div className="projects">
                     <ShowcaseCards cardsData={this.state.projects} />
                 </div>
@@ -51,8 +51,8 @@ class Banner extends Component {
         return (
             <div className="background-pic">
                 <div className="banner-text">
-                    <h1>Browse projects</h1>
-                    <p>Explore a vast database of innovative projects around the world! </p>
+                <h1>Browse projects</h1>
+                    <p>Explore innovative projects around the world! </p>
                 </div>
             </div>
         )

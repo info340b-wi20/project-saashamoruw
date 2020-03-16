@@ -30,7 +30,6 @@ export class AddProjMemberCard extends Component {
 }
 
 class AddProjMemberButton extends Component {
-    // this.state = {};
     constructor(props) {
         super(props);
         this.state = {

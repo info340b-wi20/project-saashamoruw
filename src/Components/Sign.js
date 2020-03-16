@@ -30,7 +30,7 @@ export class Sign extends Component {
 
 
   submitForm = (name, email, password, page) => {
-    this.setState({errorMessage: null });
+    this.setState({message: null });
     if (page === 'sign') {
     firebase.auth().createUserWithEmailAndPassword(email, password)
     .then((userCredentials) => {
@@ -38,25 +38,29 @@ export class Sign extends Component {
         let promise = user.updateProfile({ displayName: name });
         return promise;
     }).catch((error) => {
-      this.setState({errorMessage: error.message});
+      this.setState({
+        message: (<p className="alert alert-danger">{error.message}</p>)});
     });
   } else {
     firebase.auth().signInWithEmailAndPassword(email, password).catch((error) => {
-      this.setState({errorMessage: error.message});
+      this.setState({
+        message: (<p className="alert alert-danger">{error.message}</p>)});
     });
   }
-  if (this.state.errorMessage == null) {
-    this.setState({errorMessage: "Success!"});
-    return <Redirect push to ="/explore"/>
+  if (this.state.message == null) {
+    this.setState({
+      message: (<p className="alert alert-success">Welcome!</p>)});
   }
 }
 
   render() {
+    if (this.state.user) {
+      return <Redirect to="/explore" />
+    }
     return (
       <div>
         <Banner/>  
-        {this.state.errorMessage &&
-              <p className="alert alert-danger">{this.state.errorMessage}</p>}   
+        {this.state.message && this.state.message  }
         <Form submitCallback={this.submitForm} />  
       </div>
     )
