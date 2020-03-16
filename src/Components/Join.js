@@ -10,7 +10,8 @@ import DialogTitle from '@material-ui/core/DialogTitle';
 import { Typography } from '@material-ui/core';
 import firebase from 'firebase/app'
 import 'firebase/database';
-import { Redirect } from 'react-router-dom';
+import { Redirect, Route } from 'react-router-dom';
+import Sign from './Sign';
 // Join Projects page 
 export class Join extends Component {
     constructor(props) {
@@ -185,7 +186,7 @@ class MessageButton extends Component {
 
     handleOpenDialog = (event) => {
         if(this.state.user === null) {
-            return <Redirect from ="/join" to ="/signin"/>
+          return  (<Redirect to="/signin" component = {Sign}/>); 
         } 
         else if(this.state.text === 'Requested.') {
             alert('Your request has already been sent');
