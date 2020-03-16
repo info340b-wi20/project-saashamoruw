@@ -106,8 +106,9 @@ class SideOne extends Component {
     render() {
         this.cardData = this.props.cardData;
         let sideOne = (
-            <Card className="card" key={this.cardData.name} tabindex="0" role="button" aria-pressed="false">
-                <CardImg top width="100%" height="60%" src={this.cardData.img} alt={this.cardData.alt} />
+            <Card className="card" key={this.cardData.name} tabIndex="0" role="button" aria-pressed="false">
+                <CardImg top width="100%" height = "60%" src={(this.cardData.img === "" ? "https://images.pexels.com/photos/2053515/pexels-photo-2053515.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" : this.cardData.img)} 
+                    alt={(this.cardData.alt === "" ? "Landscape with clouds and grass" : this.cardData.img)} />
                 <CardBody>
                     <CardTitle className="cardTitle">{this.cardData.name} </CardTitle>
                     <CardText className="cardText">{this.cardData.description}</CardText>

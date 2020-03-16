@@ -133,7 +133,8 @@ class OneCard extends Component {
         return (
             <Col className="col">
                 <Card className="card normal" key={this.state.cardData.name}>
-                    <CardImg top width="100%" src={this.state.cardData.img} alt={this.state.cardData.alt} />
+                    <CardImg top width="100%" src={(this.state.cardData.img === "" ? "https://images.pexels.com/photos/2053515/pexels-photo-2053515.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" : this.state.cardData.img)} 
+                    alt={(this.state.cardData.alt === "" ? "Landscape with clouds and grass" : this.state.cardData.img)} />
                     <CardBody>
                         <CardTitle className="cardTitle">{this.state.cardData.name} </CardTitle>
                         <CardText>{"Purpose: "} <span className="highlight">{this.state.cardData.purpose}</span></CardText>

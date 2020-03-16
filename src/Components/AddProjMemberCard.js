@@ -184,7 +184,8 @@ class AddProjMemberButton extends Component {
                             required="true"
                             onChange={this.updateTeam = (event) => {
                                 let teamstr = event.target.value.split(",");
-                                this.setState({projTeam: teamstr})}}
+                                this.setState({projTeam: teamstr})
+                            }}
                         />
                         <TextField
                             autoFocus
@@ -196,7 +197,9 @@ class AddProjMemberButton extends Component {
                             fullWidth
                             required="false"
                             onChange={this.updateImg = (event) => {
-                                this.setState({projImg: event.target.value})}}
+                                 this.setState({projImg: event.target.value})
+
+                            }}
                         />
                         <TextField
                             autoFocus
@@ -208,7 +211,8 @@ class AddProjMemberButton extends Component {
                             fullWidth
                             required="false"
                             onChange={this.updateAlt = (event) => {
-                                this.setState({projAlt: event.target.value})}}
+                                this.setState({projAlt: event.target.value})
+                            }}
                         />
                             <TextField
                             autoFocus

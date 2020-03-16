@@ -117,7 +117,7 @@ export class Dashboard extends Component {
             if(this.reqEmail !== undefined) {
                 Object.keys(this.reqEmail).map((key) => {
                     emails = emails + this.reqEmail[key] + "   ";
-
+                    return false;
                 })
             } else {
                 emails = "You have no requests yet"

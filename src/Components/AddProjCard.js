@@ -43,7 +43,8 @@ class AddProjButton extends Component {
             text: 'Click here!',
             projName: '',
             projDescr:'',
-            projImg:'',
+            projImg: "",
+            projAlt: "",
             projLink:'',
             projPurpose:'',
             projSkills:[],
@@ -78,7 +79,6 @@ class AddProjButton extends Component {
             openDialog: false,
             text: 'Add another project.'
         });
-
         // create a new card for project
         let newProj = {
             name: this.state.projName,
@@ -184,7 +184,11 @@ class AddProjButton extends Component {
                             required="false"
                             value={this.state.projImg}
                             onChange={this.updateImg = (event) => {
-                                this.setState({projImg: event.target.value})
+                                    this.setState({projImg: event.target.value})
+                                    if(event.target.value === null || event.target.value === undefined) {
+                                        console.log("HERE");
+                                    }
+                                
                             }}
                         />
                         <TextField
