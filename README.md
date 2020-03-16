@@ -3,16 +3,16 @@ By: Saasha Mor and Rajoshi Chakravarty
 This repository contains code for an interactive web app, created for the _Client-Side Web Development_ course at the UW iSchool the published Firebase site can be viewed [here](https://project-hub-2020.firebaseapp.com/)
 
 ## TO-DO
-- Fix dashboard code
 - Load in already requested projects if user has signed in and show as requested. Do we want option to un-request?
 - FOR BOTH OF THE ABOVE
-    - The loops to get the data don't run for some reason
+    - The loops to get the data don't run for some reason: fix as per the currUserStuff code
 - Have the page redirect to sign in page if the user tries to 
     - Add a project to showcase
     - Like a project
     - Request to join a project
 - Have the nav bar be "Log in" if user has not logged in with route to /signin, if user has logged in show "Dashboard" and "Sign out"
     - The state of the nav bar doesn't update?
+    - Or atleast redirect when clicked?
 
 Less important: worth like 1 point each?
 - Check mobile site
