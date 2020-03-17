@@ -13,7 +13,8 @@ export class Dashboard extends Component {
             likedProjects: {},
             showcaseProjects: {},
             requestedProjects: {},
-            teammateProjects: {}
+            teammateProjects: {},
+            requestIds: ''
         });
     }
 
@@ -81,6 +82,15 @@ export class Dashboard extends Component {
                     let projObj = data[key];
                     projObj.id = key;
                     this.reqEmail = projObj.requests;
+                    // getting requests for individual projects
+                        if(this.reqEmail !== undefined) {
+                            let ids;
+                            Object.keys(this.reqEmail).map((key) => {
+                               ids = this.state.requestIds + this.reqEmail[key] + "   ";
+                            });
+                            this.setState({requestIds: ids});
+                        }
+
                     return projObj;
                 });
                 this.setState({teammateProjects: teamArray});
@@ -96,11 +106,22 @@ export class Dashboard extends Component {
 
 
     render() {
-        let requestedCards = (<h2>You haven't requested to join any projects yet.</h2>);
-        let showcaseCards = (<h2>You haven't uploaded any projects yet.</h2>);
-        let likedCards = (<h2>You haven't liked any projects yet.</h2>);
-        let teamCards =  (<h2>You haven't requested teammates yet.</h2>);
+                // if (Object.keys(this.state.teammateProjects).length !== 0) {
+        //     let emails = "You have requests from: ";
+        //     if(this.reqEmail !== undefined) {
+        //         Object.keys(this.reqEmail).map((key) => {
+        //             emails = emails + this.reqEmail[key] + "   ";
+        //             return false;
+        //         })
+        //     } else {
+        //         emails = "You have no requests yet"
+        //     }
 
+        let requestedCards = (<h2>You haven't requested to join any projects yet.</h2>);
+        let showcaseCards = (<h2>You haven't uploaded any projects to showcase yet.</h2>);
+        let likedCards = (<h2>You haven't liked any projects yet.</h2>);
+        let teamCards =  (<h2>You haven't uploaded any projects to requested teammates yet.</h2>);
+        let emails =  (<h2>You have no requests yet.</h2>);
         if (Object.keys(this.state.showcaseProjects).length !== 0) {
             showcaseCards = (<ShowcaseCards cardsData={this.state.showcaseProjects} />)
         }
@@ -112,24 +133,19 @@ export class Dashboard extends Component {
         if (Object.keys(this.state.likedProjects).length !== 0) {
             likedCards = (<ShowcaseCards cardsData={this.state.likedProjects} />)
         }
+        if(this.state.requestIds !== '') {
+            emails =(<h2>You have requests from: {this.state.requestIds}to join your project!</h2>);            
+    } 
+
         if (Object.keys(this.state.teammateProjects).length !== 0) {
-            let emails = "You have requests from: ";
-            if(this.reqEmail !== undefined) {
-                Object.keys(this.reqEmail).map((key) => {
-                    emails = emails + this.reqEmail[key] + "   ";
-                    return false;
-                })
-            } else {
-                emails = "You have no requests yet"
-            }
             teamCards = (
                 <div>
-                    <JoinCards cardsData={this.state.teammateProjects} />
-                    <p> {emails}</p>
-                
+                    <JoinCards cardsData={this.state.teammateProjects} />            
                 </div>
             )
         }
+
+        
         let banner;
         if(this.state.user === null) {
             banner = <Banner/>
@@ -162,6 +178,7 @@ export class Dashboard extends Component {
                     <h1>Your Teammate Requests</h1>
                     <div className = "dashBack">
                     {teamCards}
+                    {emails}
                     </div>
                 </ div>
             </div>

@@ -147,7 +147,6 @@ class SideTwo extends Component {
 
 // Form to message group!
 class MessageButton extends Component {
-    // this.state = {};
     constructor(props) {
         super(props);
         this.state = ({
@@ -193,6 +192,7 @@ class MessageButton extends Component {
     }
 
     handleOpenDialog = (event) => {
+
         if (this.state.user === null) {
             this.setState({redirect: true});
         }
@@ -211,6 +211,7 @@ class MessageButton extends Component {
     }
 
     handleSubmitDialog = (event) => {
+        
         this.setState({
             openDialog: false,
             text: 'Requested.'
