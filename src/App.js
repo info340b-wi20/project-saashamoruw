@@ -43,6 +43,7 @@ class NavBar extends Component {
 
   componentDidMount() {
     this.authUnRegFunc = firebase.auth().onAuthStateChanged((currentUser) => {
+      // navigation bar view changes according to if user is logged in or not
       if (currentUser) {
         this.setState({
           user: currentUser,

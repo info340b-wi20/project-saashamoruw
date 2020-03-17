@@ -9,6 +9,7 @@ import {
 } from 'reactstrap';
 import { Redirect } from 'react-router-dom';
 
+// Explore page
 export class Explore extends Component {
     constructor(props) {
         super(props);
@@ -47,18 +48,20 @@ export class Explore extends Component {
         );
     }
 }
+
 class Banner extends Component {
     render() {
         return (
             <div className="background-pic">
                 <div className="banner-text">
-                <h1>Browse Projects</h1>
+                    <h1>Browse Projects</h1>
                     <p>Explore innovative projects around the world! </p>
                 </div>
             </div>
         )
     }
 }
+
 export class ShowcaseCards extends Component {
     render() {
         this.cardsData = this.props.cardsData;
@@ -113,7 +116,7 @@ class OneCard extends Component {
 
     likeProj = () => {
         if (firebase.auth().currentUser === null) {
-           this.setState({redirect: true})
+            this.setState({ redirect: true })
         } else {
             if (this.state.ifLikeProj) {
                 this.likedData.child(this.key).remove();
@@ -125,16 +128,16 @@ class OneCard extends Component {
     }
 
     render() {
-        if(this.state.redirect) {
+        if (this.state.redirect) {
             if (this.state.user === null) {
-                return  (<Redirect to="/signin" />)
+                return (<Redirect to="/signin" />)
             }
         }
         return (
             <Col className="col">
                 <Card className="card normal" key={this.state.cardData.name}>
-                    <CardImg top width="100%" src={(this.state.cardData.img === "" ? "https://images.pexels.com/photos/2053515/pexels-photo-2053515.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" : this.state.cardData.img)} 
-                    alt={(this.state.cardData.alt === "" ? "Landscape with clouds and grass" : this.state.cardData.img)} />
+                    <CardImg top width="100%" src={(this.state.cardData.img === "" ? "https://images.pexels.com/photos/2053515/pexels-photo-2053515.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" : this.state.cardData.img)}
+                        alt={(this.state.cardData.alt === "" ? "Landscape with clouds and grass" : this.state.cardData.img)} />
                     <CardBody>
                         <CardTitle className="cardTitle">{this.state.cardData.name} </CardTitle>
                         <CardText>{"Purpose: "} <span className="highlight">{this.state.cardData.purpose}</span></CardText>

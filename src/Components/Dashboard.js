@@ -82,7 +82,7 @@ export class Dashboard extends Component {
                     let projObj = data[key];
                     projObj.id = key;
                     this.reqEmail = projObj.requests;
-                    // getting requests for individual projects
+                    // getting multiple email requests for individual projects and storing
                         if(this.reqEmail !== undefined) {
                             let ids;
                             Object.keys(this.reqEmail).map((key) => {
@@ -106,22 +106,12 @@ export class Dashboard extends Component {
 
 
     render() {
-                // if (Object.keys(this.state.teammateProjects).length !== 0) {
-        //     let emails = "You have requests from: ";
-        //     if(this.reqEmail !== undefined) {
-        //         Object.keys(this.reqEmail).map((key) => {
-        //             emails = emails + this.reqEmail[key] + "   ";
-        //             return false;
-        //         })
-        //     } else {
-        //         emails = "You have no requests yet"
-        //     }
-
         let requestedCards = (<h2>You haven't requested to join any projects yet.</h2>);
         let showcaseCards = (<h2>You haven't uploaded any projects to showcase yet.</h2>);
         let likedCards = (<h2>You haven't liked any projects yet.</h2>);
         let teamCards =  (<h2>You haven't uploaded any projects to requested teammates yet.</h2>);
         let emails =  (<h2>You have no requests yet.</h2>);
+
         if (Object.keys(this.state.showcaseProjects).length !== 0) {
             showcaseCards = (<ShowcaseCards cardsData={this.state.showcaseProjects} />)
         }

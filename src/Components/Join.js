@@ -11,7 +11,7 @@ import { Typography } from '@material-ui/core';
 import firebase from 'firebase/app'
 import 'firebase/database';
 import { Redirect } from 'react-router-dom';
-import {AddProjMemberCard} from './AddProjMemberCard';
+import { AddProjMemberCard } from './AddProjMemberCard';
 
 // Join Projects page 
 export class Join extends Component {
@@ -44,7 +44,7 @@ export class Join extends Component {
         return (
             <div>
                 <Banner />
-                <AddProjMemberCard/>              
+                <AddProjMemberCard />
                 <JoinCards cardsData={this.state.cards} />
             </div>
         )
@@ -73,9 +73,9 @@ export class JoinCards extends Component {
         });
         return (
             <div className="projects">
-            <Row>
-                {cards}
-            </Row>
+                <Row>
+                    {cards}
+                </Row>
             </div>
         );
     }
@@ -107,7 +107,7 @@ class SideOne extends Component {
         this.cardData = this.props.cardData;
         let sideOne = (
             <Card className="card" key={this.cardData.name} tabIndex="0" role="button" aria-pressed="false">
-                <CardImg top width="100%" height = "60%" src={(this.cardData.img === "" ? "https://images.pexels.com/photos/2053515/pexels-photo-2053515.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" : this.cardData.img)} 
+                <CardImg top width="100%" height="60%" src={(this.cardData.img === "" ? "https://images.pexels.com/photos/2053515/pexels-photo-2053515.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" : this.cardData.img)}
                     alt={(this.cardData.alt === "" ? "Landscape with clouds and grass" : this.cardData.img)} />
                 <CardBody>
                     <CardTitle className="cardTitle">{this.cardData.name} </CardTitle>
@@ -145,7 +145,7 @@ class SideTwo extends Component {
     }
 }
 
-// Form to message group!
+// Form to message group
 class MessageButton extends Component {
     constructor(props) {
         super(props);
@@ -161,9 +161,6 @@ class MessageButton extends Component {
 
 
     componentDidMount() {
-        // if (this.state.user === null) {
-        //     this.setState({ redirect: true })
-        // }
         // To change state of already requested projects for the current user
         if (this.state.user !== null) {
             let email = this.state.user.email.replace('.', ''); // can't have special characters like .
@@ -197,16 +194,16 @@ class MessageButton extends Component {
             this.setState({
                 redirect: true
             });
-        } 
-       if (this.state.text === 'Cancel Request') {
+        }
+        if (this.state.text === 'Cancel Request') {
             this.requestedData.child(this.state.cardData.name.replace(' ', '')).remove();
             this.projRef.child('requests').child(this.state.user.email.replace('.', '')).remove();
             alert('Your request has cancelled');
         } else {
             this.setState({ openDialog: true });
         }
-    
-}
+
+    }
 
     handleCloseDialog = (event) => {
         this.setState({
@@ -217,7 +214,7 @@ class MessageButton extends Component {
     }
 
     handleSubmitDialog = (event) => {
-        
+
         this.setState({
             openDialog: false,
             text: 'Cancel Request'
@@ -230,9 +227,8 @@ class MessageButton extends Component {
 
     render() {
         if (this.state.redirect) {
-            return  (<Redirect to="/signin" />)
-        } // redirects but changes entire page from join to switch before rending
-
+            return (<Redirect to="/signin" />)
+        }
 
         return (
             <CardFooter className="card-footer">

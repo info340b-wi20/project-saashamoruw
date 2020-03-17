@@ -2,30 +2,6 @@
 By: Saasha Mor and Rajoshi Chakravarty
 This repository contains code for an interactive web app, created for the _Client-Side Web Development_ course at the UW iSchool the published Firebase site can be viewed [here](https://project-hub-2020.firebaseapp.com/).
 
-## TO-DO
-- Do we want option to un-request?
-
-Less important: worth like 1 point each?
-- Better feedback for signin/sign out? // success message shows now though before redirecting!
-- weird gap when you make screen smaller so that sideways scroll comes in?
-- Check mobile sites
-    - nav bar is scrolling??
-
-## Feedback
-- -1, your sections should be inside the components themselves (in App.js) // for all pages? Sign in not like that rn 
-- -0.5, delete CRA logos
-- -3, the AddProjectCard should add to the state using a callback.
-- -2, what will happen after new project is added? What is the goal of the site? Will I be joining projects?
-- -2, try not to mix different style libraries (reactstrap, materialUI)
-- -1, DO NOT use window.alert! Onscreen changes only!
-- -0.5, no body inside of React. That is defined in index.html
-- -0.5, no space between attributes (props) ???
-- -1, please format your React code.
-- -1, name classes after things, not verbs (not "CreateCard" but "Card")
-- -1, fix errors/warnings in console!
-- -1, remove commented out code
-- -1, fill out personalized readme!
-
 ## Overview
 There are a lot of great projects produced by people. Project Hub is a one-stop-shop to show case any projects you worked on whether it was for a class, capstone, a hackathon or even a passion project. Your project can be anything from Software Development and Data Science to Graphic Design and UI/UX Design!
 

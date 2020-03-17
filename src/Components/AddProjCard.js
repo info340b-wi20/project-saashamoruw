@@ -74,7 +74,7 @@ class AddProjButton extends Component {
 
     handleSubmitDialog = (event) => {
         event.preventDefault();
-        // add validation stuff
+
         this.setState({
             openDialog: false,
             text: 'Add another project.'
