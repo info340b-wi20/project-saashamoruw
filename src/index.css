@@ -719,16 +719,20 @@ form {
       font-size: 30px;
   }	
 
-/*   
-  .tab-content .checkbox {
-    margin-top: -30px;
-    margin-bottom: -15px;
-  } */
+  
+  .tab-content input[type="checkbox"] {
+    padding: 20px;
+  } 
 
-  .tab-content .checkbox label {	
+  /* .tab-content .checkbox label {	
     font-size: 10px;	
     float: left;	
-  }	
+  }	 */
+
+  .form-check-label {
+    text-align: center;
+    margin-left: -5em;
+  }
 
   .submit-button {
     display: flex;
