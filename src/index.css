@@ -662,9 +662,8 @@ form {
   }	
 
   .form-sign {
-    padding-bottom: 30px;
+    padding-bottom: 3rem;
   }
-
 
   @media screen and (min-width: 700px) {	
       
@@ -673,7 +672,8 @@ form {
     margin-top: 100px;	
     padding: 20px;	
     }	
-    
+
+      
   }	
     
   form ul {	
@@ -731,7 +731,8 @@ form {
 
   .form-check-label {
     text-align: center;
-    margin-left: -5em;
+   
+    font-size: 15px;
   }
 
   .submit-button {

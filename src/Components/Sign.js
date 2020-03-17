@@ -94,11 +94,11 @@ class Form extends Component {
       logClass: "btn btn-info tablinks",
       signClass: "btn btn-info tablinks active",
       nameField: [(<div className="form-input">
-        <label for="name"><b>Name</b></label>
-        <input type="text" for="name" id="name" name="name" aria-label="input name" placeholder="Enter Name" minLength={1} required onChange={this.handleChange} /></div>)],
+        <label htmlFor="name"><b>Name</b></label>
+        <input type="text" htmlFor="name" id="name" name="name" aria-label="input name" placeholder="Enter Name" minLength={1} required onChange={this.handleChange} /></div>)],
       checkbox: [(<div className="form-input">
         <input type="checkbox" className="form-check-input" required />
-        <label className="form-check-label" for="check">Agree to Terms and Conditions.</label><br />
+        <label className="form-check-label" htmlFor="check">Agree to Terms and Conditions.</label><br />
       </div>)]
     };
   }
@@ -135,11 +135,11 @@ class Form extends Component {
         title: "Create an Account!",
         button: "Get Started!",
         nameField: [(<div className="form-input">
-          <label for="name"><b>Name</b></label>
-          <input type="text" for="name" id="name" name="name" aria-label="input name" placeholder="Enter Name" minLength={1} required onChange={this.handleChange} /></div>)],
+          <label htmlFor="name"><b>Name</b></label>
+          <input type="text" htmlFor="name" id="name" name="name" aria-label="input name" placeholder="Enter Name" minLength={1} required onChange={this.handleChange} /></div>)],
         checkbox: [(<div className="form-input">
           <input type="checkbox" className="form-check-input" required />
-          <label className="form-check-label" for="check">Agree to Terms and Conditions.</label><br />
+          <label className="form-check-label" htmlFor="check">Agree to Terms and Conditions.</label><br />
         </div>)],
         logClass: "btn btn-info tablinks",
         signClass: "btn btn-info tablinks active",
@@ -160,15 +160,15 @@ class Form extends Component {
         {this.state.nameField}
 
         <div className="form-input">
-          <label for="emailid"><b>Email ID</b></label>
-          <input type="text" for="email" id="email" name="email" aria-label="input email" placeholder="Enter Email ID" minLength={6} required onChange={this.handleChange} /></div>
+          <label htmlFor="emailid"><b>Email ID</b></label>
+          <input type="text" htmlFor="email" id="email" name="email" aria-label="input email" placeholder="Enter Email ID" minLength={6} required onChange={this.handleChange} /></div>
 
         <div className="form-input">
-          <label for="password"><b>Password</b></label>
-          <input type="password" for="password" id="password" name="password" aria-label="input password" placeholder="Enter Password" minLength={6} required onChange={this.handleChange} /></div>
+          <label htmlFor="password"><b>Password</b></label>
+          <input type="password" htmlFor="password" id="password" name="password" aria-label="input password" placeholder="Enter Password" minLength={6} required onChange={this.handleChange} /></div>
         {this.state.checkbox}
         <div className="submit-button">
-          <label for="submitbutton" aria-label="submit button"></label>
+          <label htmlFor="submitbutton" aria-label="submit button"></label>
           <button id="button-submit" type="submit" className="btn btn-dark submit">{this.state.button}</button>
         </div>
       </form>
