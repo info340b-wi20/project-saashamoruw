@@ -52,7 +52,7 @@ class Banner extends Component {
         return (
             <div className="background-pic">
                 <div className="banner-text">
-                <h1>Browse projects</h1>
+                <h1>Browse Projects</h1>
                     <p>Explore innovative projects around the world! </p>
                 </div>
             </div>

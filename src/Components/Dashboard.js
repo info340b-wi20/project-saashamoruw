@@ -163,7 +163,7 @@ export class Dashboard extends Component {
                     </div>
                 </div>
                 <div className="projects">
-                    <h1>Your Uploaded Projects</h1>
+                    <h1>Your Uploaded Projects to Showcase</h1>
                     <div className = "dashBack">
                     {showcaseCards}
                     </div>
@@ -175,7 +175,7 @@ export class Dashboard extends Component {
                     </div>
                 </ div>
                 <div className="projects">
-                    <h1>Your Teammate Requests</h1>
+                    <h1>Your Uploaded Projects to find Teammates</h1>
                     <div className = "dashBack">
                     {teamCards}
                     {emails}
