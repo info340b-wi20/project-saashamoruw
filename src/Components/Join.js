@@ -155,7 +155,7 @@ class MessageButton extends Component {
             // getting user!
             user: firebase.auth().currentUser,
             cardData: this.props.cardData,
-            redirect: false
+            redirect: false,
         });
     }
 
@@ -175,7 +175,7 @@ class MessageButton extends Component {
                 Object.keys(data).map((theKey) => {
                     if (theKey === cardKey) {
                         this.setState({
-                            text: 'Requested',
+                            text: 'Cancel Request',
                             openDialog: false,
                             redirect: false
                         });
@@ -192,20 +192,26 @@ class MessageButton extends Component {
     }
 
     handleOpenDialog = (event) => {
-
+        event.preventDefault();
         if (this.state.user === null) {
-            this.setState({redirect: true});
-        }
-        else if (this.state.text === 'Requested.') {
-            alert('Your request has already been sent');
+            this.setState({
+                redirect: true
+            });
+        } 
+       if (this.state.text === 'Cancel Request') {
+            this.requestedData.child(this.state.cardData.name.replace(' ', '')).remove();
+            this.projRef.child('requests').child(this.state.user.email.replace('.', '')).remove();
+            alert('Your request has cancelled');
         } else {
             this.setState({ openDialog: true });
         }
-    }
+    
+}
 
     handleCloseDialog = (event) => {
         this.setState({
-            openDialog: false
+            openDialog: false,
+            removed: false
         });
         alert('Your message was discarded.');
     }
@@ -214,11 +220,10 @@ class MessageButton extends Component {
         
         this.setState({
             openDialog: false,
-            text: 'Requested.'
+            text: 'Cancel Request'
         });
         // updates for the current user
         this.requestedData.child(this.state.cardData.name.replace(' ', '')).set(this.state.cardData);
-
         this.projRef.child('requests').push(this.state.user.email)
         alert('Your message to join the project has been sent!');
     }
@@ -227,6 +232,8 @@ class MessageButton extends Component {
         if (this.state.redirect) {
             return  (<Redirect to="/signin" />)
         } // redirects but changes entire page from join to switch before rending
+
+
         return (
             <CardFooter className="card-footer">
                 <div className="submit-button">
