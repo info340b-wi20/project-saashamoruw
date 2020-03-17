@@ -58,7 +58,7 @@ export class Sign extends Component {
       return <Redirect to="/explore" />
     }
     return (
-      <div>
+      <div className = "form-sign">
         <Banner />
         {this.state.message && this.state.message}
         <Form submitCallback={this.submitForm} />
